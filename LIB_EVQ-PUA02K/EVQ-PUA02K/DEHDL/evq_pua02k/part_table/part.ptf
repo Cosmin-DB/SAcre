@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'EVQ_PUA02K'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Panasonic", "EVQ-PUA02K" (!) = "", "EVQPUA02K", "Other", "667-EVQ-PUA02K", "https://www.mouser.co.uk/ProductDetail/Panasonic/EVQ-PUA02K?qs=whhzBCqEXCvFsgipcL1tig%3D%3D", "Tactile Switches SIDE PUSH 2.2NF 4.7x3.2x1.65mm", "https://datasheet.datasheetarchive.com/originals/distributors/Datasheets-DGA6/577059.pdf", "1.95 mm"
+END_PART
+
+END.

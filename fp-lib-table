@@ -1,0 +1,9 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Connector_JST_Custom")(type "KiCad")(uri "${KIPRJMOD}/Connector_JST_Custom.pretty")(options "")(descr ""))
+  (lib (name "Custom_USB")(type "KiCad")(uri "${KIPRJMOD}/Custom_USB.pretty")(options "")(descr ""))
+  (lib (name "ESP32-PICO-D4")(type "KiCad")(uri "${KIPRJMOD}/ESP32-PICO-D4.pretty")(options "")(descr ""))
+  (lib (name "Graphics")(type "KiCad")(uri "${KIPRJMOD}/Graphics.preety")(options "")(descr ""))
+  (lib (name "NFC_Aantenna")(type "KiCad")(uri "${KIPRJMOD}/NFC_Aantenna.pretty")(options "")(descr ""))
+  (lib (name "SamacSys_Parts")(type "KiCad")(uri "C:/Users/Cosmin/Desktop/KiCadLib/SamacSys_Parts.pretty")(options "")(descr ""))
+)

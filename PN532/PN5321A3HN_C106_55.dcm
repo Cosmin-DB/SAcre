@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PN5321A3HN_C106,55
+D NXP - PN5321A3HN/C106,55 - RFID, NFC, 13.56MHZ, HVQFN-40
+K
+F http://www.nxp.com/docs/en/nxp/data-sheets/PN532_C1.pdf
+$ENDCMP
+#
+#End Doc Library

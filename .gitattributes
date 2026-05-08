@@ -1,0 +1,29 @@
+* text=auto
+
+# Repository metadata.
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.md text eol=lf
+
+# KiCad project files are text and diff well.
+*.kicad_pro text eol=lf
+*.kicad_sch text eol=lf
+*.kicad_pcb text eol=lf
+*.kicad_mod text eol=lf
+*.pro text eol=lf
+*.sch text eol=lf
+*.rules text eol=lf
+*.lib text eol=lf
+*.dcm text eol=lf
+fp-lib-table text eol=lf
+sym-lib-table text eol=lf
+
+# Reference documents, images, archives and 3D models are binary for Git.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
+*.step binary
+*.stp binary
+*.wrl binary

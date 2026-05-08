@@ -1,0 +1,104 @@
+
+(rules PCB SmartFeedback
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.0)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 170.0)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 42.4 (type smd-smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_500:300_um"
+    (shape
+      (circle F.Cu 500.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 500.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_500:300_um" "Via[0-1]_500:300_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_500:300_um-kicad_default" "Via[0-1]_500:300_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_500:300_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_500:300_um"
+  )
+  (class default
+    "unconnected-(J1-Pad4)" "unconnected-(J2-Pad18)" "unconnected-(J2-Pad19)" "unconnected-(J2-Pad24)" "unconnected-(S1-PadA1)" "unconnected-(U3-Pad1)" "unconnected-(U3-Pad9)" "unconnected-(U3-Pad10)"
+    "unconnected-(U3-Pad11)" "unconnected-(U3-Pad12)" "unconnected-(U3-Pad13)" "unconnected-(U3-Pad14)" "unconnected-(U3-Pad15)" "unconnected-(U3-Pad16)" "unconnected-(U3-Pad17)" "unconnected-(U3-Pad18)"
+    "unconnected-(U3-Pad22)" "unconnected-(U3-Pad24)" "unconnected-(U3-Pad25)" "unconnected-(U4-Pad7)" "unconnected-(U4-Pad13)" "unconnected-(U4-Pad15)" "unconnected-(U4-Pad16)" "unconnected-(U5-Pad48)"
+    "unconnected-(U5-Pad47)" "unconnected-(U5-Pad45)" "unconnected-(U5-Pad44)" "unconnected-(U5-Pad33)" "unconnected-(U5-Pad32)" "unconnected-(U5-Pad31)" "unconnected-(U5-Pad30)" "unconnected-(U5-Pad27)"
+    "unconnected-(U5-Pad26)" "unconnected-(U5-Pad25)" "unconnected-(U5-Pad22)" "unconnected-(U5-Pad15)" "unconnected-(U5-Pad8)" "unconnected-(U5-Pad7)" "unconnected-(U5-Pad6)" "unconnected-(U5-Pad5)"
+    "unconnected-(Y1-Pad2)"
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND "Net-(AE1-Pad1)" VBUS +3V3 "Net-(C3-Pad2)" "Net-(C5-Pad1)" "Net-(C6-Pad1)" "Net-(C8-Pad1)"
+    EN "Net-(C13-Pad2)" "Net-(C13-Pad1)" PREVGH "Net-(C15-Pad1)" PREVGL "Net-(C17-Pad1)" "Net-(C18-Pad1)"
+    "Net-(C19-Pad1)" "Net-(D1-Pad1)" "Net-(D2-Pad1)" "Net-(D2-Pad2)" "Net-(D2-Pad3)" "Net-(D3-Pad1)" SDA SCL
+    GDR RESE BUSY RES DC SS SCK MOSI
+    "Net-(L1-Pad1)" +BATT RTS GPIO0 DTR "Net-(R1-Pad1)" "Net-(R3-Pad2)" "ADC_BATT"
+    "Vibration_PWM" "Net-(R9-Pad1)" "SW_1" "SW_2" "SW_3" "SW_4" "Net-(U3-Pad5)" TX
+    RX "ACC_INT2" "ACC_INT1" "RTC_INT" "RTC_EVI" "Net-(C4-Pad2)" "Net-(Q3-Pad1)" "Net-(S1-PadMP1)"
+    "Net-(IC1-Pad1)" GPO "/NFC_antenna"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP PN7150B0HN_C11002Y
+D NXP - PN7150B0HN/C11002Y - RFID READ/WRITE, 13.56MHZ, HVQFN-40
+K
+F http://www.nxp.com/docs/en/data-sheet/PN7150.pdf
+$ENDCMP
+#
+#End Doc Library

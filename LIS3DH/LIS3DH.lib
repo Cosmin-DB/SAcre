@@ -1,0 +1,40 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#(c) SnapEDA 2016 (snapeda.com)
+#This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA) with Design Exception 1.0
+#
+# LIS3DH
+#
+DEF LIS3DH U 0 40 Y Y 1 L N
+F0 "U" -601 521 50 H V L BNN
+F1 "LIS3DH" -601 -601 50 H V L BNN
+F2 "PQFN50P300X300X100-16N" 0 0 50 H I L BNN
+F3 "None" 0 0 50 H I L BNN
+F4 "LIS3DH" 0 0 50 H I L BNN
+F5 "LGA-16 STMicroelectronics" 0 0 50 H I L BNN
+F6 "Unavailable" 0 0 50 H I L BNN
+F7 "STMicroelectronics" 0 0 50 H I L BNN
+F8 "MEMS digital output motion sensor ultra low-power high performance 3-axes nano accelerometer" 0 0 50 H I L BNN
+DRAW
+P 2 0 0 10 -600 500 600 500 N
+P 2 0 0 10 600 500 600 -500 N
+P 2 0 0 10 600 -500 -600 -500 N
+P 2 0 0 10 -600 -500 -600 500 N
+X SCL/SPC 4 -700 400 100 R 40 40 0 0 I C
+X SDA/SDI/SDO 6 -700 300 100 R 40 40 0 0 I 
+X CS 8 -700 200 100 R 40 40 0 0 I 
+X INT2 9 -700 0 100 R 40 40 0 0 I 
+X INT1 11 -700 100 100 R 40 40 0 0 I 
+X ADC3 13 -700 -400 100 R 40 40 0 0 I 
+X VDD_IO 1 700 300 100 L 40 40 0 0 W 
+X SDO/SA0 7 700 100 100 L 40 40 0 0 O 
+X VDD 14 700 400 100 L 40 40 0 0 W 
+X GND1 12 700 -400 100 L 40 40 0 0 W 
+X RES 10 700 -200 100 L 40 40 0 0 W 
+X GND 5 700 -300 100 L 40 40 0 0 W 
+X ADC1 16 -700 -200 100 R 40 40 0 0 I 
+X ADC2 15 -700 -300 100 R 40 40 0 0 I 
+ENDDRAW
+ENDDEF
+#
+# End Library

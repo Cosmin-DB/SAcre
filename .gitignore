@@ -1,0 +1,42 @@
+# KiCad local state and caches
+.history/
+fp-info-cache
+*.kicad_prl
+*.lck
+~*.lck
+
+# KiCad backups and autosaves
+*-backups/
+*_autosave-*
+_autosave-*
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*.sch-bak
+*-save.pro
+*-save.kicad_pcb
+*~
+*.tmp
+
+# Generated KiCad exports
+*.net
+*.dsn
+*.ses
+/sacre.xml
+/sacre.csv
+/sacre.step
+/sacre.wrl
+
+# Local archives
+*.zip
+*.7z
+*.rar
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

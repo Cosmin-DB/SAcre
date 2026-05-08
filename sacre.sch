@@ -1,0 +1,2250 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "SmartFeedbackDevice"
+Date "2020-12-03"
+Rev "1.0"
+Comp "MAmIoT"
+Comment1 ""
+Comment2 ""
+Comment3 "Constantin Cosmin Dobrescu"
+Comment4 "Iván González Díaz"
+$EndDescr
+$Comp
+L SmartFeedback-rescue:ESP32-PICO-D4-RF_Module U5
+U 1 1 5FC8D40C
+P 9700 2600
+F 0 "U5" H 9300 1050 50  0000 C CNN
+F 1 "ESP32-PICO-D4" H 9300 950 50  0000 C CNN
+F 2 "ESP32-PICO-D4:QFN-48-1EP_7x7mm_P0.5mm_EP3.5x3.5mm" H 9700 900 50  0001 C CNN
+F 3 "https://www.espressif.com/sites/default/files/documentation/esp32-pico-d4_datasheet_en.pdf" H 9950 1600 50  0001 C CNN
+	1    9700 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L LIS3DH:LIS3DH U4
+U 1 1 5FC8EC97
+P 9250 5750
+F 0 "U4" H 9250 6417 50  0000 C CNN
+F 1 "LIS3DH" H 9250 6326 50  0000 C CNN
+F 2 "LIS3DH:LGA-16_3x3mm_P0.5mm_LayoutBorder3x5y_custom" H 9250 5750 50  0001 L BNN
+F 3 "None" H 9250 5750 50  0001 L BNN
+F 4 "LIS3DH" H 9250 5750 50  0001 L BNN "Field4"
+F 5 "LGA-16 STMicroelectronics" H 9250 5750 50  0001 L BNN "Field5"
+F 6 "Unavailable" H 9250 5750 50  0001 L BNN "Field6"
+F 7 "STMicroelectronics" H 9250 5750 50  0001 L BNN "Field7"
+F 8 "MEMS digital output motion sensor ultra low-power high performance 3-axes nano accelerometer" H 9250 5750 50  0001 L BNN "Field8"
+	1    9250 5750
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R6
+U 1 1 5FC9D094
+P 3000 3650
+F 0 "R6" H 3050 3700 50  0000 L CNN
+F 1 "10K" V 3000 3550 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2930 3650 50  0001 C CNN
+F 3 "~" H 3000 3650 50  0001 C CNN
+	1    3000 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R7
+U 1 1 5FC9EFDE
+P 3250 3650
+F 0 "R7" H 3300 3700 50  0000 L CNN
+F 1 "10K" V 3250 3550 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 3180 3650 50  0001 C CNN
+F 3 "~" H 3250 3650 50  0001 C CNN
+	1    3250 3650
+	1    0    0    -1  
+$EndComp
+NoConn ~ 8550 5950
+NoConn ~ 8550 6050
+NoConn ~ 8550 6150
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR037
+U 1 1 5FCABC49
+P 10500 5400
+F 0 "#PWR037" H 10500 5250 50  0001 C CNN
+F 1 "+3V3" V 10515 5528 50  0000 L CNN
+F 2 "" H 10500 5400 50  0001 C CNN
+F 3 "" H 10500 5400 50  0001 C CNN
+	1    10500 5400
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C-Device C10
+U 1 1 5FCAC3CA
+P 10350 5200
+F 0 "C10" H 10465 5246 50  0000 L CNN
+F 1 "0.1uF" H 10450 5150 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 10388 5050 50  0001 C CNN
+F 3 "~" H 10350 5200 50  0001 C CNN
+	1    10350 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR035
+U 1 1 5FCB264E
+P 10350 5050
+F 0 "#PWR035" H 10350 4800 50  0001 C CNN
+F 1 "GND" H 10355 4877 50  0000 C CNN
+F 2 "" H 10350 5050 50  0001 C CNN
+F 3 "" H 10350 5050 50  0001 C CNN
+	1    10350 5050
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C-Device C11
+U 1 1 5FCB48D0
+P 10350 5600
+F 0 "C11" H 10465 5646 50  0000 L CNN
+F 1 "10uF" H 10450 5550 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 10388 5450 50  0001 C CNN
+F 3 "~" H 10350 5600 50  0001 C CNN
+	1    10350 5600
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR034
+U 1 1 5FCACD6E
+P 9950 6050
+F 0 "#PWR034" H 9950 5800 50  0001 C CNN
+F 1 "GND" H 9955 5877 50  0000 C CNN
+F 2 "" H 9950 6050 50  0001 C CNN
+F 3 "" H 9950 6050 50  0001 C CNN
+	1    9950 6050
+	0    -1   -1   0   
+$EndComp
+NoConn ~ 9950 5650
+$Comp
+L SmartFeedback-rescue:PWR_FLAG-power #FLG05
+U 1 1 5FCB3526
+P 1050 4450
+F 0 "#FLG05" H 1050 4525 50  0001 C CNN
+F 1 "PWR_FLAG" V 1050 4750 50  0000 C CNN
+F 2 "" H 1050 4450 50  0001 C CNN
+F 3 "~" H 1050 4450 50  0001 C CNN
+	1    1050 4450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	10500 1500 10600 1500
+Wire Wire Line
+	10600 1700 10500 1700
+$Comp
+L SmartFeedback-rescue:R-Device R9
+U 1 1 602F08E4
+P 8250 5550
+F 0 "R9" V 8150 5450 50  0000 L CNN
+F 1 "10K" V 8250 5450 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 8180 5550 50  0001 C CNN
+F 3 "~" H 8250 5550 50  0001 C CNN
+	1    8250 5550
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR017
+U 1 1 602F291B
+P 3250 3500
+F 0 "#PWR017" H 3250 3350 50  0001 C CNN
+F 1 "+3V3" V 3250 3700 50  0000 C CNN
+F 2 "" H 3250 3500 50  0001 C CNN
+F 3 "" H 3250 3500 50  0001 C CNN
+	1    3250 3500
+	1    0    0    -1  
+$EndComp
+Text Notes 10700 5250 0    39   ~ 0
+(Close to\npin 14 U1)
+Text Notes 2850 4200 0    50   ~ 0
+I2C pull-up
+Text Notes 9450 6400 0    50   ~ 0
+\nAccelerometer
+Wire Wire Line
+	10600 2200 10500 2200
+Wire Wire Line
+	10600 2400 10500 2400
+Text Notes 2900 2900 0    50   ~ 0
+\nUSB-Serial
+$Comp
+L SmartFeedback-rescue:PWR_FLAG-power #FLG02
+U 1 1 60336FE7
+P 2600 850
+F 0 "#FLG02" H 2600 925 50  0001 C CNN
+F 1 "PWR_FLAG" H 2600 1000 50  0000 C CNN
+F 2 "" H 2600 850 50  0001 C CNN
+F 3 "~" H 2600 850 50  0001 C CNN
+	1    2600 850 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 900  2600 850 
+NoConn ~ 1900 2000
+NoConn ~ 1900 2100
+NoConn ~ 1900 2200
+NoConn ~ 1900 2300
+NoConn ~ 1900 2500
+NoConn ~ 2700 2800
+$Comp
+L SmartFeedback-rescue:GND-power #PWR012
+U 1 1 6033B6BE
+P 2600 2800
+F 0 "#PWR012" H 2600 2550 50  0001 C CNN
+F 1 "GND" H 2605 2627 50  0000 C CNN
+F 2 "" H 2600 2800 50  0001 C CNN
+F 3 "" H 2600 2800 50  0001 C CNN
+	1    2600 2800
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3300 2400
+NoConn ~ 3300 2500
+$Comp
+L SmartFeedback-rescue:GND-power #PWR09
+U 1 1 6033FA1F
+P 1600 1200
+F 0 "#PWR09" H 1600 950 50  0001 C CNN
+F 1 "GND" H 1605 1027 50  0000 C CNN
+F 2 "" H 1600 1200 50  0001 C CNN
+F 3 "" H 1600 1200 50  0001 C CNN
+	1    1600 1200
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:USB_B_Micro-Connector J1
+U 1 1 6034534F
+P 1150 1700
+F 0 "J1" H 1150 2050 50  0000 C CNN
+F 1 "USB_B_Micro" V 900 1700 50  0000 C CNN
+F 2 "Custom_USB:USB_Micro_CustomV2" H 1300 1650 50  0001 C CNN
+F 3 "~" H 1300 1650 50  0001 C CNN
+	1    1150 1700
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3300 2300
+$Comp
+L SmartFeedback-rescue:C-Device C1
+U 1 1 603494D8
+P 1750 1200
+F 0 "C1" V 1600 1150 50  0000 L CNN
+F 1 "1uF" V 1900 1100 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 1788 1050 50  0001 C CNN
+F 3 "~" H 1750 1200 50  0001 C CNN
+	1    1750 1200
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	1600 1700 1600 1800
+Wire Wire Line
+	1600 1800 1500 1800
+Wire Wire Line
+	1600 1700 1900 1700
+Wire Wire Line
+	1550 1700 1550 1850
+Wire Wire Line
+	1550 1850 1600 1850
+Wire Wire Line
+	1900 1850 1900 1800
+Wire Wire Line
+	1450 1700 1550 1700
+$Comp
+L SmartFeedback-rescue:GND-power #PWR05
+U 1 1 6035A8CC
+P 1150 2100
+F 0 "#PWR05" H 1150 1850 50  0001 C CNN
+F 1 "GND" H 1150 1950 50  0000 C CNN
+F 2 "" H 1150 2100 50  0001 C CNN
+F 3 "" H 1150 2100 50  0001 C CNN
+	1    1150 2100
+	1    0    0    -1  
+$EndComp
+NoConn ~ 1450 1900
+Wire Wire Line
+	2400 900  2600 900 
+Text Notes 1000 2900 0    39   ~ 0
+USB bus-powered device setup
+$Comp
+L SmartFeedback-rescue:SP0503BAHT-Power_Protection D2
+U 1 1 603765BB
+P 1600 2400
+F 0 "D2" H 1550 2050 50  0000 L CNN
+F 1 "SP0503BAHTG" H 1350 2150 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-143" H 1825 2350 50  0001 L CNN
+F 3 "http://www.littelfuse.com/~/media/files/littelfuse/technical%20resources/documents/data%20sheets/sp05xxba.pdf" H 1725 2525 50  0001 C CNN
+	1    1600 2400
+	1    0    0    -1  
+$EndComp
+Text Notes 1400 2500 2    39   ~ 0
+Electrostatic\ndischarge\nprotection
+Wire Wire Line
+	1700 2200 1700 1500
+Wire Wire Line
+	1700 1500 1900 1500
+Wire Wire Line
+	1600 1850 1600 2200
+Connection ~ 1600 1850
+Wire Wire Line
+	1600 1850 1900 1850
+Wire Wire Line
+	1500 2200 1500 1800
+Connection ~ 1500 1800
+Wire Wire Line
+	1500 1800 1450 1800
+Wire Wire Line
+	1600 2600 1000 2600
+Wire Wire Line
+	1000 2600 1000 2200
+Wire Wire Line
+	1000 2200 1050 2200
+Wire Wire Line
+	1050 2200 1050 2100
+$Comp
+L SmartFeedback-rescue:VBUS-power #PWR07
+U 1 1 6038A440
+P 1450 1500
+F 0 "#PWR07" H 1450 1350 50  0001 C CNN
+F 1 "VBUS" H 1465 1673 50  0000 C CNN
+F 2 "" H 1450 1500 50  0001 C CNN
+F 3 "" H 1450 1500 50  0001 C CNN
+	1    1450 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1450 1500 1700 1500
+Connection ~ 1450 1500
+Connection ~ 1700 1500
+NoConn ~ 3300 2100
+NoConn ~ 3300 1500
+NoConn ~ 3300 1300
+NoConn ~ 3300 1200
+Wire Wire Line
+	1900 1400 1900 1200
+Wire Wire Line
+	1900 1500 1900 1400
+Connection ~ 1900 1400
+Connection ~ 1900 1200
+Connection ~ 2600 900 
+$Comp
+L SmartFeedback-rescue:CP2104-Interface_USB U3
+U 1 1 6032E4C0
+P 2600 1800
+F 0 "U3" H 2250 850 50  0000 C CNN
+F 1 "CP2104" H 2250 750 50  0000 C CNN
+F 2 "Package_DFN_QFN:QFN-24-1EP_4x4mm_P0.5mm_EP2.6x2.6mm" H 2750 850 50  0001 L CNN
+F 3 "https://www.silabs.com/documents/public/data-sheets/cp2104.pdf" H 2050 3050 50  0001 C CNN
+	1    2600 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 1800 3300 1800
+Wire Wire Line
+	3400 1700 3300 1700
+NoConn ~ 2800 900 
+$Comp
+L SmartFeedback-rescue:UMH3N-Transistor_BJT Q2
+U 1 1 6037104F
+P 4200 900
+F 0 "Q2" H 4490 946 50  0000 L CNN
+F 1 "UMH3N" H 4490 855 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4205 460 50  0001 C CNN
+F 3 "http://rohmfs.rohm.com/en/products/databook/datasheet/discrete/transistor/digital/emh3t2r-e.pdf" H 4350 900 50  0001 C CNN
+	1    4200 900 
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:UMH3N-Transistor_BJT Q2
+U 2 1 60371EE4
+P 4200 1450
+F 0 "Q2" H 4490 1496 50  0000 L CNN
+F 1 "UMH3N" H 4490 1405 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-363_SC-70-6" H 4205 1010 50  0001 C CNN
+F 3 "http://rohmfs.rohm.com/en/products/databook/datasheet/discrete/transistor/digital/emh3t2r-e.pdf" H 4350 1450 50  0001 C CNN
+	2    4200 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 3000 3800 3    50   Input ~ 0
+SCL
+Text GLabel 3250 3800 3    50   Input ~ 0
+SDA
+Text GLabel 8500 5350 0    50   Input ~ 0
+SCL
+Text GLabel 8500 5450 0    50   Input ~ 0
+SDA
+Text GLabel 10600 2900 2    50   Input ~ 0
+SCL
+Text GLabel 10600 2800 2    50   Input ~ 0
+SDA
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR016
+U 1 1 6037CC6A
+P 3000 3500
+F 0 "#PWR016" H 3000 3350 50  0001 C CNN
+F 1 "+3V3" V 3000 3700 50  0000 C CNN
+F 2 "" H 3000 3500 50  0001 C CNN
+F 3 "" H 3000 3500 50  0001 C CNN
+	1    3000 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR020
+U 1 1 6037E8F9
+P 1050 4450
+F 0 "#PWR020" H 1050 4300 50  0001 C CNN
+F 1 "+3V3" V 1050 4550 50  0000 L CNN
+F 2 "" H 1050 4450 50  0001 C CNN
+F 3 "" H 1050 4450 50  0001 C CNN
+	1    1050 4450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9950 5450 10350 5450
+Wire Wire Line
+	9950 5350 10350 5350
+$Comp
+L SmartFeedback-rescue:GND-power #PWR036
+U 1 1 6037F641
+P 10350 5750
+F 0 "#PWR036" H 10350 5500 50  0001 C CNN
+F 1 "GND" H 10355 5577 50  0000 C CNN
+F 2 "" H 10350 5750 50  0001 C CNN
+F 3 "" H 10350 5750 50  0001 C CNN
+	1    10350 5750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9950 5950 9950 6050
+Connection ~ 9950 6050
+Wire Wire Line
+	9950 6150 9950 6050
+Wire Wire Line
+	10350 5350 10350 5400
+Wire Wire Line
+	10350 5400 10500 5400
+Connection ~ 10350 5350
+Wire Wire Line
+	10350 5450 10350 5400
+Connection ~ 10350 5450
+Connection ~ 10350 5400
+Text GLabel 8500 5650 0    50   Input ~ 0
+ACC_INT1
+Text GLabel 8500 5750 0    50   Input ~ 0
+ACC_INT2
+Wire Wire Line
+	8500 5650 8550 5650
+Wire Wire Line
+	8550 5750 8500 5750
+Text GLabel 10600 2400 2    50   Input ~ 0
+ACC_INT1
+Text GLabel 10600 2200 2    50   Input ~ 0
+ACC_INT2
+Wire Wire Line
+	8400 5550 8550 5550
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR031
+U 1 1 60386EA8
+P 8100 5550
+F 0 "#PWR031" H 8100 5400 50  0001 C CNN
+F 1 "+3V3" V 8100 5750 50  0000 C CNN
+F 2 "" H 8100 5550 50  0001 C CNN
+F 3 "" H 8100 5550 50  0001 C CNN
+	1    8100 5550
+	0    -1   -1   0   
+$EndComp
+Text Notes 10700 5650 0    39   ~ 0
+(Close to\npin 14 U1)
+Wire Wire Line
+	8550 5350 8500 5350
+Wire Wire Line
+	8550 5450 8500 5450
+$Comp
+L RV-8803-C7-TA-QC:RV-8803-C7-TA-QC Y1
+U 1 1 603891D6
+P 1650 3700
+F 0 "Y1" H 1650 4267 50  0000 C CNN
+F 1 "RV-8803-C7-TA-QC" H 1650 4176 50  0000 C CNN
+F 2 "RV-8803:MICROCRYSTAL_RV-8803-C7-TA-QC" H 1650 3700 50  0001 L BNN
+F 3 "" H 1650 3700 50  0001 L BNN
+F 4 "Manufacturer Recommendation" H 1650 3700 50  0001 L BNN "STANDARD"
+F 5 "2.0" H 1650 3700 50  0001 L BNN "PARTREV"
+F 6 "Micro Crystal" H 1650 3700 50  0001 L BNN "MANUFACTURER"
+F 7 "11167" H 1650 3700 50  0001 L BNN "SNAPEDA_PACKAGE_ID"
+	1    1650 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R8
+U 1 1 60389CE4
+P 7000 4150
+F 0 "R8" V 6900 4150 50  0000 C CNN
+F 1 "1K" V 7000 4150 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 6930 4150 50  0001 C CNN
+F 3 "~" H 7000 4150 50  0001 C CNN
+	1    7000 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C-Device C3
+U 1 1 60389E69
+P 7700 3800
+F 0 "C3" H 7700 3900 50  0000 L CNN
+F 1 "1uF" H 7750 3700 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7738 3650 50  0001 C CNN
+F 3 "~" H 7700 3800 50  0001 C CNN
+	1    7700 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:Motor_DC-Motor M1
+U 1 1 60389F43
+P 8100 3750
+F 0 "M1" H 7900 3800 50  0000 L CNN
+F 1 "Vibration_Motor" V 8250 3450 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 8100 3660 50  0001 C CNN
+F 3 "~" H 8100 3660 50  0001 C CNN
+	1    8100 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8000 3950 7700 3950
+Wire Wire Line
+	7450 3650 7700 3650
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR022
+U 1 1 6038C5F0
+P 8100 3550
+F 0 "#PWR022" H 8100 3400 50  0001 C CNN
+F 1 "+3V3" H 8115 3723 50  0000 C CNN
+F 2 "" H 8100 3550 50  0001 C CNN
+F 3 "" H 8100 3550 50  0001 C CNN
+	1    8100 3550
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR021
+U 1 1 6038C860
+P 7450 4350
+F 0 "#PWR021" H 7450 4100 50  0001 C CNN
+F 1 "GND" H 7455 4177 50  0000 C CNN
+F 2 "" H 7450 4350 50  0001 C CNN
+F 3 "" H 7450 4350 50  0001 C CNN
+	1    7450 4350
+	1    0    0    -1  
+$EndComp
+Text GLabel 6800 4150 3    50   Input ~ 0
+Vibration_PWM
+Text GLabel 4000 900  0    50   Input ~ 0
+DTR
+Text GLabel 4000 1450 0    50   Input ~ 0
+RTS
+Text GLabel 4400 700  2    50   Input ~ 0
+EN
+Text GLabel 4400 1100 2    50   Input ~ 0
+RTS
+Text GLabel 4400 1250 2    50   Input ~ 0
+GPIO0
+Text GLabel 4400 1650 2    50   Input ~ 0
+DTR
+Text GLabel 10600 1400 2    50   Input ~ 0
+GPIO0
+Text GLabel 3350 1400 2    50   Input ~ 0
+DTR
+Text GLabel 3350 2000 2    50   Input ~ 0
+RTS
+Text GLabel 3400 1700 2    50   Input ~ 0
+RX
+Text GLabel 3400 1800 2    50   Input ~ 0
+TX
+Wire Wire Line
+	3300 1400 3350 1400
+Wire Wire Line
+	3300 2000 3350 2000
+Text GLabel 8400 1200 0    50   Input ~ 0
+EN
+$Comp
+L SmartFeedback-rescue:R-Device R10
+U 1 1 60391470
+P 8500 1000
+F 0 "R10" H 8570 1046 50  0000 L CNN
+F 1 "10K" V 8500 900 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 8430 1000 50  0001 C CNN
+F 3 "~" H 8500 1000 50  0001 C CNN
+	1    8500 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR032
+U 1 1 603914E5
+P 8500 850
+F 0 "#PWR032" H 8500 700 50  0001 C CNN
+F 1 "+3V3" H 8515 1023 50  0000 C CNN
+F 2 "" H 8500 850 50  0001 C CNN
+F 3 "" H 8500 850 50  0001 C CNN
+	1    8500 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR033
+U 1 1 60391544
+P 8500 1550
+F 0 "#PWR033" H 8500 1300 50  0001 C CNN
+F 1 "GND" H 8505 1377 50  0000 C CNN
+F 2 "" H 8500 1550 50  0001 C CNN
+F 3 "" H 8500 1550 50  0001 C CNN
+	1    8500 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:C-Device C9
+U 1 1 60391595
+P 8500 1400
+F 0 "C9" H 8615 1446 50  0000 L CNN
+F 1 "0.1uF" H 8615 1355 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 8538 1250 50  0001 C CNN
+F 3 "~" H 8500 1400 50  0001 C CNN
+	1    8500 1400
+	1    0    0    -1  
+$EndComp
+NoConn ~ 8900 1400
+NoConn ~ 8900 1500
+NoConn ~ 8900 1600
+NoConn ~ 8900 1700
+Wire Wire Line
+	8500 1150 8500 1200
+Connection ~ 8500 1200
+Wire Wire Line
+	8500 1200 8400 1200
+Wire Wire Line
+	8500 1250 8500 1200
+Wire Wire Line
+	8500 1200 8900 1200
+$Comp
+L SmartFeedback-rescue:+BATT-power #PWR01
+U 1 1 6039CBFD
+P 800 6700
+F 0 "#PWR01" H 800 6550 50  0001 C CNN
+F 1 "+BATT" V 815 6827 50  0000 L CNN
+F 2 "" H 800 6700 50  0001 C CNN
+F 3 "" H 800 6700 50  0001 C CNN
+	1    800  6700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:VBUS-power #PWR02
+U 1 1 6039CCC7
+P 800 7000
+F 0 "#PWR02" H 800 6850 50  0001 C CNN
+F 1 "VBUS" V 815 7127 50  0000 L CNN
+F 2 "" H 800 7000 50  0001 C CNN
+F 3 "" H 800 7000 50  0001 C CNN
+	1    800  7000
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:Q_PMOS_GSD-Device Q1
+U 1 1 6039D0A6
+P 1100 6800
+F 0 "Q1" V 1443 6800 50  0000 C CNN
+F 1 "DMP1045U_GSD" V 1350 6950 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 1300 6900 50  0001 C CNN
+F 3 "~" H 1100 6800 50  0001 C CNN
+	1    1100 6800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	900  6700 800  6700
+$Comp
+L SmartFeedback-rescue:R-Device R2
+U 1 1 603A1022
+P 1100 7150
+F 0 "R2" H 950 7150 50  0000 L CNN
+F 1 "10K" V 1100 7050 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1030 7150 50  0001 C CNN
+F 3 "~" H 1100 7150 50  0001 C CNN
+	1    1100 7150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	800  7000 1100 7000
+Connection ~ 1100 7000
+Wire Wire Line
+	1400 7000 1400 6700
+Connection ~ 1400 6700
+Wire Wire Line
+	1400 6700 1300 6700
+$Comp
+L SmartFeedback-rescue:GND-power #PWR06
+U 1 1 603A484D
+P 1100 7300
+F 0 "#PWR06" H 1100 7050 50  0001 C CNN
+F 1 "GND" H 1105 7127 50  0000 C CNN
+F 2 "" H 1100 7300 50  0001 C CNN
+F 3 "" H 1100 7300 50  0001 C CNN
+	1    1100 7300
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:PWR_FLAG-power #FLG01
+U 1 1 603A90D1
+P 1400 6700
+F 0 "#FLG01" H 1400 6775 50  0001 C CNN
+F 1 "PWR_FLAG" V 1400 7000 50  0000 C CNN
+F 2 "" H 1400 6700 50  0001 C CNN
+F 3 "~" H 1400 6700 50  0001 C CNN
+	1    1400 6700
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR04
+U 1 1 603B8312
+P 1100 6050
+F 0 "#PWR04" H 1100 5800 50  0001 C CNN
+F 1 "GND" H 1105 5877 50  0000 C CNN
+F 2 "" H 1100 6050 50  0001 C CNN
+F 3 "" H 1100 6050 50  0001 C CNN
+	1    1100 6050
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R1
+U 1 1 603B8373
+P 700 5900
+F 0 "R1" H 550 5900 50  0000 L CNN
+F 1 "10K" V 700 5800 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 630 5900 50  0001 C CNN
+F 3 "~" H 700 5900 50  0001 C CNN
+	1    700  5900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 5950 1100 6050
+Wire Wire Line
+	700  6050 1100 6050
+Connection ~ 1100 6050
+$Comp
+L SmartFeedback-rescue:VBUS-power #PWR03
+U 1 1 603BB47C
+P 1100 5350
+F 0 "#PWR03" H 1100 5200 50  0001 C CNN
+F 1 "VBUS" H 1115 5523 50  0000 C CNN
+F 2 "" H 1100 5350 50  0001 C CNN
+F 3 "" H 1100 5350 50  0001 C CNN
+	1    1100 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+BATT-power #PWR08
+U 1 1 603BC922
+P 1500 5550
+F 0 "#PWR08" H 1500 5400 50  0001 C CNN
+F 1 "+BATT" H 1500 5700 50  0000 C CNN
+F 2 "" H 1500 5550 50  0001 C CNN
+F 3 "" H 1500 5550 50  0001 C CNN
+	1    1500 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:MCP73831-2-OT-Battery_Management U1
+U 1 1 603B816A
+P 1100 5650
+F 0 "U1" H 900 5800 50  0000 C CNN
+F 1 "TP4054" H 850 5950 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 1150 5400 50  0001 L CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20001984g.pdf" H 950 5600 50  0001 C CNN
+	1    1100 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:LED-Device D3
+U 1 1 603BCA24
+P 1800 5600
+F 0 "D3" V 1838 5483 50  0000 R CNN
+F 1 "LED" V 1747 5483 50  0000 R CNN
+F 2 "LED_SMD:LED_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 1800 5600 50  0001 C CNN
+F 3 "~" H 1800 5600 50  0001 C CNN
+	1    1800 5600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R3
+U 1 1 603BCB0C
+P 1650 5750
+F 0 "R3" V 1550 5750 50  0000 C CNN
+F 1 "1K" V 1650 5750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 1580 5750 50  0001 C CNN
+F 3 "~" H 1650 5750 50  0001 C CNN
+	1    1650 5750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1800 5450 1800 5350
+Wire Wire Line
+	1800 5350 1100 5350
+Connection ~ 1100 5350
+Text GLabel 1050 3500 0    50   Input ~ 0
+SCL
+Text GLabel 1050 3700 0    50   Input ~ 0
+SDA
+Text GLabel 2250 3800 2    50   Input ~ 0
+RTC_INT
+$Comp
+L SmartFeedback-rescue:GND-power #PWR026
+U 1 1 603C0E7E
+P 2250 4000
+F 0 "#PWR026" H 2250 3750 50  0001 C CNN
+F 1 "GND" H 2255 3827 50  0000 C CNN
+F 2 "" H 2250 4000 50  0001 C CNN
+F 3 "" H 2250 4000 50  0001 C CNN
+	1    2250 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+BATT-power #PWR024
+U 1 1 603C0FDA
+P 2250 3250
+F 0 "#PWR024" H 2250 3100 50  0001 C CNN
+F 1 "+BATT" H 2265 3423 50  0000 C CNN
+F 2 "" H 2250 3250 50  0001 C CNN
+F 3 "" H 2250 3250 50  0001 C CNN
+	1    2250 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR025
+U 1 1 603C10CA
+P 2250 3600
+F 0 "#PWR025" H 2250 3350 50  0001 C CNN
+F 1 "GND" V 2255 3472 50  0000 R CNN
+F 2 "" H 2250 3600 50  0001 C CNN
+F 3 "" H 2250 3600 50  0001 C CNN
+	1    2250 3600
+	0    -1   -1   0   
+$EndComp
+NoConn ~ 2250 3700
+Text GLabel 10600 3300 2    50   Input ~ 0
+RTC_INT
+$Comp
+L SmartFeedback-rescue:R-Device R4
+U 1 1 603C2EAC
+P 5750 3950
+F 0 "R4" H 5820 3996 50  0000 L CNN
+F 1 "100K" V 5750 3850 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5680 3950 50  0001 C CNN
+F 3 "~" H 5750 3950 50  0001 C CNN
+	1    5750 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R5
+U 1 1 603C2FE3
+P 5750 4350
+F 0 "R5" H 5820 4396 50  0000 L CNN
+F 1 "100K" V 5750 4250 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5680 4350 50  0001 C CNN
+F 3 "~" H 5750 4350 50  0001 C CNN
+	1    5750 4350
+	1    0    0    -1  
+$EndComp
+Text GLabel 5850 4150 2    50   Input ~ 0
+ADC_BATT
+Wire Wire Line
+	5750 4100 5750 4150
+Wire Wire Line
+	5850 4150 5750 4150
+Connection ~ 5750 4150
+Wire Wire Line
+	5750 4150 5750 4200
+$Comp
+L SmartFeedback-rescue:GND-power #PWR015
+U 1 1 603C67DF
+P 5750 4500
+F 0 "#PWR015" H 5750 4250 50  0001 C CNN
+F 1 "GND" H 5755 4327 50  0000 C CNN
+F 2 "" H 5750 4500 50  0001 C CNN
+F 3 "" H 5750 4500 50  0001 C CNN
+	1    5750 4500
+	1    0    0    -1  
+$EndComp
+Text GLabel 7450 800  0    50   Input ~ 0
+GDR
+NoConn ~ 7550 700 
+Text GLabel 7450 900  0    50   Input ~ 0
+RESE
+Wire Wire Line
+	7550 800  7450 800 
+Wire Wire Line
+	7550 900  7450 900 
+$Comp
+L SmartFeedback-rescue:GND-power #PWR023
+U 1 1 603D06DE
+P 7150 1100
+F 0 "#PWR023" H 7150 850 50  0001 C CNN
+F 1 "GND" V 7200 1000 50  0000 R CNN
+F 2 "" H 7150 1100 50  0001 C CNN
+F 3 "" H 7150 1100 50  0001 C CNN
+	1    7150 1100
+	0    1    1    0   
+$EndComp
+NoConn ~ 7550 1200
+NoConn ~ 7550 1300
+$Comp
+L SmartFeedback-rescue:GND-power #PWR027
+U 1 1 603D54B3
+P 7450 1400
+F 0 "#PWR027" H 7450 1150 50  0001 C CNN
+F 1 "GND" V 7455 1272 50  0000 R CNN
+F 2 "" H 7450 1400 50  0001 C CNN
+F 3 "" H 7450 1400 50  0001 C CNN
+	1    7450 1400
+	0    1    1    0   
+$EndComp
+Text GLabel 7450 1500 0    50   Input ~ 0
+BUSY
+Text GLabel 7450 1600 0    50   Input ~ 0
+RES
+Text GLabel 7450 1700 0    50   Input ~ 0
+DC
+Text GLabel 7450 1800 0    50   Input ~ 0
+SS
+Text GLabel 7450 1900 0    50   Input ~ 0
+SCK
+Text GLabel 7450 2000 0    50   Input ~ 0
+MOSI
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR028
+U 1 1 603D59BB
+P 7450 2200
+F 0 "#PWR028" H 7450 2050 50  0001 C CNN
+F 1 "+3V3" V 7465 2328 50  0000 L CNN
+F 2 "" H 7450 2200 50  0001 C CNN
+F 3 "" H 7450 2200 50  0001 C CNN
+	1    7450 2200
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7550 1400 7450 1400
+Wire Wire Line
+	7450 1500 7550 1500
+Wire Wire Line
+	7550 1600 7450 1600
+Wire Wire Line
+	7450 1700 7550 1700
+Wire Wire Line
+	7550 1800 7450 1800
+Wire Wire Line
+	7450 1900 7550 1900
+Wire Wire Line
+	7550 2000 7450 2000
+$Comp
+L SmartFeedback-rescue:C_Small-Device C5
+U 1 1 603E5EFB
+P 6950 2400
+F 0 "C5" V 6900 2500 50  0000 C CNN
+F 1 "1uF/50V" V 6900 2200 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6950 2400 50  0001 C CNN
+F 3 "~" H 6950 2400 50  0001 C CNN
+	1    6950 2400
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR030
+U 1 1 603E6003
+P 7450 2300
+F 0 "#PWR030" H 7450 2050 50  0001 C CNN
+F 1 "GND" V 7455 2172 50  0000 R CNN
+F 2 "" H 7450 2300 50  0001 C CNN
+F 3 "" H 7450 2300 50  0001 C CNN
+	1    7450 2300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7550 2300 7450 2300
+Text GLabel 7450 2700 0    50   Input ~ 0
+PREVGH
+Wire Wire Line
+	7450 2700 7550 2700
+Text GLabel 7450 2850 0    50   Input ~ 0
+PREVGL
+Wire Wire Line
+	7050 2400 7550 2400
+Wire Wire Line
+	7050 2600 7550 2600
+Wire Wire Line
+	7050 2800 7550 2800
+Wire Notes Line
+	3700 3050 750  3050
+Text Notes 4050 1850 0    50   ~ 0
+Auto-reset\n
+Wire Notes Line
+	4900 550  4900 1950
+Wire Notes Line
+	4900 1950 3700 1950
+Wire Notes Line
+	750  550  4900 550 
+Text Notes 1400 4250 0    50   ~ 0
+Real time clock
+Wire Notes Line
+	750  550  750  4350
+Wire Notes Line
+	2650 3050 2650 4350
+Wire Notes Line
+	3700 550  3700 4350
+Wire Notes Line
+	750  4350 3700 4350
+$Comp
+L SmartFeedback-rescue:Antenna_Shield-Device AE1
+U 1 1 60384E56
+P 10500 800
+F 0 "AE1" H 10640 841 50  0000 L CNN
+F 1 "Antenna_Shield" H 10640 750 50  0000 L CNN
+F 2 "RF_Antenna:Texas_SWRA117D_2.4GHz_Left" H 10500 900 50  0001 C CNN
+F 3 "~" H 10500 900 50  0001 C CNN
+	1    10500 800 
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR048
+U 1 1 60384EF1
+P 10600 1000
+F 0 "#PWR048" H 10600 750 50  0001 C CNN
+F 1 "GND" V 10650 850 50  0000 C CNN
+F 2 "" H 10600 1000 50  0001 C CNN
+F 3 "" H 10600 1000 50  0001 C CNN
+	1    10600 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10500 1000 10500 1200
+Text GLabel 10600 2700 2    50   Input ~ 0
+BUSY
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR044
+U 1 1 60388238
+P 9500 1000
+F 0 "#PWR044" H 9500 850 50  0001 C CNN
+F 1 "+3V3" V 9500 1200 50  0000 C CNN
+F 2 "" H 9500 1000 50  0001 C CNN
+F 3 "" H 9500 1000 50  0001 C CNN
+	1    9500 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR045
+U 1 1 60388349
+P 9600 1000
+F 0 "#PWR045" H 9600 850 50  0001 C CNN
+F 1 "+3V3" V 9600 1200 50  0000 C CNN
+F 2 "" H 9600 1000 50  0001 C CNN
+F 3 "" H 9600 1000 50  0001 C CNN
+	1    9600 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR046
+U 1 1 603883A4
+P 9700 1000
+F 0 "#PWR046" H 9700 850 50  0001 C CNN
+F 1 "+3V3" V 9700 1200 50  0000 C CNN
+F 2 "" H 9700 1000 50  0001 C CNN
+F 3 "" H 9700 1000 50  0001 C CNN
+	1    9700 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR047
+U 1 1 603883FF
+P 9800 1000
+F 0 "#PWR047" H 9800 850 50  0001 C CNN
+F 1 "+3V3" V 9800 1200 50  0000 C CNN
+F 2 "" H 9800 1000 50  0001 C CNN
+F 3 "" H 9800 1000 50  0001 C CNN
+	1    9800 1000
+	1    0    0    -1  
+$EndComp
+Text GLabel 10600 1700 2    50   Input ~ 0
+RX
+Text GLabel 10600 1500 2    50   Input ~ 0
+TX
+Wire Wire Line
+	10600 1400 10500 1400
+Wire Wire Line
+	10600 3300 10500 3300
+$Comp
+L SmartFeedback-rescue:MBR0530-Diode D5
+U 1 1 603A1D8B
+P 5000 2250
+F 0 "D5" H 4900 2200 50  0000 C CNN
+F 1 "MBR0530" H 5100 2350 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 5000 2075 50  0001 C CNN
+F 3 "http://www.mccsemi.com/up_pdf/MBR0520~MBR0580(SOD123).pdf" H 5000 2250 50  0001 C CNN
+	1    5000 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:MBR0530-Diode D6
+U 1 1 603A1E82
+P 5000 2400
+F 0 "D6" H 5100 2450 50  0000 C CNN
+F 1 "MBR0530" H 4900 2500 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 5000 2225 50  0001 C CNN
+F 3 "http://www.mccsemi.com/up_pdf/MBR0520~MBR0580(SOD123).pdf" H 5000 2400 50  0001 C CNN
+	1    5000 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C13
+U 1 1 603A2080
+P 4850 2650
+F 0 "C13" H 4600 2650 50  0000 L CNN
+F 1 "4.7uF/25V" H 4400 2750 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4850 2650 50  0001 C CNN
+F 3 "~" H 4850 2650 50  0001 C CNN
+	1    4850 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:L_Small-Device L2
+U 1 1 603A2135
+P 4600 2850
+F 0 "L2" V 4550 2850 50  0000 C CNN
+F 1 "10uH/1A" V 4650 2850 50  0000 C CNN
+F 2 "LQH44PN100MP0L:LQH44PN100MP0L" H 4600 2850 50  0001 C CNN
+F 3 "~" H 4600 2850 50  0001 C CNN
+F 4 "LQH44PN100MP0L" V 4600 2850 50  0001 C CNN "Murata"
+F 5 "SLF0403-100MTT" V 4600 2850 50  0001 C CNN "Sunltech Tech"
+	1    4600 2850
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:Q_NMOS_GSD-Device Q4
+U 1 1 603A226C
+P 4750 3400
+F 0 "Q4" H 4955 3446 50  0000 L CNN
+F 1 "SI1308EDL" H 4955 3355 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-323_SC-70_Handsoldering" H 4950 3500 50  0001 C CNN
+F 3 "~" H 4750 3400 50  0001 C CNN
+	1    4750 3400
+	1    0    0    -1  
+$EndComp
+Text GLabel 4850 3750 2    50   Input ~ 0
+RESE
+$Comp
+L SmartFeedback-rescue:R-Device R12
+U 1 1 603A24B1
+P 4850 4100
+F 0 "R12" V 4750 4100 50  0000 C CNN
+F 1 "0.47R" V 4850 4100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4780 4100 50  0001 C CNN
+F 3 "~" H 4850 4100 50  0001 C CNN
+	1    4850 4100
+	-1   0    0    1   
+$EndComp
+Text GLabel 5400 2250 2    50   Input ~ 0
+PREVGL
+Text GLabel 5400 2850 2    50   Input ~ 0
+PREVGH
+$Comp
+L SmartFeedback-rescue:C_Small-Device C14
+U 1 1 603A3B38
+P 5400 2950
+F 0 "C14" H 5500 2950 50  0000 L CNN
+F 1 "1uF/50V" H 5500 2850 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5400 2950 50  0001 C CNN
+F 3 "~" H 5400 2950 50  0001 C CNN
+	1    5400 2950
+	1    0    0    -1  
+$EndComp
+Text GLabel 10600 2300 2    50   Input ~ 0
+Vibration_PWM
+Wire Wire Line
+	10600 2300 10500 2300
+Wire Wire Line
+	6850 4150 6800 4150
+Wire Wire Line
+	10600 3500 10500 3500
+Wire Wire Line
+	4850 2400 4850 2550
+$Comp
+L SmartFeedback-rescue:GND-power #PWR041
+U 1 1 6039660A
+P 5150 2400
+F 0 "#PWR041" H 5150 2150 50  0001 C CNN
+F 1 "GND" V 5155 2272 50  0000 R CNN
+F 2 "" H 5150 2400 50  0001 C CNN
+F 3 "" H 5150 2400 50  0001 C CNN
+	1    5150 2400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:MBR0530-Diode D7
+U 1 1 60396B3E
+P 5000 2850
+F 0 "D7" H 5100 2900 50  0000 C CNN
+F 1 "MBR0530" H 4950 2950 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 5000 2675 50  0001 C CNN
+F 3 "http://www.mccsemi.com/up_pdf/MBR0520~MBR0580(SOD123).pdf" H 5000 2850 50  0001 C CNN
+	1    5000 2850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4850 2850 4850 2750
+Wire Wire Line
+	4850 2850 4700 2850
+Connection ~ 4850 2850
+$Comp
+L SmartFeedback-rescue:C_Small-Device C12
+U 1 1 603A7499
+P 4300 2950
+F 0 "C12" H 4100 2900 50  0000 L CNN
+F 1 "4.7uF/25V" H 3800 3000 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4300 2950 50  0001 C CNN
+F 3 "~" H 4300 2950 50  0001 C CNN
+	1    4300 2950
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR043
+U 1 1 603A77DF
+P 5400 3050
+F 0 "#PWR043" H 5400 2800 50  0001 C CNN
+F 1 "GND" H 5405 2877 50  0000 C CNN
+F 2 "" H 5400 3050 50  0001 C CNN
+F 3 "" H 5400 3050 50  0001 C CNN
+	1    5400 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR039
+U 1 1 603A7880
+P 4300 3050
+F 0 "#PWR039" H 4300 2800 50  0001 C CNN
+F 1 "GND" H 4305 2877 50  0000 C CNN
+F 2 "" H 4300 3050 50  0001 C CNN
+F 3 "" H 4300 3050 50  0001 C CNN
+	1    4300 3050
+	1    0    0    -1  
+$EndComp
+Text GLabel 4450 3400 0    50   Input ~ 0
+GDR
+$Comp
+L SmartFeedback-rescue:R-Device R11
+U 1 1 603A7A30
+P 4550 4100
+F 0 "R11" H 4350 4100 50  0000 L CNN
+F 1 "10K" V 4550 4000 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 4480 4100 50  0001 C CNN
+F 3 "~" H 4550 4100 50  0001 C CNN
+	1    4550 4100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4850 3200 4850 2850
+$Comp
+L SmartFeedback-rescue:GND-power #PWR042
+U 1 1 603B5853
+P 4850 4400
+F 0 "#PWR042" H 4850 4150 50  0001 C CNN
+F 1 "GND" V 4855 4272 50  0000 R CNN
+F 2 "" H 4850 4400 50  0001 C CNN
+F 3 "" H 4850 4400 50  0001 C CNN
+	1    4850 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR038
+U 1 1 603B642A
+P 4300 2850
+F 0 "#PWR038" H 4300 2700 50  0001 C CNN
+F 1 "+3V3" H 4150 2950 50  0000 C CNN
+F 2 "" H 4300 2850 50  0001 C CNN
+F 3 "" H 4300 2850 50  0001 C CNN
+	1    4300 2850
+	1    0    0    -1  
+$EndComp
+Connection ~ 4300 2850
+Wire Wire Line
+	4850 2250 4850 2400
+Connection ~ 4850 2400
+$Comp
+L SmartFeedback-rescue:GND-power #PWR049
+U 1 1 603CE271
+P 6800 1000
+F 0 "#PWR049" H 6800 750 50  0001 C CNN
+F 1 "GND" V 6850 900 50  0000 R CNN
+F 2 "" H 6800 1000 50  0001 C CNN
+F 3 "" H 6800 1000 50  0001 C CNN
+	1    6800 1000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7550 1000 7000 1000
+Wire Wire Line
+	7550 1100 7350 1100
+Text GLabel 10600 1900 2    50   Input ~ 0
+SS
+Text GLabel 10600 2000 2    50   Input ~ 0
+RES
+Text GLabel 10600 2100 2    50   Input ~ 0
+DC
+Text GLabel 10600 2600 2    50   Input ~ 0
+SCK
+Text GLabel 10600 3000 2    50   Input ~ 0
+MOSI
+Wire Wire Line
+	10600 3000 10500 3000
+Wire Wire Line
+	10500 2900 10600 2900
+Wire Wire Line
+	10600 2800 10500 2800
+Wire Wire Line
+	10500 2700 10600 2700
+Wire Wire Line
+	10600 2600 10500 2600
+Wire Wire Line
+	10600 2100 10500 2100
+Wire Wire Line
+	10500 2000 10600 2000
+Wire Wire Line
+	10600 1900 10500 1900
+$Comp
+L SmartFeedback-rescue:GND-power #PWR069
+U 1 1 60408B0E
+P 9700 4200
+F 0 "#PWR069" H 9700 3950 50  0001 C CNN
+F 1 "GND" V 9750 4050 50  0000 C CNN
+F 2 "" H 9700 4200 50  0001 C CNN
+F 3 "" H 9700 4200 50  0001 C CNN
+	1    9700 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:MBR0530-Diode D8
+U 1 1 604098D3
+P 7450 3800
+F 0 "D8" H 7350 3750 50  0000 C CNN
+F 1 "MBR0530" H 7450 3650 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 7450 3625 50  0001 C CNN
+F 3 "http://www.mccsemi.com/up_pdf/MBR0520~MBR0580(SOD123).pdf" H 7450 3800 50  0001 C CNN
+	1    7450 3800
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:SW_Push-Switch SW1
+U 1 1 6040AB5E
+P 5750 850
+F 0 "SW1" H 5750 800 50  0000 C CNN
+F 1 "SW" H 5650 950 50  0000 C CNN
+F 2 "EVQ-PUA02K:EVQPUA02K" H 5750 1050 50  0001 C CNN
+F 3 "" H 5750 1050 50  0001 C CNN
+	1    5750 850 
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:SW_Push-Switch SW2
+U 1 1 6040B0F7
+P 5750 1100
+F 0 "SW2" H 5750 1050 50  0000 C CNN
+F 1 "SW" H 5650 1200 50  0000 C CNN
+F 2 "EVQ-PUA02K:EVQPUA02K" H 5750 1300 50  0001 C CNN
+F 3 "" H 5750 1300 50  0001 C CNN
+	1    5750 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:SW_Push-Switch SW3
+U 1 1 6040B179
+P 5750 1350
+F 0 "SW3" H 5750 1300 50  0000 C CNN
+F 1 "SW" H 5650 1450 50  0000 C CNN
+F 2 "EVQ-PUA02K:EVQPUA02K" H 5750 1550 50  0001 C CNN
+F 3 "" H 5750 1550 50  0001 C CNN
+	1    5750 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:SW_Push-Switch SW4
+U 1 1 6040B1FF
+P 5750 1600
+F 0 "SW4" H 5750 1550 50  0000 C CNN
+F 1 "SW" H 5650 1700 50  0000 C CNN
+F 2 "EVQ-PUA02K:EVQPUA02K" H 5750 1800 50  0001 C CNN
+F 3 "" H 5750 1800 50  0001 C CNN
+	1    5750 1600
+	1    0    0    -1  
+$EndComp
+Text GLabel 5550 850  0    50   Input ~ 0
+SW_1
+Text GLabel 5550 1100 0    50   Input ~ 0
+SW_2
+Text GLabel 5550 1350 0    50   Input ~ 0
+SW_3
+Text GLabel 5550 1600 0    50   Input ~ 0
+SW_4
+$Comp
+L SmartFeedback-rescue:R-Device R14
+U 1 1 6040B6BF
+P 5400 750
+F 0 "R14" V 5350 600 50  0000 C CNN
+F 1 "10K" V 5400 750 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 750 50  0001 C CNN
+F 3 "~" H 5400 750 50  0001 C CNN
+	1    5400 750 
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR054
+U 1 1 6040B7C1
+P 5250 750
+F 0 "#PWR054" H 5250 500 50  0001 C CNN
+F 1 "GND" V 5255 622 50  0000 R CNN
+F 2 "" H 5250 750 50  0001 C CNN
+F 3 "" H 5250 750 50  0001 C CNN
+	1    5250 750 
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R15
+U 1 1 6041CA54
+P 5400 1000
+F 0 "R15" V 5350 850 50  0000 C CNN
+F 1 "10K" V 5400 1000 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 1000 50  0001 C CNN
+F 3 "~" H 5400 1000 50  0001 C CNN
+	1    5400 1000
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR055
+U 1 1 6041CA5B
+P 5250 1000
+F 0 "#PWR055" H 5250 750 50  0001 C CNN
+F 1 "GND" V 5255 872 50  0000 R CNN
+F 2 "" H 5250 1000 50  0001 C CNN
+F 3 "" H 5250 1000 50  0001 C CNN
+	1    5250 1000
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R16
+U 1 1 60420DC8
+P 5400 1250
+F 0 "R16" V 5350 1100 50  0000 C CNN
+F 1 "10K" V 5400 1250 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 1250 50  0001 C CNN
+F 3 "~" H 5400 1250 50  0001 C CNN
+	1    5400 1250
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR056
+U 1 1 60420DCF
+P 5250 1250
+F 0 "#PWR056" H 5250 1000 50  0001 C CNN
+F 1 "GND" V 5255 1122 50  0000 R CNN
+F 2 "" H 5250 1250 50  0001 C CNN
+F 3 "" H 5250 1250 50  0001 C CNN
+	1    5250 1250
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:R-Device R17
+U 1 1 6042513D
+P 5400 1500
+F 0 "R17" V 5350 1350 50  0000 C CNN
+F 1 "10K" V 5400 1500 50  0000 C CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 5330 1500 50  0001 C CNN
+F 3 "~" H 5400 1500 50  0001 C CNN
+	1    5400 1500
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR057
+U 1 1 60425144
+P 5250 1500
+F 0 "#PWR057" H 5250 1250 50  0001 C CNN
+F 1 "GND" V 5255 1372 50  0000 R CNN
+F 2 "" H 5250 1500 50  0001 C CNN
+F 3 "" H 5250 1500 50  0001 C CNN
+	1    5250 1500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5550 850  5550 750 
+Wire Wire Line
+	5550 1000 5550 1100
+Wire Wire Line
+	5550 1250 5550 1350
+Wire Wire Line
+	5550 1500 5550 1600
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR065
+U 1 1 60453165
+P 5950 850
+F 0 "#PWR065" H 5950 700 50  0001 C CNN
+F 1 "+3V3" V 5965 978 50  0000 L CNN
+F 2 "" H 5950 850 50  0001 C CNN
+F 3 "" H 5950 850 50  0001 C CNN
+	1    5950 850 
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR066
+U 1 1 60453228
+P 5950 1100
+F 0 "#PWR066" H 5950 950 50  0001 C CNN
+F 1 "+3V3" V 5965 1228 50  0000 L CNN
+F 2 "" H 5950 1100 50  0001 C CNN
+F 3 "" H 5950 1100 50  0001 C CNN
+	1    5950 1100
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR067
+U 1 1 604532A9
+P 5950 1350
+F 0 "#PWR067" H 5950 1200 50  0001 C CNN
+F 1 "+3V3" V 5965 1478 50  0000 L CNN
+F 2 "" H 5950 1350 50  0001 C CNN
+F 3 "" H 5950 1350 50  0001 C CNN
+	1    5950 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR068
+U 1 1 6045332A
+P 5950 1600
+F 0 "#PWR068" H 5950 1450 50  0001 C CNN
+F 1 "+3V3" V 5965 1728 50  0000 L CNN
+F 2 "" H 5950 1600 50  0001 C CNN
+F 3 "" H 5950 1600 50  0001 C CNN
+	1    5950 1600
+	0    1    1    0   
+$EndComp
+Text GLabel 10600 3700 2    50   Input ~ 0
+SW_1
+Text GLabel 10600 3100 2    50   Input ~ 0
+SW_2
+Text GLabel 10600 3600 2    50   Input ~ 0
+SW_3
+Text GLabel 10600 1800 2    50   Input ~ 0
+SW_4
+Wire Wire Line
+	10600 1800 10500 1800
+Wire Wire Line
+	10600 3200 10500 3200
+Wire Wire Line
+	10600 3400 10500 3400
+Wire Wire Line
+	10600 3100 10500 3100
+Wire Wire Line
+	4850 3600 4850 3950
+Wire Wire Line
+	4450 3400 4550 3400
+Wire Wire Line
+	4550 3950 4550 3400
+Connection ~ 4550 3400
+Wire Wire Line
+	4550 4250 4850 4250
+Wire Wire Line
+	4850 4250 4850 4400
+Connection ~ 4850 4250
+Wire Wire Line
+	4300 2850 4500 2850
+Wire Wire Line
+	5150 2250 5400 2250
+Wire Wire Line
+	5150 2850 5400 2850
+$Comp
+L SmartFeedback-rescue:C_Small-Device C8
+U 1 1 6044188C
+P 6950 2600
+F 0 "C8" V 6900 2700 50  0000 C CNN
+F 1 "1uF/50V" V 6900 2400 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6950 2600 50  0001 C CNN
+F 3 "~" H 6950 2600 50  0001 C CNN
+	1    6950 2600
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C15
+U 1 1 6044192A
+P 6950 2800
+F 0 "C15" V 6900 2900 50  0000 C CNN
+F 1 "1uF/50V" V 6900 2600 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6950 2800 50  0001 C CNN
+F 3 "~" H 6950 2800 50  0001 C CNN
+	1    6950 2800
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C17
+U 1 1 60441A98
+P 6950 3100
+F 0 "C17" V 6900 3200 50  0000 C CNN
+F 1 "1uF/50V" V 6900 2900 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6950 3100 50  0001 C CNN
+F 3 "~" H 6950 3100 50  0001 C CNN
+	1    6950 3100
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR059
+U 1 1 60441BB0
+P 6600 2400
+F 0 "#PWR059" H 6600 2150 50  0001 C CNN
+F 1 "GND" V 6600 2300 50  0000 R CNN
+F 2 "" H 6600 2400 50  0001 C CNN
+F 3 "" H 6600 2400 50  0001 C CNN
+	1    6600 2400
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR061
+U 1 1 6044232A
+P 6600 2600
+F 0 "#PWR061" H 6600 2350 50  0001 C CNN
+F 1 "GND" V 6600 2500 50  0000 R CNN
+F 2 "" H 6600 2600 50  0001 C CNN
+F 3 "" H 6600 2600 50  0001 C CNN
+	1    6600 2600
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR062
+U 1 1 604423B7
+P 6600 2800
+F 0 "#PWR062" H 6600 2550 50  0001 C CNN
+F 1 "GND" V 6600 2700 50  0000 R CNN
+F 2 "" H 6600 2800 50  0001 C CNN
+F 3 "" H 6600 2800 50  0001 C CNN
+	1    6600 2800
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR064
+U 1 1 60442444
+P 6600 3100
+F 0 "#PWR064" H 6600 2850 50  0001 C CNN
+F 1 "GND" V 6600 3000 50  0000 R CNN
+F 2 "" H 6600 3100 50  0001 C CNN
+F 3 "" H 6600 3100 50  0001 C CNN
+	1    6600 3100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 2400 6850 2400
+Wire Wire Line
+	6850 2600 6600 2600
+Wire Wire Line
+	6600 2800 6850 2800
+Wire Wire Line
+	6850 3100 6600 3100
+$Comp
+L SmartFeedback-rescue:C_Small-Device C6
+U 1 1 6045EB3D
+P 6900 1000
+F 0 "C6" V 6850 1100 50  0000 C CNN
+F 1 "1uF/50V" V 6800 900 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6900 1000 50  0001 C CNN
+F 3 "~" H 6900 1000 50  0001 C CNN
+	1    6900 1000
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C18
+U 1 1 6045EBE9
+P 7250 1100
+F 0 "C18" V 7200 1200 50  0000 C CNN
+F 1 "1uF/50V" V 7350 1100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7250 1100 50  0001 C CNN
+F 3 "~" H 7250 1100 50  0001 C CNN
+	1    7250 1100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7550 2200 7500 2200
+Wire Wire Line
+	7500 2200 7500 2100
+Connection ~ 7500 2100
+Wire Wire Line
+	7500 2100 7550 2100
+$Comp
+L SmartFeedback-rescue:C_Small-Device C7
+U 1 1 6046B620
+P 6950 2100
+F 0 "C7" V 6900 2200 50  0000 C CNN
+F 1 "1uF/50V" V 6900 1900 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6950 2100 50  0001 C CNN
+F 3 "~" H 6950 2100 50  0001 C CNN
+	1    6950 2100
+	0    1    1    0   
+$EndComp
+Connection ~ 7500 2200
+$Comp
+L SmartFeedback-rescue:GND-power #PWR058
+U 1 1 6046B9F3
+P 6600 2100
+F 0 "#PWR058" H 6600 1850 50  0001 C CNN
+F 1 "GND" V 6600 2000 50  0000 R CNN
+F 2 "" H 6600 2100 50  0001 C CNN
+F 3 "" H 6600 2100 50  0001 C CNN
+	1    6600 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7050 2100 7500 2100
+Wire Wire Line
+	6850 2100 6600 2100
+Wire Wire Line
+	7500 2200 7450 2200
+Wire Wire Line
+	7450 2850 7500 2850
+Wire Wire Line
+	7500 2850 7500 2900
+Wire Wire Line
+	7500 2900 7550 2900
+$Comp
+L SmartFeedback-rescue:C_Small-Device C16
+U 1 1 60491156
+P 6950 2950
+F 0 "C16" V 6900 3050 50  0000 C CNN
+F 1 "1uF/50V" V 6900 2750 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6950 2950 50  0001 C CNN
+F 3 "~" H 6950 2950 50  0001 C CNN
+	1    6950 2950
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR063
+U 1 1 604911EE
+P 6600 2950
+F 0 "#PWR063" H 6600 2700 50  0001 C CNN
+F 1 "GND" V 6600 2850 50  0000 R CNN
+F 2 "" H 6600 2950 50  0001 C CNN
+F 3 "" H 6600 2950 50  0001 C CNN
+	1    6600 2950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6850 2950 6600 2950
+Wire Wire Line
+	7050 2950 7500 2950
+Wire Wire Line
+	7500 2950 7500 2900
+Connection ~ 7500 2900
+Wire Wire Line
+	7050 3100 7550 3100
+Wire Wire Line
+	7550 3100 7550 3000
+$Comp
+L SmartFeedback-rescue:C_Small-Device C19
+U 1 1 604A4A2E
+P 7400 2500
+F 0 "C19" V 7350 2600 50  0000 C CNN
+F 1 "1uF/50V" V 7350 2300 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 7400 2500 50  0001 C CNN
+F 3 "~" H 7400 2500 50  0001 C CNN
+	1    7400 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR060
+U 1 1 604A4ADA
+P 6600 2500
+F 0 "#PWR060" H 6600 2250 50  0001 C CNN
+F 1 "GND" V 6600 2400 50  0000 R CNN
+F 2 "" H 6600 2500 50  0001 C CNN
+F 3 "" H 6600 2500 50  0001 C CNN
+	1    6600 2500
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 2500 7300 2500
+Wire Wire Line
+	7500 2500 7550 2500
+NoConn ~ 10500 1600
+NoConn ~ 10500 3900
+NoConn ~ 8900 3100
+NoConn ~ 8900 3000
+NoConn ~ 8900 2900
+NoConn ~ 8900 2800
+Text GLabel 1050 3400 0    50   Input ~ 0
+RTC_EVI
+Text GLabel 10600 2500 2    50   Input ~ 0
+RTC_EVI
+Wire Wire Line
+	10600 2500 10500 2500
+$Comp
+L SmartFeedback-rescue:MBR0530-Diode D1
+U 1 1 604A70C7
+P 1250 7000
+F 0 "D1" H 1150 6950 50  0000 C CNN
+F 1 "MBR0530" H 1100 7150 50  0000 C CNN
+F 2 "Diode_SMD:D_SOD-123" H 1250 6825 50  0001 C CNN
+F 3 "http://www.mccsemi.com/up_pdf/MBR0520~MBR0580(SOD123).pdf" H 1250 7000 50  0001 C CNN
+	1    1250 7000
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:+BATT-power #PWR0101
+U 1 1 603FF10B
+P 1050 4800
+F 0 "#PWR0101" H 1050 4650 50  0001 C CNN
+F 1 "+BATT" V 1065 4928 50  0000 L CNN
+F 2 "" H 1050 4800 50  0001 C CNN
+F 3 "" H 1050 4800 50  0001 C CNN
+	1    1050 4800
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:Conn_01x02-Connector_Generic J3
+U 1 1 603FF5F5
+P 850 4900
+F 0 "J3" H 770 4575 50  0000 C CNN
+F 1 "Con_BATT" H 770 4666 50  0000 C CNN
+F 2 "Connector_JST_Custom:JST_PH_S2B-PH-SM4-TB_1x02-1MP_P2.00mm_Horizontal" H 850 4900 50  0001 C CNN
+F 3 "~" H 850 4900 50  0001 C CNN
+	1    850  4900
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR0102
+U 1 1 604064A4
+P 1050 4900
+F 0 "#PWR0102" H 1050 4650 50  0001 C CNN
+F 1 "GND" H 1055 4727 50  0000 C CNN
+F 2 "" H 1050 4900 50  0001 C CNN
+F 3 "" H 1050 4900 50  0001 C CNN
+	1    1050 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C40
+U 1 1 60403810
+P 2350 3400
+F 0 "C40" V 2250 3400 50  0000 C CNN
+F 1 "10uF" V 2450 3350 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2350 3400 50  0001 C CNN
+F 3 "~" H 2350 3400 50  0001 C CNN
+	1    2350 3400
+	0    -1   -1   0   
+$EndComp
+Connection ~ 2250 3400
+$Comp
+L SmartFeedback-rescue:GND-power #PWR0103
+U 1 1 60403D0D
+P 2450 3400
+F 0 "#PWR0103" H 2450 3150 50  0001 C CNN
+F 1 "GND" V 2455 3272 50  0000 R CNN
+F 2 "" H 2450 3400 50  0001 C CNN
+F 3 "" H 2450 3400 50  0001 C CNN
+	1    2450 3400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2250 3400 2250 3250
+$Comp
+L SmartFeedback-rescue:+BATT-power #PWR0104
+U 1 1 6040CCFA
+P 5750 3800
+F 0 "#PWR0104" H 5750 3650 50  0001 C CNN
+F 1 "+BATT" H 5765 3973 50  0000 C CNN
+F 2 "" H 5750 3800 50  0001 C CNN
+F 3 "" H 5750 3800 50  0001 C CNN
+	1    5750 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10500 3600 10600 3600
+Wire Wire Line
+	10500 3700 10600 3700
+NoConn ~ 8900 2600
+NoConn ~ 8900 2700
+$Comp
+L Device:Q_NPN_BEC Q3
+U 1 1 60AE86D2
+P 7350 4150
+F 0 "Q3" H 7541 4196 50  0000 L CNN
+F 1 "s8050" H 7541 4105 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 7550 4250 50  0001 C CNN
+F 3 "~" H 7350 4150 50  0001 C CNN
+	1    7350 4150
+	1    0    0    -1  
+$EndComp
+Connection ~ 7450 3950
+$Comp
+L SmartFeedback-rescue:Conn_01x24-Connector_Generic J2
+U 1 1 603CB78B
+P 7750 1900
+F 0 "J2" H 7830 1892 50  0000 L CNN
+F 1 "Conn_01x24" H 7830 1801 50  0000 L CNN
+F 2 "Connector_FFC:524352471TR250" H 7750 1900 50  0001 C CNN
+F 3 "~" H 7750 1900 50  0001 C CNN
+	1    7750 1900
+	1    0    0    1   
+$EndComp
+$Comp
+L MSK12C02:MSK12C02 S1
+U 1 1 60B23BA2
+P 2400 6750
+F 0 "S1" V 2854 6878 50  0000 L CNN
+F 1 "MSK12C02" V 2945 6878 50  0000 L CNN
+F 2 "SamacSys_Parts:MSK12C02" H 3250 6850 50  0001 L CNN
+F 3 "https://shouhan.en.made-in-china.com/product/xsMEmqgOAXWB/China-Slide-Switch-Msk12c02-Slide-Switch-on-off-2-Position-1p2t-Spdt-Miniature-Horizontal-SMD-7p-Slide-Switch.html" H 3250 6750 50  0001 L CNN
+F 4 "SMD Toggle Switches" H 3250 6650 50  0001 L CNN "Description"
+F 5 "1.4" H 3250 6550 50  0001 L CNN "Height"
+F 6 "" H 3250 6450 50  0001 L CNN "Mouser Part Number"
+F 7 "" H 3250 6350 50  0001 L CNN "Mouser Price/Stock"
+F 8 "Shou Han" H 3250 6250 50  0001 L CNN "Manufacturer_Name"
+F 9 "MSK12C02" H 3250 6150 50  0001 L CNN "Manufacturer_Part_Number"
+	1    2400 6750
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2400 7750 2300 7750
+Wire Wire Line
+	2200 7750 2300 7750
+Connection ~ 2300 7750
+Wire Wire Line
+	2100 6750 1950 6750
+Wire Wire Line
+	1950 6750 1950 7750
+Wire Wire Line
+	1950 7750 2200 7750
+Connection ~ 2200 7750
+Wire Wire Line
+	2200 6700 2200 6750
+Wire Wire Line
+	1400 6700 2200 6700
+Text GLabel 10600 3500 2    50   Input ~ 0
+ADC_BATT
+Text GLabel 4000 6650 0    50   Input ~ 0
+SDA
+Text GLabel 4000 6750 0    50   Input ~ 0
+SCL
+$Comp
+L SmartFeedback-rescue:C_Small-Device C?
+U 1 1 632E5D01
+P 4000 7200
+AR Path="/604BB12B/632E5D01" Ref="C?"  Part="1" 
+AR Path="/632E5D01" Ref="C21"  Part="1" 
+F 0 "C21" H 4100 7300 50  0000 C CNN
+F 1 "0.1uF" H 4100 7100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 4000 7200 50  0001 C CNN
+F 3 "~" H 4000 7200 50  0001 C CNN
+	1    4000 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR?
+U 1 1 632E5D07
+P 4000 7400
+AR Path="/604BB12B/632E5D07" Ref="#PWR?"  Part="1" 
+AR Path="/632E5D07" Ref="#PWR029"  Part="1" 
+F 0 "#PWR029" H 4000 7150 50  0001 C CNN
+F 1 "GND" V 4005 7227 50  0000 C CNN
+F 2 "" H 4000 7400 50  0001 C CNN
+F 3 "" H 4000 7400 50  0001 C CNN
+	1    4000 7400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 7300 4000 7400
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR?
+U 1 1 632E5D0E
+P 3600 6950
+AR Path="/604BB12B/632E5D0E" Ref="#PWR?"  Part="1" 
+AR Path="/632E5D0E" Ref="#PWR014"  Part="1" 
+F 0 "#PWR014" H 3600 6800 50  0001 C CNN
+F 1 "+3V3" V 3615 7078 50  0000 L CNN
+F 2 "" H 3600 6950 50  0001 C CNN
+F 3 "" H 3600 6950 50  0001 C CNN
+	1    3600 6950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SamacSys_Parts:ST25DV64KC-IE6S3 IC?
+U 1 1 632E5D21
+P 5700 6950
+AR Path="/604BB12B/632E5D21" Ref="IC?"  Part="1" 
+AR Path="/632E5D21" Ref="IC1"  Part="1" 
+F 0 "IC1" H 6550 7215 50  0000 C CNN
+F 1 "ST25DV64KC-IE6S3" H 6550 7124 50  0000 C CNN
+F 2 "Package_SO:SO-8_3.9x4.9mm_P1.27mm" H 7250 7050 50  0001 L CNN
+F 3 "https://www.st.com/resource/en/datasheet/st25dv04kc.pdf" H 7250 6950 50  0001 L CNN
+F 4 "Dynamic NFC/RFID tag IC with 64-Kbit EEPROM, and fast transfer mode capability" H 7250 6850 50  0001 L CNN "Description"
+F 5 "1.75" H 7250 6750 50  0001 L CNN "Height"
+F 6 "511-ST25DV64KC-IE6S3" H 7250 6650 50  0001 L CNN "Mouser Part Number"
+F 7 "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/ST25DV64KC-IE6S3?qs=QNEnbhJQKvbtdVYNeWuKLg%3D%3D" H 7250 6550 50  0001 L CNN "Mouser Price/Stock"
+F 8 "STMicroelectronics" H 7250 6450 50  0001 L CNN "Manufacturer_Name"
+F 9 "ST25DV64KC-IE6S3" H 7250 6350 50  0001 L CNN "Manufacturer_Part_Number"
+	1    5700 6950
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C?
+U 1 1 632E5D27
+P 6150 6800
+AR Path="/604BB12B/632E5D27" Ref="C?"  Part="1" 
+AR Path="/632E5D27" Ref="C23"  Part="1" 
+F 0 "C23" H 6100 6750 50  0000 C CNN
+F 1 "C_Tune" V 6012 6800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6150 6800 50  0001 C CNN
+F 3 "~" H 6150 6800 50  0001 C CNN
+	1    6150 6800
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C?
+U 1 1 632E5D2D
+P 6400 6800
+AR Path="/604BB12B/632E5D2D" Ref="C?"  Part="1" 
+AR Path="/632E5D2D" Ref="C24"  Part="1" 
+F 0 "C24" H 6350 6750 50  0000 C CNN
+F 1 "C_Tune" V 6262 6800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 6400 6800 50  0001 C CNN
+F 3 "~" H 6400 6800 50  0001 C CNN
+	1    6400 6800
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR?
+U 1 1 632E5D33
+P 5700 6650
+AR Path="/604BB12B/632E5D33" Ref="#PWR?"  Part="1" 
+AR Path="/632E5D33" Ref="#PWR040"  Part="1" 
+F 0 "#PWR040" H 5700 6400 50  0001 C CNN
+F 1 "GND" V 5705 6477 50  0000 C CNN
+F 2 "" H 5700 6650 50  0001 C CNN
+F 3 "" H 5700 6650 50  0001 C CNN
+	1    5700 6650
+	-1   0    0    1   
+$EndComp
+$Comp
+L SmartFeedback-rescue:C_Small-Device C?
+U 1 1 632E5D3C
+P 3650 7200
+AR Path="/604BB12B/632E5D3C" Ref="C?"  Part="1" 
+AR Path="/632E5D3C" Ref="C20"  Part="1" 
+F 0 "C20" H 3750 7300 50  0000 C CNN
+F 1 "10uF" H 3750 7100 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 3650 7200 50  0001 C CNN
+F 3 "~" H 3650 7200 50  0001 C CNN
+	1    3650 7200
+	1    0    0    -1  
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR?
+U 1 1 632E5D45
+P 3650 7400
+AR Path="/604BB12B/632E5D45" Ref="#PWR?"  Part="1" 
+AR Path="/632E5D45" Ref="#PWR019"  Part="1" 
+F 0 "#PWR019" H 3650 7150 50  0001 C CNN
+F 1 "GND" V 3655 7227 50  0000 C CNN
+F 2 "" H 3650 7400 50  0001 C CNN
+F 3 "" H 3650 7400 50  0001 C CNN
+	1    3650 7400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 7400 3650 7300
+$Comp
+L SmartFeedback-rescue:C_Small-Device C?
+U 1 1 632E5D4C
+P 5900 6800
+AR Path="/604BB12B/632E5D4C" Ref="C?"  Part="1" 
+AR Path="/632E5D4C" Ref="C22"  Part="1" 
+F 0 "C22" H 5850 6750 50  0000 C CNN
+F 1 "C_Tune" V 5762 6800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 5900 6800 50  0001 C CNN
+F 3 "~" H 5900 6800 50  0001 C CNN
+	1    5900 6800
+	-1   0    0    1   
+$EndComp
+Text GLabel 4000 6850 0    50   Input ~ 0
+GPO
+$Comp
+L SmartFeedback-rescue:GND-power #PWR018
+U 1 1 604010A6
+P 2900 5700
+F 0 "#PWR018" H 2900 5450 50  0001 C CNN
+F 1 "GND" H 2905 5527 50  0000 C CNN
+F 2 "" H 2900 5700 50  0001 C CNN
+F 3 "" H 2900 5700 50  0001 C CNN
+	1    2900 5700
+	0    -1   -1   0   
+$EndComp
+Connection ~ 2700 5700
+$Comp
+L SmartFeedback-rescue:C_Small-Device C4
+U 1 1 60400FB0
+P 2800 5700
+F 0 "C4" V 2850 5600 50  0000 C CNN
+F 1 "10uF" V 2900 5750 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2800 5700 50  0001 C CNN
+F 3 "~" H 2800 5700 50  0001 C CNN
+	1    2800 5700
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR013
+U 1 1 603A767F
+P 2800 4700
+F 0 "#PWR013" H 2800 4450 50  0001 C CNN
+F 1 "GND" V 2805 4572 50  0000 R CNN
+F 2 "" H 2800 4700 50  0001 C CNN
+F 3 "" H 2800 4700 50  0001 C CNN
+	1    2800 4700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2800 5100 2800 4900
+$Comp
+L SmartFeedback-rescue:C_Small-Device C2
+U 1 1 603A5192
+P 2800 4800
+F 0 "C2" V 2850 4700 50  0000 C CNN
+F 1 "10uF" V 2900 4850 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric" H 2800 4800 50  0001 C CNN
+F 3 "~" H 2800 4800 50  0001 C CNN
+	1    2800 4800
+	1    0    0    -1  
+$EndComp
+Connection ~ 2800 5100
+$Comp
+L SmartFeedback-rescue:+3V3-power #PWR011
+U 1 1 603A502C
+P 2800 5100
+F 0 "#PWR011" H 2800 4950 50  0001 C CNN
+F 1 "+3V3" H 2815 5273 50  0000 C CNN
+F 2 "" H 2800 5100 50  0001 C CNN
+F 3 "" H 2800 5100 50  0001 C CNN
+	1    2800 5100
+	0    1    1    0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:L_Small-Device L1
+U 1 1 603A4F52
+P 2700 5100
+F 0 "L1" H 2750 5200 50  0000 L CNN
+F 1 "1uH" H 2750 5100 50  0000 L CNN
+F 2 "Inductor_SMD:L_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2700 5100 50  0001 C CNN
+F 3 "~" H 2700 5100 50  0001 C CNN
+F 4 "LQM21PN1R0MEHD" H 2700 5100 50  0001 C CNN "Component"
+	1    2700 5100
+	0    -1   -1   0   
+$EndComp
+$Comp
+L SmartFeedback-rescue:GND-power #PWR010
+U 1 1 603A4E9B
+P 3000 5400
+F 0 "#PWR010" H 3000 5150 50  0001 C CNN
+F 1 "GND" H 3005 5227 50  0000 C CNN
+F 2 "" H 3000 5400 50  0001 C CNN
+F 3 "" H 3000 5400 50  0001 C CNN
+	1    3000 5400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	2700 5700 2600 5700
+$Comp
+L SmartFeedback-rescue:ADP2108AUJ-3.3-Regulator_Switching U2
+U 1 1 6039CB10
+P 2700 5400
+F 0 "U2" H 2700 5725 50  0000 C CNN
+F 1 "ADP2108AUJ-3.3" H 2700 5634 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:TSOT-23-5" H 2750 5150 50  0001 L CNN
+F 3 "http://www.analog.com/media/en/technical-documentation/data-sheets/ADP2108.pdf" H 2450 5050 50  0001 C CNN
+	1    2700 5400
+	0    -1   -1   0   
+$EndComp
+Connection ~ 7700 3650
+Wire Wire Line
+	7700 3650 8000 3650
+Connection ~ 7700 3950
+Wire Wire Line
+	7700 3950 7450 3950
+Wire Wire Line
+	8100 4050 8000 4050
+Wire Wire Line
+	8000 4050 8000 3950
+Wire Wire Line
+	8000 3550 8100 3550
+Wire Wire Line
+	8000 3550 8000 3650
+Connection ~ 8100 3550
+Wire Wire Line
+	2300 5800 2600 5800
+Wire Wire Line
+	2600 5800 2600 5700
+Wire Wire Line
+	2300 5800 2300 6750
+Connection ~ 2600 5700
+Wire Wire Line
+	3600 6950 3650 6950
+Wire Wire Line
+	4000 7100 4000 6950
+Connection ~ 4000 6950
+Wire Wire Line
+	3650 7100 3650 6950
+Connection ~ 3650 6950
+Wire Wire Line
+	3650 6950 4000 6950
+Wire Wire Line
+	5700 6750 5800 6750
+Wire Wire Line
+	5800 6750 5800 6700
+Wire Wire Line
+	5800 6700 5900 6700
+Wire Wire Line
+	5900 6700 6150 6700
+Connection ~ 5900 6700
+Wire Wire Line
+	6150 6700 6400 6700
+Connection ~ 6150 6700
+Wire Wire Line
+	5700 6850 5800 6850
+Wire Wire Line
+	5800 6850 5800 6900
+Wire Wire Line
+	5800 6900 5900 6900
+Wire Wire Line
+	5900 6900 6150 6900
+Connection ~ 5900 6900
+Wire Wire Line
+	6150 6900 6400 6900
+Connection ~ 6150 6900
+Wire Wire Line
+	6400 6900 6400 7050
+Wire Wire Line
+	6400 7050 6750 7050
+Wire Wire Line
+	6750 7050 6750 6550
+Wire Wire Line
+	6750 6550 6400 6550
+Wire Wire Line
+	6400 6550 6400 6700
+Connection ~ 6400 6900
+Connection ~ 6400 6700
+Text GLabel 10600 3400 2    50   Input ~ 0
+GPO
+NoConn ~ 10600 3200
+$Comp
+L Connector:Conn_01x01_Female NFC_VEH1
+U 1 1 636BB8BF
+P 5700 7300
+F 0 "NFC_VEH1" V 5546 7348 50  0000 L CNN
+F 1 "Conn_01x01_Female" V 5637 7348 50  0000 L CNN
+F 2 "Connector_PinHeader_2.00mm:PinHeader_1x01_P2.00mm_Vertical" H 5700 7300 50  0001 C CNN
+F 3 "~" H 5700 7300 50  0001 C CNN
+	1    5700 7300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5700 7100 5700 6950
+Text Label 6400 6550 0    50   ~ 0
+NFC_antenna
+$EndSCHEMATC
