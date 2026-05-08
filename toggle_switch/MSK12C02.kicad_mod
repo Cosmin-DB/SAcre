@@ -49,9 +49,4 @@
   (pad MP2 smd rect (at 3.450 1.05 90) (size 0.500 0.800) (layers F.Cu F.Paste F.Mask))
   (pad MP3 smd rect (at -3.450 1.05 90) (size 0.500 0.800) (layers F.Cu F.Paste F.Mask))
   (pad MP4 smd rect (at -3.450 -1.05 90) (size 0.500 0.800) (layers F.Cu F.Paste F.Mask))
-  (model MSK12C02.stp
-    (at (xyz 0 0 0))
-    (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
-  )
 )

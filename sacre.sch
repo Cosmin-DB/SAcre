@@ -1891,7 +1891,7 @@ U 1 1 60B23BA2
 P 2400 6750
 F 0 "S1" V 2854 6878 50  0000 L CNN
 F 1 "MSK12C02" V 2945 6878 50  0000 L CNN
-F 2 "SamacSys_Parts:MSK12C02" H 3250 6850 50  0001 L CNN
+F 2 "MSK12C02:MSK12C02" H 3250 6850 50  0001 L CNN
 F 3 "https://shouhan.en.made-in-china.com/product/xsMEmqgOAXWB/China-Slide-Switch-Msk12c02-Slide-Switch-on-off-2-Position-1p2t-Spdt-Miniature-Horizontal-SMD-7p-Slide-Switch.html" H 3250 6750 50  0001 L CNN
 F 4 "SMD Toggle Switches" H 3250 6650 50  0001 L CNN "Description"
 F 5 "1.4" H 3250 6550 50  0001 L CNN "Height"
@@ -1966,7 +1966,7 @@ F 3 "" H 3600 6950 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L SamacSys_Parts:ST25DV64KC-IE6S3 IC?
+L SmartFeedback-rescue:ST25DV64KC-IE6S3-SamacSys_Parts IC?
 U 1 1 632E5D21
 P 5700 6950
 AR Path="/604BB12B/632E5D21" Ref="IC?"  Part="1" 

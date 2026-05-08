@@ -1,9 +1,0 @@
-Manufacturer=Panasonic
-PartNumber=EVQ-PUA02K
-PartCategory=Switch
-PackageCategory=Other
-PinCount=4
-Version=1.3
-Released=2020-10-06 09:53:22
-Downloaded=2022-11-14 10:29:05
-3D=Y

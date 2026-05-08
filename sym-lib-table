@@ -6,5 +6,4 @@
   (lib (name "PN5321A3HN_C106_55")(type "Legacy")(uri "${KIPRJMOD}/PN532/PN5321A3HN_C106_55.lib")(options "")(descr ""))
   (lib (name "PN7150B0HN_C11002Y")(type "Legacy")(uri "${KIPRJMOD}/PN7150/PN7150B0HN_C11002Y.lib")(options "")(descr ""))
   (lib (name "MSK12C02")(type "Legacy")(uri "${KIPRJMOD}/toggle_switch/MSK12C02.lib")(options "")(descr ""))
-  (lib (name "SamacSys_Parts")(type "Legacy")(uri "C:/Users/Cosmin/Desktop/KiCadLib/SamacSys_Parts.lib")(options "")(descr ""))
 )

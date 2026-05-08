@@ -29,9 +29,4 @@
   (pad 2 smd rect (at 0.675 0.5 90) (size 0.700 0.750) (layers F.Cu F.Paste F.Mask))
   (pad 3 smd rect (at 0.675 -0.5 90) (size 0.700 0.750) (layers F.Cu F.Paste F.Mask))
   (pad 4 smd rect (at -0.675 -0.5 90) (size 0.700 0.750) (layers F.Cu F.Paste F.Mask))
-  (model XRCGB27M120F3M13R0.stp
-    (at (xyz 0 0 0))
-    (scale (xyz 1 1 1))
-    (rotate (xyz 0 0 0))
-  )
 )

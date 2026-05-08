@@ -563,12 +563,7 @@
       (net 4 "+3V3") (pinfunction "2") (pintype "passive") (tstamp 1fcdc8ff-db8b-468e-abca-ed47060e0d1c))
     (pad "3" smd rect locked (at -2.625 -0.85) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 8062d0b7-7a27-459a-a543-85204cfce260))
     (pad "4" smd rect locked (at -2.625 0.85) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 880b0b9e-7814-40f4-b471-371d1a65ca97))
-    (model "EVQ-PUA02K.stp"
-      (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
-    )
-    (model "${KICAD6_3DMODEL_DIR}/EVQ-PUA02K.3dshapes/EVQ-PUA02K.stp"
+    (model "${KIPRJMOD}/EVQ-PUA02K/EVQ-PUA02K.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -669,12 +664,7 @@
       (net 4 "+3V3") (pinfunction "2") (pintype "passive") (tstamp 75f057b5-2f42-455d-8e10-c846081046f0))
     (pad "3" smd rect locked (at -2.625 -0.85 180) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 5a879499-d08d-4183-ae3a-94a48590c055))
     (pad "4" smd rect locked (at -2.625 0.85 180) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 8e22f0a3-5e29-4394-9dbb-5c06ca2c7ab3))
-    (model "EVQ-PUA02K.stp"
-      (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
-    )
-    (model "${KICAD6_3DMODEL_DIR}/EVQ-PUA02K.3dshapes/EVQ-PUA02K.stp"
+    (model "${KIPRJMOD}/EVQ-PUA02K/EVQ-PUA02K.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -878,12 +868,7 @@
       (net 4 "+3V3") (pinfunction "2") (pintype "passive") (tstamp 8ae3f568-143f-4306-bffa-637c438df45d))
     (pad "3" smd rect locked (at -2.625 -0.85 180) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 25b5aca9-1c5e-4deb-8a65-278fcf514231))
     (pad "4" smd rect locked (at -2.625 0.85 180) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp fcf2be93-9013-48c5-851a-f5fdeb611398))
-    (model "EVQ-PUA02K.stp"
-      (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
-    )
-    (model "${KICAD6_3DMODEL_DIR}/EVQ-PUA02K.3dshapes/EVQ-PUA02K.stp"
+    (model "${KIPRJMOD}/EVQ-PUA02K/EVQ-PUA02K.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
@@ -1027,11 +1012,6 @@
       (net 10 "Net-(C13-Pad2)") (pintype "passive") (tstamp 2e8ce2a1-0a1f-43dd-81de-83613786dddd))
     (pad "2" smd rect locked (at 1.425 0 90) (size 1.55 3) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 4 "+3V3") (pintype "passive") (tstamp 9d3121f5-15aa-4ae0-9278-45fc89d2c1a9))
-    (model "LQH44PN100MP0L.stp"
-      (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
-    )
   )
 
   (footprint "Diode_SMD:D_SOD-123" locked (layer "F.Cu")
@@ -2896,7 +2876,7 @@
     )
   )
 
-  (footprint "SamacSys_Parts:MSK12C02" locked (layer "F.Cu")
+  (footprint "MSK12C02:MSK12C02" locked (layer "F.Cu")
     (tedit 0) (tstamp 00000000-0000-0000-0000-00006329f446)
     (at 53.7 156.5)
     (descr "MSK12C02-1")
@@ -2969,11 +2949,6 @@
       (net 56 "Net-(S1-PadMP1)") (pinfunction "MP3") (pintype "passive") (tstamp 209d0f14-ba1f-4771-90d9-48c66c9abab8))
     (pad "MP4" smd rect locked (at -3.45 -1.05 90) (size 0.5 0.8) (layers "F.Cu" "F.Paste" "F.Mask")
       (net 56 "Net-(S1-PadMP1)") (pinfunction "MP4") (pintype "passive") (tstamp 9184e299-1eae-42f0-a981-8bac37443905))
-    (model "C:\\Users\\Cosmin\\Desktop\\KiCadLib\\SamacSys_Parts.3dshapes\\MSK12C02.stp"
-      (offset (xyz 0 0 0.7))
-      (scale (xyz 1 1 1))
-      (rotate (xyz -90 0 0))
-    )
   )
 
   (footprint "Inductor_SMD:L_0805_2012Metric_Pad1.15x1.40mm_HandSolder" locked (layer "F.Cu")
@@ -3479,12 +3454,7 @@
       (net 4 "+3V3") (pinfunction "2") (pintype "passive") (tstamp 478e1164-eac4-458a-ab02-8730ae52d737))
     (pad "3" smd rect locked (at -2.625 -0.85) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp a613bc15-acc2-4d67-b7f4-878f870b55f6))
     (pad "4" smd rect locked (at -2.625 0.85) (size 1 1.55) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 10a3c3c2-1d51-4738-b640-9aacad0b1e4a))
-    (model "EVQ-PUA02K.stp"
-      (offset (xyz 0 0 0))
-      (scale (xyz 1 1 1))
-      (rotate (xyz 0 0 0))
-    )
-    (model "${KICAD6_3DMODEL_DIR}/EVQ-PUA02K.3dshapes/EVQ-PUA02K.stp"
+    (model "${KIPRJMOD}/EVQ-PUA02K/EVQ-PUA02K.stp"
       (offset (xyz 0 0 0))
       (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
