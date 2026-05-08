@@ -1966,7 +1966,7 @@ F 3 "" H 3600 6950 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L SmartFeedback-rescue:ST25DV64KC-IE6S3-SamacSys_Parts IC?
+L SamacSys_Parts:ST25DV64KC-IE6S3 IC?
 U 1 1 632E5D21
 P 5700 6950
 AR Path="/604BB12B/632E5D21" Ref="IC?"  Part="1" 

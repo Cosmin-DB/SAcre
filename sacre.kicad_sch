@@ -322,7 +322,7 @@
         )
       )
     )
-    (symbol "SmartFeedback-rescue:ST25DV64KC-IE6S3-SamacSys_Parts" (pin_names (offset 0.762)) (in_bom yes) (on_board yes)
+    (symbol "SamacSys_Parts:ST25DV64KC-IE6S3" (pin_names (offset 0.762)) (in_bom yes) (on_board yes)
       (property "Reference" "IC" (id 0) (at 39.37 7.62 0)
         (effects (font (size 1.27 1.27)) (justify left))
       )
@@ -6530,7 +6530,7 @@
     (pin "1" (uuid 29af5935-8d10-4f82-a9d1-d26c179dfb2f))
   )
 
-  (symbol (lib_id "SmartFeedback-rescue:ST25DV64KC-IE6S3-SamacSys_Parts") (at 144.78 176.53 180) (unit 1)
+  (symbol (lib_id "SamacSys_Parts:ST25DV64KC-IE6S3") (at 144.78 176.53 180) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-0000632e5d21)
     (property "Reference" "IC1" (id 0) (at 123.19 183.261 0))
