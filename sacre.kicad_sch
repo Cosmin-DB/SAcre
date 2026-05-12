@@ -6638,7 +6638,7 @@
 	)
 	(wire
 		(pts
-			(xy 261.62 78.74) (xy 261.62 83.82)
+			(xy 261.62 73.66) (xy 261.62 83.82)
 		)
 		(stroke
 			(width 0)
@@ -7425,6 +7425,29 @@
 			(type default)
 		)
 		(uuid "ffc7418f-c4ab-44c4-b00d-bef7586fde1f")
+	)
+	(label "ANT_RF"
+		(at 261.62 80.01 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1b234fa6-87b5-419c-997b-aa37906c54d6")
+		(property "Clase de red" "antena"
+			(at 262.89 80.01 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
 	)
 	(global_label "SDA"
 		(shape input)
@@ -9255,7 +9278,7 @@
 	)
 	(symbol
 		(lib_id "SmartFeedback-rescue:Antenna_Shield-Device")
-		(at 261.62 73.66 0)
+		(at 261.62 68.58 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9265,7 +9288,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-000060384e56")
 		(property "Reference" "AE1"
-			(at 265.176 72.6186 0)
+			(at 265.176 67.5386 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9276,7 +9299,7 @@
 			)
 		)
 		(property "Value" "Antenna_Shield"
-			(at 265.176 74.93 0)
+			(at 265.176 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9287,7 +9310,7 @@
 			)
 		)
 		(property "Footprint" "Custom_antenna:AN012400C00R3200"
-			(at 261.62 71.12 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9298,7 +9321,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 71.12 0)
+			(at 261.62 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9309,7 +9332,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 261.62 73.66 0)
+			(at 261.62 68.58 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9335,7 +9358,7 @@
 	)
 	(symbol
 		(lib_id "SmartFeedback-rescue:GND-power")
-		(at 264.16 78.74 0)
+		(at 264.16 73.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9345,7 +9368,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-000060384ef1")
 		(property "Reference" "#PWR044"
-			(at 264.16 85.09 0)
+			(at 264.16 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9356,7 +9379,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 265.43 82.55 90)
+			(at 265.43 77.47 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9366,7 +9389,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 264.16 78.74 0)
+			(at 264.16 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9377,7 +9400,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 264.16 78.74 0)
+			(at 264.16 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9388,7 +9411,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 264.16 78.74 0)
+			(at 264.16 73.66 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10050,7 +10073,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 77.47 28.956 0)
 			(hide yes)
 			(show_name no)
@@ -11085,7 +11108,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70_Handsoldering"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-323_SC-70"
 			(at 125.73 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -15869,7 +15892,7 @@
 		(dnp no)
 		(uuid "e467b5cb-dd92-4448-baa0-452badb55c1e")
 		(property "Reference" "R11"
-			(at 173.99 104.14 0)
+			(at 175.514 105.918 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
