@@ -5972,7 +5972,7 @@
 		)
 		(uuid "09355c99-117a-4a22-ab51-8f5f3130b5e4")
 	)
-	(text "  REVISION NOTES:\n  - Touch FPC: SDA and SCL are swapped. Correct TOUCH_SDA/TOUCH_SCL routing in next revision.\n  - Touch FPC: improve mechanical clearance and flex cable exit/orientation.\n  - Vibration motor Q2: selected S8050 SOT-23 pinout does not match PCB pad mapping. Fix Q2 symbol/footprint or select a pin-compatible\n  driver transistor.\n  - Pullup en int touch\n  - Más condensadorees cerca del mcu"
+	(text "  REVISION NOTES:\n  - Touch FPC: corrected mapping for AFC24-S06FIC-00: J1.1=SCL, J1.2=SDA. Hardware validation pending.\n  - Touch FPC: improve mechanical clearance and flex cable exit/orientation.\n  - Vibration motor Q2: selected S8050 SOT-23 pinout does not match PCB pad mapping. Fix Q2 symbol/footprint or select a pin-compatible\n  driver transistor.\n  - Pullup en int touch\n  - Más condensadorees cerca del mcu"
 		(exclude_from_sim no)
 		(at 137.668 -1.524 0)
 		(effects
@@ -7852,7 +7852,7 @@
 			)
 		)
 	)
-	(global_label "SCL"
+	(global_label "SDA"
 		(shape input)
 		(at 165.1 115.57 0)
 		(fields_autoplaced yes)
@@ -8308,7 +8308,7 @@
 			)
 		)
 	)
-	(global_label "SDA"
+	(global_label "SCL"
 		(shape input)
 		(at 165.1 118.11 0)
 		(fields_autoplaced yes)

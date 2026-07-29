@@ -69,7 +69,12 @@ corriente de carga, corriente de arranque o márgenes térmicos.
 
 ## Fallos observados en el prototipo
 
-- [ ] `TOUCH-01` Corregir SDA y SCL intercambiadas en el FPC táctil.
+- [x] `TOUCH-01` SDA y SCL intercambiadas en el FPC táctil.
+  - `Estado`: CORREGIDO; pendiente de validación con el panel.
+  - `Acción`: J1.1 pasa a `SCL` y J1.2 a `SDA`. El cruce de `SDA` se resuelve
+    localmente en B.Cu con dos vías; `SCL` permanece en F.Cu.
+  - `Cierre`: comprobar detección del FT6336U y niveles/flancos de ambas
+    señales con el flex conectado.
 - [ ] `TOUCH-02` Revisar holgura, orientación y salida del flex táctil.
 - [ ] `MOTOR-01` Corregir la incompatibilidad entre el pinout de Q2 y su huella.
 - [ ] `TOUCH-03` Añadir y dimensionar el pull-up de la interrupción táctil.
