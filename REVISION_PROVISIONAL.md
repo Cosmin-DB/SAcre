@@ -2,7 +2,8 @@
 
 **Autor:** Cosmin Dobrescu
 **Fecha:** 2026-07-29
-**Estado:** pendiente de validación del autor. No aplicar correcciones desde este documento.
+**Estado:** registro de verificación en curso. El README mantiene el checklist
+vigente; cada hallazgo indica aquí si su corrección ya fue aplicada.
 
 No se repiten aquí los cinco fallos ya anotados en el esquemático.
 
@@ -74,10 +75,11 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - Es una explicación plausible para la parte Bluetooth de `OBS-01`, no una
   causalidad demostrada.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Sustituir L2 por una bobina de potencia de 1 µH, baja DCR y corriente
-  admisible superior al pico; las referencias del ADP2108 parten de 800 mA.
+- L2 queda como `FTC252012S1R0MBCA`, LCSC `C5832370`: 1 µH, 4 A, Isat
+  5,6 A y DCR 35 mΩ, con huella `L_Changjiang_FTC252012S` en el esquema.
+- La actualización y colocación en PCB permanecen pendientes.
 
 **Fuentes:** [BOM fabricado](bom_jlcpb.csv), [L2 C1042, pág. 4](documentation/datasheets/SDFL2012Q1R0KTF-C1042.pdf), [ADP2108, pág. 13](documentation/datasheets/ADP2108.pdf), [ESP32-PICO, tabla 17](documentation/datasheets/ESP32-PICO-series.pdf).
 
@@ -120,21 +122,25 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - Q4 `SI1308EDL` y los Schottky `MBR0530` coinciden con la recomendación
   actual.
 - El mapeo completo del FPC confirma su orientación inversa respecto a J2.
-  Dentro del multiplicador aparecen tres discrepancias adicionales:
-  - C6 es 4,7 µF; el circuito SSD1683 prescribe 1 µF para ese condensador
-    volante.
-  - C8 carga con 1 µF el pin 4 del panel, declarado `NC / keep open`.
-  - C16 carga con 1 µF `VPP`, declarado pin de prueba y dejado abierto en la
-    aplicación SSD1683.
+  El circuito específico del panel GDEY042T81-T02 resuelve la diferencia entre
+  el circuito genérico del SSD1683 y esta aplicación:
+  - C6=4,7 µF/25 V coincide con el circuito de referencia del panel y se
+    conserva; el valor genérico de 1 µF no prevalece sobre la aplicación
+    específica.
+  - C8 cargaba con 1 µF J2.21, correspondiente al pin 4 del panel, declarado
+    `NC / keep open`.
+  - C16 cargaba con 1 µF J2.6, correspondiente al pin 19 `VPP`, declarado
+    `FOR TEST` y dejado abierto en el circuito de referencia del panel.
 - El táctil FT6336U es un bloque I²C independiente. El booster no explica por sí
   solo su fallo salvo por una caída compartida de `+3V3`.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Para el SSD1683: `L1 = 47 µH`, apantallada y con corriente admisible de al
-  menos 500 mA; `R10 = 2,2 Ω`, 1 %, al menos 0,05 W.
-- Cambiar C6 a 1 µF y retirar C8/C16 tras confirmar que la revisión física del
-  panel probado corresponde al pinout archivado.
+- `L1 = 47 µH` y `R10 = 2,2 Ω`. L1 queda como `FHD4020S-470MT`, LCSC
+  `C843300`: 660 mA, Isat 1,3 A y DCR 950 mΩ, con huella
+  `L_Changjiang_FNR4020S` en el esquema.
+- C6 se conserva en 4,7 µF/25 V; C8 y C16 se eliminan.
+- La actualización, colocación y revisión en PCB permanecen pendientes.
 
 **Fuentes:** [BOM fabricado](bom_jlcpb.csv), [panel GDEY042T81-T02](documentation/datasheets/GDEY042T81-T02.pdf), [SSD1683, circuito de aplicación pág. 46](documentation/datasheets/SSD1683.pdf), [producto oficial: IC SSD1683](https://www.good-display.com/product/473.html), [DESPI-C02 V1.0 de 2018](https://v4.cecdn.yun300.cn/100001_1909185148/DESPI-C02_SCH%20V1.0.pdf), [guía oficial DESPI-C02, secciones 3.1 y 4.1–4.4](https://www.good-display.com/companyfile/29.html).
 
@@ -153,10 +159,9 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - La salida `INT` del RV-8803-C7 es open-drain y el fabricante indica expresamente que requiere pull-up.
 - Un pull-up interno habilitado por firmware puede ocultar el fallo durante algunas pruebas, pero no existe durante reset ni está garantizado por el hardware.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Añadir un pull-up externo de `RTC_INT` a `+3V3`; dimensionarlo antes de fijar
-  el valor.
+- R22=10 kΩ entre `RTC_INT` y `+3V3`; Y1.6 permanece en GPIO27.
 
 **Fuentes:** [RV-8803-C7](documentation/datasheets/RV-8803-C7-datasheet.pdf), [manual de aplicación oficial, pág. 64](https://www.microcrystal.com/fileadmin/Media/Products/RTC/App.Manual/RV-8803-C7_App-Manual.pdf).
 
@@ -182,10 +187,10 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - La omisión puede producir rizado, resets del CP2104, enumeración USB
   intermitente o programación UART poco fiable. No implica un fallo seguro.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Mantener `VDD` y `VIO` unidos y añadir en esa red `1–5 µF` más `0,1 µF`,
-  próximos a U3.
+- U3 queda alimentado desde `+3V3`; C23=1 µF y C20=0,1 µF son sus desacoplos
+  locales. `USB_VBUS` se detecta mediante R23/R24 sin alimentar U3.
 
 **Fuente:** [CP2104, figura 8, pág. 17](documentation/cp2104-1397921.pdf).
 
@@ -210,12 +215,10 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - Es una explicación fuerte de `OBS-01` únicamente si la placa ensayada tenía
   JP1 cerrado.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Eliminar por completo `RES_TOUCH` de IO16 y su stub.
-- Llevar el reset táctil a un GPIO libre y seguro, por ejemplo GPIO4, con un
-  nivel definido que lo mantenga bajo durante el encendido; elevarlo por
-  firmware después de al menos 5 ms.
+- JP1 y la conexión a IO16 se eliminan. `RES_TOUCH_CTRL` pasa a GPIO4 mediante
+  R11=1 kΩ, C25=10 µF y D8; el firmware lo maneja en drenador abierto.
 
 **Fuentes:** [ESP32-PICO-D4, tabla de pines](documentation/datasheets/ESP32-PICO-series.pdf), [FT6336U](documentation/datasheets/FT6336U.pdf).
 
@@ -238,28 +241,28 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
   ESP32 sin cortar `+3V3`, el sensor conserva ese estado durante el muestreo y
   puede provocar brownout o impedir el arranque.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Mover `ACC_INT2` a un GPIO de entrada sin función de strap; GPIO34 está libre
-  en el diseño actual.
+- `ACC_INT2` pasa a GPIO34, entrada sin función de strap.
 - Cierre: comprobar arranque en frío y reset sólo de `EN` con INT2 activo.
 
 **Fuentes:** [LIS3DH](documentation/lis3dh_datasheet.pdf), [guía de hardware ESP32](documentation/esp32_hardware_design_guidelines_en.pdf).
 
-### RV-07 — Falta desacoplo local en la entrada del TP4054
+### RV-07 — Faltan los condensadores locales del TP4054
 
 **Confianza:** muy alta · **Impacto posible:** carga inestable
 
-- U5 tiene los 10 µF de batería/salida en C2, pero no el condensador de 1 µF
-  recomendado junto a `VCC`.
-- C20 también es de 1 µF sobre `USB_VBUS`, pero está colocado junto al CP2104,
-  a unos 32 mm de U5; no constituye desacoplo local del cargador.
+- La aplicación típica del componente exacto pide 1 µF en su entrada de
+  alimentación y 10 µF en la salida de batería, ambos locales a U5. En el
+  símbolo del esquema son `VDD` y `VBAT`. Ninguno está presente.
+- C2 es 0,1 µF sobre `VBAT_RAW` para el RTC; no sustituye los 10 µF locales de
+  U5. C20 y C23 desacoplan `+3V3` en el CP2104, no `USB_VBUS`.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Añadir 1 µF cerámico entre U5.4 y GND, pegado al encapsulado y con retorno
-  corto.
-- Cierre: comprobar tensión estable en U5.4 durante conexión y carga.
+- C29=1 µF entre U5.4 (`VDD`) y GND y C28=10 µF entre U5.3 (`VBAT`) y
+  GND. En PCB deben quedar pegados a U5 y con retornos cortos.
+- Cierre: comprobar estabilidad en U5.4 y U5.3 durante conexión y carga.
 
 **Fuente:** [TP4054 JSMSEMI, aplicación típica](documentation/datasheets/TP4054-JSMSEMI-C5381776.pdf).
 
@@ -272,15 +275,22 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - Si el equipo permanece encendido mientras carga, el TP4054 mide conjuntamente
   batería y consumo del sistema. La terminación puede retrasarse o no producirse
   y la batería puede aportar los picos que excedan la corriente del cargador.
-- R19 = 10 kΩ configura aproximadamente 100 mA; falta validar ese valor con la
-  batería exacta.
+- R19 se cambia de 10 kΩ a 5,1 kΩ: programa unos 196 mA para la batería prevista
+  de 600–700 mAh y reutiliza el valor de R16/R17. La terminación ocurre
+  alrededor de C/10, por lo que una carga activa superior a unos 20 mA puede
+  impedirla.
+- La batería incorpora protección propia, confirmado por el autor.
+- El datasheet del TP4054 contiene una tabla ambigua con un límite de 4,28 V y
+  grados A/B poco claros. Sin embargo, LCSC y JLCPCB identifican el componente
+  exacto `C5381776` como 4,2 V. Se mantiene U5; medir la tensión final forma
+  parte de la validación, no de una corrección del esquema.
 
-**Decisión necesaria**
+**Decisión cerrada**
 
-- O bien impedir por especificación que el sistema funcione durante la carga,
-  o bien rediseñar con power-path/load sharing. Confirmar también que la
-  batería incorpora protección contra sobredescarga y cortocircuito: el TP4054
-  sólo es cargador.
+- No añadir power-path. U5 permanece conectado directamente a `VBAT_RAW`.
+- Especificar carga normal con el equipo apagado. Mantenerlo encendido
+  temporalmente para programar es admisible, aunque no garantiza terminación
+  de carga mientras exista consumo.
 - Cierre: validar terminación y corriente real con el sistema apagado y, si se
   permite, encendido.
 
@@ -293,10 +303,10 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
   latch.
 - El fabricante indica que EVI no debe quedar flotante.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Añadir una polarización externa que mantenga EVI inactivo incluso con el
-  ESP32 apagado; evitar que esa polarización pueda realimentar `+3V3`.
+- `RTC_EVI` se desconecta de GPIO15 y queda inactiva mediante R21=100 kΩ a
+  `VBAT_RAW`, con TP1 para un posible uso futuro.
 - Cierre: medir un nivel definido en EVI con el latch encendido y apagado.
 
 **Fuente:** [manual RV-8803-C7](RV-8803/RV-8803-C7_App-Manual.pdf).
@@ -309,10 +319,11 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - La guía vigente de Espressif recomienda 10 kΩ + 1 µF para mejorar la
   estabilidad de encendido.
 
-**Corrección prevista, no autorizada**
+**Corrección aplicada en el esquemático**
 
-- Cambiar C17 a 1 µF. El arranque será algo más lento y puede exigir mantener
-  el pulsador durante más tiempo; no sustituye la corrección de `PWR-02`.
+- C17=1 µF con R12=10 kΩ. El arranque será algo más lento y puede exigir
+  mantener el pulsador durante más tiempo; no sustituye la corrección de
+  `PWR-02`.
 - Cierre: comprobar subida limpia de `EN`, arranque manual y reset de
   programación.
 
@@ -320,21 +331,31 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 
 ## Condiciones abiertas, no clasificadas como fallo
 
-- Los pull-ups I²C de 10 kΩ pueden ser débiles a 400 kHz por la longitud del
-  bus y los flex; resolver con frecuencia real y medida de tiempo de subida.
-- El ADP2108 entrega como máximo 600 mA a ESP32, pantalla y motor. Cerrar el
-  presupuesto con la corriente real del motor y los picos de refresco.
+- Los pull-ups I²C R7/R8 se cambian de 10 kΩ a 5,1 kΩ para aumentar el margen
+  de subida a 400 kHz sin añadir un valor nuevo al BOM.
+- **U4 / presupuesto de `+3V3`: CERRADO.** Sin motor, el pico documentado
+  queda en unos 401 mA: ESP32 Wi-Fi 370 mA, panel 5,6 mA típicos, táctil
+  4,32 mA típicos, CP2104 18,73 mA máximos y unos 2 mA para LIS3DH y
+  polarizaciones. El motor ya toma energía de `VSYS`, por lo que no carga U4.
+  El ADP2108 de 600 mA y C21/C22=10 µF son adecuados para esta topología.
+- Con batería baja, U4 entra correctamente en modo 100 % de ciclo, pero deja
+  de regular a 3,3 V y la salida sigue a la batería con pérdidas. Debe
+  verificarse que el firmware apaga el equipo antes de que `+3V3` caiga por
+  debajo de los 3,0 V recomendados para el ESP32; la protección de la batería
+  por sí sola puede actuar demasiado tarde.
 - La medida de batería en ADC1 es válida; añadir 100 nF local sería una mejora
   de filtrado, no un fallo demostrado.
-- Q2 debe corregirse por `MOTOR-01`; al hacerlo, verificar corriente de
-  arranque, saturación y si 1 µF directamente sobre el motor es compatible con
-  el PWM.
+- `MOTOR-01`: Q2 ya está corregido al pinout B1/E2/C3 del S8050 montado
+  (`C20069125`). El motor toma energía de `VSYS` mediante D9=MBR0530;
+  C1=0,1 µF y R25=100 kΩ. La etapa queda validada eléctricamente para el
+  candidato de 70 mA nominales y 90 mA de arranque. Quedan la referencia de
+  compra, la comprobación mecánica y la PCB.
 
 ## Comprobaciones descartadas
 
 - **D5/BAT54C:** el pin común 3 va al pulsador; D5.1 sí permite descargar la puerta de Q5. La topología de encendido es coherente.
-- **LIS3DH:** símbolo, desacoplo, `CS` y `SDO/SA0` son coherentes. El problema
-  restante es su conexión externa a GPIO12, documentada en `RV-06`.
+- **LIS3DH:** símbolo, desacoplo, `CS` y `SDO/SA0` son coherentes; `ACC_INT2`
+  ya está corregida de GPIO12 a GPIO34 según `RV-06`.
 - **ESP32-PICO-D4:** `SD2/GPIO9` y `SD3/GPIO10` no están ocupados por la flash interna de esta variante. El condensador de `VDD_SDIO` mostrado en el esquema interno forma parte del SiP; no se cuenta como componente externo ausente.
 - **CP2104:** el pad expuesto central es GND opcional según el fabricante; que
   esté sin conectar no constituye un fallo. El pinout y la función de Q7 son
