@@ -155,9 +155,8 @@ compra hasta validar dimensiones y huella del motor.
 
 ## Correcciones pendientes agrupadas
 
-Orden de trabajo: cerrar cada bloque en esquemático antes de comenzar el
-siguiente. La PCB queda aparcada hasta cerrar el esquemático y seleccionar los
-componentes pendientes.
+Esquemático aplicado a la PCB el 2026-09-13. La colocación es provisional;
+el autor ajustará posiciones y completará el enrutado y la validación física.
 
 ### 1. GPIO, reset táctil y RTC
 
@@ -175,8 +174,7 @@ componentes pendientes.
 - [x] Esquemático corregido.
 - [ ] PCB corregida y revisada por el autor.
 
-El autor realiza después la sincronización, colocación, enrutado y revisión de
-la PCB.
+El autor realiza el ajuste final de colocación, enrutado y revisión de la PCB.
 
 ### 2. USB, latch, C18 y EN
 
@@ -219,8 +217,9 @@ la PCB.
 - [x] Motor pasado de `+3V3` a `VSYS` mediante D9=MBR0530; `VMOTOR` alimenta
   M1, D1 y C1=0,1 µF. R25=100 kΩ mantiene la base de Q2 descargada. PWM
   opcional; encendido/apagado directo válido.
-- [x] Etapa validada para el motor candidato: 3 V nominales, rango 2,5–4 V,
-  70 mA nominales y 90 mA de arranque.
+- [x] Etapa dimensionada provisionalmente para el motor candidato: 3 V,
+  rango 2,5–4 V y 70 mA nominales, suponiendo 90 mA de arranque. Confirmar
+  este último dato en el motor comprado; no equivale a validación física.
 - [ ] Fijar referencia de compra y comprobar dimensiones/huella del motor.
 
 ### 4. Cargador y batería
@@ -241,18 +240,37 @@ la PCB.
 
 ### 5. PCB y mecánica
 
-Estado: **PREPARACIÓN EN CURSO**, autorizada el 2026-09-13; sin enrutado nuevo.
+Estado: **PREPARADA PARA ENRUTADO MANUAL** (2026-09-13). Colocación provisional,
+sin pistas nuevas; todavía no es una PCB lista para fabricar.
 
 - Referencia anterior a la preparación: `ae7a2bc`; DRC inicial: 0 infracciones
   y 0 conexiones pendientes (todavía con el circuito antiguo en PCB).
 - [Vista original por capas](documentation/pcb_preparacion/antes.png): capa
   activa en color y las demás en gris, sin rellenos para ver las pistas.
+- [Vista final por capas](documentation/pcb_preparacion/despues.png), con el
+  mismo encuadre, y [colocación con referencias](documentation/pcb_preparacion/colocacion.png).
 - Inventario: 22 componentes añadidos, 7 retirados y cambio de huella de L1.
-  SDA/SCL ya coinciden con el esquema; conservar su enrutado salvo interferencias.
+  Se retiraron 181 segmentos/vías; los 805 conservados mantienen geometría y red.
+  RF, USB D+/D− y SDA/SCL se conservan íntegros. Contorno, taladros, conectores,
+  ESP32, antena y contornos de zonas/keepout no se han movido.
+- Comprobación final: 0 infracciones DRC, 0 discrepancias con el esquema y
+  50 conexiones pendientes de enrutar. Zonas rellenadas; componentes nuevos
+  dentro del contorno y sin solapamiento de courtyards.
+- Checkpoints: `6c13108` referencia visual; `2be720c` sincronización;
+  `a26d5b2` limpieza de cobre. La colocación se guarda en el commit siguiente.
+
+| Zona | Cambios aplicados en PCB |
+| --- | --- |
+| Regulador | U6 en el centro del antiguo U4: (70,4; 132,4) mm. L3, C31/C32 y R26/R27 alrededor. Retirados U4, L2, C21/C22 y sus ramas obsoletas. |
+| USB | C23/C24 y R23/R24 junto a U3. Retiradas las conexiones antiguas de alimentación; USB D+/D− y auto-reset conservados. |
+| Táctil y RTC | C25/D8 junto a J1; R21/R22/TP1 junto a Y1. JP1 retirado; reset, EVI y ACC_INT2 pendientes de enrutar con los GPIO actuales. |
+| ESP32 | C26/C27 a la derecha de U2; C30 a la izquierda, junto al lado de VDD_SDIO. Ajustar distancias y retornos al enrutar. |
+| Carga y motor | C28/C29 junto a U5; D9/R25 en la zona de M1/Q2. Cobre antiguo del pinout de Q2 y alimentación del motor retirado. |
+| Pantalla | Huella de L1 sustituida en la misma posición. C8/C16 y sus pistas retirados. R9/R10 actualizados; resto del booster conservado. |
 
 - [x] Sincronizar componentes, valores, huellas y redes desde el esquemático.
-  Coincidencia verificada pad a pad; 92 componentes. Etapa intermedia: piezas
-  nuevas aparcadas fuera del contorno, pendiente limpieza de cobre y colocación.
+  Coincidencia verificada pad a pad; 92 componentes.
+- [x] Retirar cobre obsoleto y colocar provisionalmente las piezas nuevas por zonas.
 - [ ] Recolocar J1 y despejar la salida del flex.
 - [ ] Colocar desacoplos y diseñar los bucles de regulador, booster y motor.
 - [ ] Adaptar las pistas a los nuevos GPIO y al pinout real de Q2.
