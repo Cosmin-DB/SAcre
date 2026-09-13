@@ -26,9 +26,10 @@ Diseño electrónico de un dispositivo portátil basado en ESP32.
 7. Usar estos estados:
    `PENDIENTE → CONFIRMADO / DESCARTADO / CONDICIONAL → CORREGIDO → VALIDADO`.
 8. Durante la verificación no modificar el diseño.
-9. Las correcciones del asistente se limitan al esquemático. No modificar en
-   la PCB colocación, pistas, vías, zonas ni huellas; sólo analizar y proponer
-   restricciones para que el autor realice el trabajo físico.
+9. Autorización del autor (2026-09-13): el asistente puede sincronizar la PCB,
+   retirar cobre obsoleto y colocar provisionalmente componentes por zonas.
+   Conservar contorno, taladros, conectores y keepout RF. Guardar comparativas
+   por capas y commits por etapa. El enrutado y ajuste final quedan al autor.
 10. Registrar por separado en cada incidencia:
     - `[ ] Esquemático corregido`
     - `[ ] PCB corregida y revisada por el autor`
@@ -240,7 +241,14 @@ la PCB.
 
 ### 5. PCB y mecánica
 
-Estado: **APARCADO** hasta cerrar el esquemático y las referencias pendientes.
+Estado: **PREPARACIÓN EN CURSO**, autorizada el 2026-09-13; sin enrutado nuevo.
+
+- Referencia anterior a la preparación: `ae7a2bc`; DRC inicial: 0 infracciones
+  y 0 conexiones pendientes (todavía con el circuito antiguo en PCB).
+- [Vista original por capas](documentation/pcb_preparacion/antes.png): capa
+  activa en color y las demás en gris, sin rellenos para ver las pistas.
+- Inventario: 22 componentes añadidos, 7 retirados y cambio de huella de L1.
+  SDA/SCL ya coinciden con el esquema; conservar su enrutado salvo interferencias.
 
 - [ ] Actualizar la PCB desde el esquemático cerrado.
 - [ ] Recolocar J1 y despejar la salida del flex.
