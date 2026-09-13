@@ -5299,7 +5299,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "Auto-reset\n"
+	(text "RESET AUTOMÁTICO"
 		(exclude_from_sim no)
 		(at 179.07 57.15 0)
 		(effects
@@ -5310,18 +5310,18 @@
 		)
 		(uuid "1e85441c-e178-4a81-b615-cf4ebbf8c38a")
 	)
-	(text "ALIMENTACIÓN USB-UART:\nU3 se alimenta desde +3V3 (self-powered).\nR23/R24 detectan USB_VBUS sin realimentar +3V3."
+	(text "ALIMENTACIÓN USB-UART:\nU3 usa +3V3 para evitar realimentación al conectar USB\ncon el latch apagado. R23/R24 sólo detectan USB_VBUS."
 		(exclude_from_sim no)
 		(at 100.076 81.28 0)
 		(effects
 			(font
-				(size 0.9906 0.9906)
+				(size 0.8 0.8)
 			)
 			(justify left bottom)
 		)
 		(uuid "3e5b75b4-2a50-4ece-b854-33c87a62e5ab")
 	)
-	(text "\nUSB-Serial"
+	(text "USB-UART"
 		(exclude_from_sim no)
 		(at 139.7 71.12 0)
 		(effects
@@ -5343,7 +5343,7 @@
 		)
 		(uuid "45b71471-6803-491a-82fb-f1a81ae4d5fc")
 	)
-	(text "LATCH DE ALIMENTACIÓN:\nSW1 enciende; GPIO25 debe pasar a HIGH al arrancar para mantener VSYS.\nR13/C18 retrasan el apagado unos 30 ms; no supervisan la tensión.\nSi un reset libera el latch durante programación, mantener SW1 pulsado."
+	(text "LATCH DE ALIMENTACIÓN:\nSW1 enciende; GPIO25 debe pasar a HIGH al arrancar para mantener VSYS.\nR13/C18 retrasan el apagado unos 30 ms; no supervisan la tensión.\nSi un reset libera el latch al programar el ESP32, mantener SW1 pulsado."
 		(exclude_from_sim no)
 		(at 33.528 187.452 0)
 		(effects
@@ -5354,7 +5354,7 @@
 		)
 		(uuid "80e5bfa3-eaff-4648-a3d9-c23bcc5fd1cd")
 	)
-	(text "REGULADOR +3V3 — TLV62568\n1 A; R26/R27=453k/100k → 3.318 V nominal.\nL3=1 µH; C31/C32=10 µF. Sustituye al ADP2108.\nPCB: C31 junto a VIN; bucle SW-L3-C32 corto; FB alejado de SW."
+	(text "REGULADOR +3V3:\nEl TLV62568 sustituye al ADP2108 por coste y disponibilidad; R26/R27 fijan 3,318 V.\nL3 se eligió por baja DCR y margen de saturación, no sólo por compartir huella.\nPCB: C31 junto a VIN; bucle SW-L3-C32 corto y FB alejado de SW."
 		(exclude_from_sim no)
 		(at 128.27 130.81 0)
 		(effects
@@ -5365,7 +5365,7 @@
 		)
 		(uuid "878c158a-00fe-4b6e-82a4-9d515592e624")
 	)
-	(text "CARGADOR U5: R19=5.1 kΩ fija unos 196 mA para una batería de 600–700 mAh.\nSin power-path: con el equipo encendido, el consumo puede impedir o retrasar el fin de carga.\nPCB: colocar C29 y C28 junto a U5."
+	(text "CARGADOR U5:\nLa corriente objetivo es unos 196 mA para una batería de 600–700 mAh.\nSin power-path: el consumo del equipo puede retrasar o impedir la detección de fin de carga.\nPCB: colocar C29 y C28 junto a U5."
 		(exclude_from_sim no)
 		(at 115.57 116.84 0)
 		(effects

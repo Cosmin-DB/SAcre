@@ -1,23 +1,21 @@
 # Auditoría eléctrica por componentes
 
 **Autor:** Cosmin Dobrescu
-**Fecha:** 2026-08-03
+**Última revisión:** 2026-09-13
 **Alcance:** esquema actual, netlist exportado con KiCad 10 y datasheets del
-fabricante. Se revisan también dependencias entre bloques. No se modifica el
-esquema ni la PCB.
+fabricante. Se revisan también dependencias entre bloques; la PCB queda fuera
+de esta auditoría.
 
-Estados: `CORRECTO`, `CONDICIONAL`, `CORREGIR` y `NO VERIFICABLE`.
+Estados: `CORRECTO`, `CONDICIONAL`, `CORREGIR`, `DECISIÓN ACEPTADA` y
+`NO VERIFICABLE`.
 
 ## Resultado ejecutivo
 
-### Debe corregirse
+### Sin correcciones eléctricas obligatorias abiertas
 
-1. **Salida del TLV (`R26`, `R27`, FT6336U)**. El divisor actual produce
-   3,318 V nominal y aproximadamente 3,22–3,42 V incluyendo tolerancias. El
-   FT6336U sólo especifica 2,8–3,3 V en funcionamiento; 3,6 V es máximo
-   absoluto, no tensión de diseño. Debe bajarse el objetivo de `+3V3`. Como
-   referencia, 432 kΩ/100 kΩ con R26 de 0,1 % daría 3,192 V nominal y
-   aproximadamente 3,10–3,29 V, manteniendo margen para todos los bloques.
+`R26` y `R27` se han revisado de nuevo y se conservan; el detalle y el margen
+aceptado constan en la tabla del regulador.
+
 ### Corregido en esta revisión
 
 1. **Booster de pantalla (`R9`)**. R9 queda en 1 MΩ entre `GDR` y
@@ -34,6 +32,9 @@ Estados: `CORRECTO`, `CONDICIONAL`, `CORREGIR` y `NO VERIFICABLE`.
 - **RF (`U2`, `AE1`)**: se conserva la conexión directa mediante pista de 50 Ω.
   No se reserva una red π porque no se dispone de medida RF para determinar sus
   valores. El riesgo se acepta y se deja para una futura revisión con VNA.
+- **Salida `+3V3` (`R26`, `R27`)**: se conservan 453 kΩ/100 kΩ. Producen
+  3,318 V nominales y se aceptan como alimentación práctica de 3,3 V para el
+  FT6336U; no se abre una corrección del divisor.
 
 ### Debe decidirse o medirse
 
@@ -66,7 +67,7 @@ Estados: `CORRECTO`, `CONDICIONAL`, `CORREGIR` y `NO VERIFICABLE`.
 | C30 | CORRECTO | 100 nF exclusivamente entre `VDD_SDIO` y GND, como indica Espressif. No debe unirse `VDD_SDIO` a `+3V3`. |
 | R12, C17 | CORRECTO | 10 kΩ + 1 µF en EN produce unos 10 ms y mantiene el pin definido. Es compatible con el auto-reset; el latch puede exigir mantener pulsado durante programación. |
 | U6 | CORRECTO | TLV62568DBVR: VIN 2,5–5,5 V, salida de 1 A, EN definido y unido a VIN. `VSYS` de 0–4,2 V entra en rango. |
-| R26, R27 | CORREGIR | 453 kΩ/100 kΩ produce 3,318 V nominal y aproximadamente 3,22–3,42 V con tolerancias. R27 cumple el máximo de 200 kΩ de TI, pero el extremo alto supera los 3,3 V de funcionamiento del FT6336U. Bajar el divisor; 432 kΩ/100 kΩ con R26 de 0,1 % es una referencia conservadora que debe cerrarse al seleccionar componente. |
+| R26, R27 | DECISIÓN ACEPTADA | Son el divisor de realimentación del TLV: 453 kΩ/100 kΩ produce 3,318 V nominal. Apilando `VFB` del TLV (0,588–0,612 V), R26 de 0,1 % y R27 de 1 %, resulta aproximadamente 3,22–3,42 V. El datasheet del FT6336U es internamente conservador/inconsistente: anuncia funcionamiento a 2,8–3,6 V, mientras su tabla DC caracteriza VDDA/VDD3 hasta 3,3 V y fija 3,6 V como máximo absoluto. Se conserva el divisor: el extremo calculado no plantea sobretensión destructiva y el valor nominal corresponde a un rail de 3,3 V. |
 | L3 | CORRECTO | 1 µH; 3,6 A térmicos mínimos, 5 A de saturación mínimos y DCR máxima de 42 mΩ. Supera ampliamente el límite de corriente del TLV. TI valida 1 µH con 10 µF para salidas de al menos 1,8 V. |
 | C31, C32 | CORRECTO | 10 µF X5R/X7R de baja ESR. La entrada supera los 4,7 µF recomendados y la salida está dentro de 10–47 µF. El derating por polarización debe considerarse en PCB/BOM. |
 | U6, L3, C31, C32, R26, R27 | CONDICIONAL PCB | C31 debe quedar junto a VIN/GND; SW-L3-C32 debe formar un bucle corto y ancho; FB debe alejarse de SW. Puede añadirse 6,8 pF en paralelo con R26 para mejorar transitorios, pero TI lo presenta como opcional, no como requisito de estabilidad. |
@@ -181,8 +182,9 @@ firmware debe apagar mediante el latch antes de brownouts repetidos.
 
 ## Dependencias cruzadas verificadas
 
-- `+3V3` actual es compatible con ESP32, CP2104, LIS3DH y el panel, pero no
-  queda dentro del máximo operativo del FT6336U en toda la tolerancia.
+- `+3V3` nominal es compatible con ESP32, CP2104, LIS3DH, panel y táctil. El
+  margen superior del FT6336U queda aceptado pese a la discrepancia interna de
+  su datasheet entre 3,3 V caracterizados y 3,6 V anunciados.
 - El motor ya no carga `+3V3`; toma energía de `VSYS` a través de D9.
 - El booster de pantalla coincide con el circuito específico de Good Display,
   incluida R9 ya corregida a 1 MΩ.
