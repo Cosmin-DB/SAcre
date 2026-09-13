@@ -367,3 +367,216 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 
 - ERC: sin fallo eléctrico útil; 105 de 107 avisos son desajustes de símbolos de librería.
 - DRC: 0 conexiones sin enrutar; las 24 infracciones están excluidas y la paridad con el esquemático sólo muestra diferencias de metadatos.
+
+## Revisión de enrutado — 2026-09-13
+
+### Cierre de revisión sobre el guardado actual (2026-09-13)
+
+Este resumen prevalece sobre las medidas históricas siguientes. PCB revisada:
+SHA256 `e97267a49af78ba223983d335d8b887f7e7fd721cb2c1a0c7f3eb2a174cb04b4`.
+Diseño sin modificar durante esta pasada.
+
+- **DRC:** 0 conexiones pendientes, 0 diferencias con el esquema y 0 infracciones
+  no excluidas tras el ajuste autorizado de reglas. Taladro mínimo de 0,20 mm;
+  `sacre.kicad_dru` exige diámetro exterior ≥0,45 mm si el taladro es <0,30 mm.
+  Quedan 18 avisos excluidos previos, no 22 tras corregir J3. Prueba aislada:
+  admite 0,20/0,45 y 0,30/0,40 mm; rechaza 0,20/0,40 y taladro de 0,15 mm.
+  Geometría de PCB intacta.
+- **Fabricación:** las 159 vías son pasantes: 135 de 0,30/0,50 mm, 20 de
+  0,40/0,80 mm y 4 de 0,20/0,45 mm (taladro/diámetro exterior). Ninguna
+  incumple las combinaciones sin recargo por vía pequeña publicadas por JLC.
+- **RV-13:** Q4.2–R10.2 corregido por el autor: 2,34 mm a 0,25 mm, sin vías,
+  frente a 15,94 mm. R10 retorna al cobre local GND. No queda propuesta de
+  recolocación; validar el booster en el prototipo.
+- **RV-17:** ahora hay 16 vías bajo U2.49; ningún taladro se solapa con las
+  nueve ventanas de pasta. Margen mínimo de las cuatro interiores: 0,020–0,034 mm.
+  El autor decide conservar la pasta y asumir este margen; no modificarla
+  ni contratar relleno automáticamente. No equivale a soldadura validada.
+- **ERC:** 122 avisos de desajuste de símbolos y 1 aviso de pin no alimentado
+  en AE1.2. Este pin está modelado como entrada y unido a GND en esquema/PCB;
+  no se ha encontrado una desconexión física que justifique cambiar el circuito.
+  El ERC no se declara limpio. Las seis huellas con aviso de biblioteca
+  conservan numeración, posición, tamaño, forma y taladro de sus pads frente
+  a la biblioteca; no se han actualizado indiscriminadamente.
+- **Gerber/taladros:** exportados de nuevo a `tmp/final-review-fab/` para
+  inspección, con zonas recalculadas en memoria. Revisadas las cuatro capas
+  de cobre, máscaras, pasta, serigrafía y contorno con un lector independiente.
+  NPTH: cuatro agujeros de 2,70 mm y los dos de J3 de 0,70 mm; cuatro ranuras
+  USB permanecen metalizadas. No usar los archivos antiguos de `production/`.
+- **Retornos/RF:** In1 y B.Cu mantienen planos GND continuos; pista RF de
+  0,26 mm y 14,80 mm con In1 debajo. Desacoplos y bloques USB/regulador/booster
+  revisados sin otro fallo concreto detectado. Se conservan las decisiones
+  aceptadas sobre D6, U6 y SW1. Encaje físico, EMC/RF y funcionamiento real
+  siguen pendientes del autor/prototipo; no los certifica esta revisión.
+
+Sobre la PCB guardada a las 17:07, después del enrutado del autor. Sin modificar
+PCB, proyecto ni esquemáticos. Este apartado actualiza los chequeos de PCB
+anteriores; no da por validados el prototipo ni la fabricación.
+
+**Comprobado:** 92 huellas; DRC con relleno de zonas y paridad: 0 conexiones
+pendientes, 0 diferencias con el esquema y 0 infracciones no excluidas.
+Hay 22 exclusiones: 8 avisos de taladros, 6 diferencias de librería y
+8 avisos de serigrafía. Las exclusiones no equivalen a comprobaciones superadas.
+
+### RV-11 — Comprobar los 50 Ω de la pista RF con el apilado de fabricación
+
+- **Estado: CORREGIDO EN PCB por autorización del autor; revisión visual y
+  validación RF pendientes.** Decisión y parámetros definitivos de este ajuste
+  registrados en README, sección «Pista RF».
+- **Evidencia:** con JLC04101H-7628, H=0,2104 mm y separación lateral de
+  0,15 mm, el servicio JLC con máscara devuelve 44,87 Ω para 0,3341 mm y
+  50,15 Ω para 0,26 mm. Es cálculo nominal, no un fallo funcional medido.
+  Las aproximaciones anteriores de 33 Ω (apilado antiguo de KiCad) y
+  50,8 Ω (modelo simplificado sin máscara) no describen este cálculo final.
+- **Acción aplicada:** tres segmentos y dos arcos de `/ANT_RF` pasan a
+  0,26 mm; zonas rellenadas. Recorrido de 14,80 mm, huella/meandro y resto
+  del diseño conservados. GND lateral ≈0,1505 mm, In1 continuo debajo.
+- **Cierre parcial:** DRC sin infracciones no excluidas, sin conexiones
+  pendientes ni discrepancias de esquema; conserva 22 exclusiones. El lote
+  TG135 y la antena completa siguen necesitando validación física.
+- [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
+
+### RV-12 — Retornos locales de C31/U6 y C30
+
+- **Revisión sobre guardado 19:29 (2026-09-13):** C31 ya tiene vía GND a
+  1,14 mm del centro de su pad de masa (antes 4,16 mm), y C30 a 1,62 mm
+  (antes 4,67 mm), conectadas al cobre local. No repetir la propuesta de
+  añadirlas. U6.2 mantiene la vía más próxima a 2,48 mm; añadir una adyacente
+  sigue siendo una mejora opcional, no un fallo confirmado. Se han revisado
+  las vistas de cobre relleno; las distancias siguientes son históricas.
+- **Estado: CONDICIONAL; mejora preventiva, no fallo funcional demostrado.**
+  Hipótesis: los retornos locales pueden acortarse para reducir inductancia.
+- **Evidencia:** la vía GND más próxima al centro del pad de masa de C31 está
+  a 4,16 mm; para U6.2, a 2,48 mm; para C30.2, a 4,67 mm. Los pads sí conectan
+  al vertido superior: estas distancias no significan masa desconectada ni son
+  longitudes medidas del retorno. C31–VIN mide unos 1,9 mm y SW–L3 unos 2,8 mm:
+  no es necesario rehacer todo el regulador.
+- **Acción pendiente:** valorar únicamente una vía GND adyacente a U6.2;
+  conservar cobre local continuo y revisar el bucle C31–U6.
+  C26/C27 están razonablemente colocados: conexión ancha y corta a U2.3/4,
+  con una vía GND aproximadamente a 1 mm de C27.2.
+- **Cierre:** inspección de los retornos con zonas rellenadas y DRC; no atribuir
+  a este detalle los reinicios antiguos sin medir. Fuentes:
+  [TLV62568, §10](https://www.ti.com/lit/ds/symlink/tlv62568.pdf) y
+  [guía ESP32, colocación del desacoplo](documentation/esp32_hardware_design_guidelines_en.pdf).
+- [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
+
+### RV-13 — Compactar el nodo conmutado del booster
+
+- **Revisión sobre guardado 19:29 (2026-09-13):** Q4.3–L1.1 se ha reducido
+  de 10,18 a 7,34 mm; el nodo completo pasa de 13,82 a 11,45 mm, ahora con
+  ancho 0,60 mm. C5.1–L1.2 pasa de 5,57 a 3,65 mm. Mejora real del autor;
+  las medidas originales siguientes no describen ya la PCB actual.
+  Queda por valorar Q4.2–R10.2: 15,94 mm a 0,20 mm. Es parte del retorno
+  de corriente del transistor, no sólo una señal lógica; compactar ese
+  recorrido puede reducir parásitos. No se ha demostrado mal funcionamiento.
+- **Estado: CONDICIONAL; mejora preventiva.** Hipótesis: el recorrido disperso
+  aumenta los parásitos y el ruido durante el refresco, aunque pueda funcionar.
+- **Evidencia:** Q4.3–L1.1 recorre 10,18 mm; la red completa `Net-(D4-A)` suma
+  13,82 mm de pistas de 0,30–0,40 mm. C5.1–L1.2 recorre 5,57 mm.
+  Es geometría comprobada, no prueba de sobretensión ni de fallo del panel.
+- **Acción pendiente:** valorar conjuntamente posición/conexión de R10 y Q4
+  para acortar el retorno; no pedir rehacer indiscriminadamente la mejora
+  ya aplicada a L1/D4/C6/C5. Revisar el bucle C5–L1–Q4–R10–masa.
+- **Cierre:** comparar el bucle y nodo conmutado antes/después, mantener las
+  conexiones y pasar DRC; validar el refresco en prototipo. Criterio general:
+  [TI SNVA731, §6](https://www.ti.com/lit/an/snva731/snva731.pdf), aplicado al
+  circuito específico del panel, no como sustituto de su esquema.
+- [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
+
+### RV-14 — D6 está junto al CP2104, no a la entrada USB
+
+- **Revisión sobre guardado 19:29 (2026-09-13):** D6 mantiene su vía GND a
+  1,11 mm y cobre local conectado. No se identifica otra corrección concreta
+  necesaria en esta inspección; mantener posición por la faja. El ensayo ESD
+  permanece pendiente, no equivale a un trabajo de enrutado pendiente.
+- **Estado: CONDICIONAL; mejora de inmunidad ESD.** Hipótesis: la descarga puede
+  recorrer y acoplarse a más circuito antes de alcanzar el protector.
+- **Evidencia:** los pads de datos de J3 están en x=55,66 mm y los de D6 en
+  x=66,35 mm: unos 10,7 mm de separación horizontal. U3 queda inmediatamente
+  después. D6 sí está conectado y dispone de una vía GND a unos 1,1 mm.
+- **Decisión del autor:** la faja de pantalla impide acercar D6. Se retira la
+  propuesta de recolocación; conservar la posición y revisar únicamente los
+  ramales y el retorno GND. Restricción mecánica aceptada, no validación ESD.
+- **Cierre:** revisar entrada/retorno de descarga y DRC; la inmunidad sólo se
+  valida mediante ensayo ESD. [Criterio de colocación del fabricante Toshiba](https://toshiba.semicon-storage.com/eu/semiconductor/knowledge/e-learning/basics-of-tvs-diodes/chap5/chap5-1.html).
+- [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
+
+### RV-15 — Cuatro taladros de posicionamiento excluidos del DRC
+
+- **Corrección autorizada (2026-09-13):** los dos agujeros de posicionamiento
+  de J3 pasan a NPTH en PCB y biblioteca local, conservando diámetro de
+  0,70 mm y posiciones. Anclajes soldados y SW1 intactos. Desaparecen las
+  cuatro infracciones de J3 por anular/padstack; sin errores nuevos.
+- **Estado: CONDICIONAL; fabricación, no enrutado.** Hipótesis: taladros
+  mecánicos definidos como metalizados por la huella importada.
+- **Evidencia:** dos pads sin número/red de SW1 y dos de J3 están definidos
+  como PTH con anular prácticamente nulo: 0,0043 y 0,0030 mm. Generan las
+  ocho exclusiones de anular/padstack. No son las patas eléctricas de estos
+  componentes ni se ha demostrado aquí que impidan el montaje.
+- **Acción propuesta:** contrastar con los planos mecánicos; si alojan tetones
+  plásticos, definirlos como NPTH conservando posición y diámetro. No aumentar
+  el anular a ciegas ni modificar las patas de anclaje del USB.
+- **Aclaración del autor:** los avisos de SW1 se excluyeron por cómo venía la
+  huella. No modificar SW1 ni sus exclusiones en esta fase. J3 se revisará
+  por separado; no extrapolarle automáticamente esa justificación.
+- **Cierre:** taladros coherentes con la pieza y con los archivos de fabricación.
+- [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
+
+**Sin otro problema concreto detectado en esta pasada:** conexiones actuales
+de GPIO/reset/latch, polaridad y pinout del motor, alimentación principal y
+desacoplo local C26/C27. In1 y B.Cu mantienen planos de masa conectados; esto
+no garantiza por sí solo todos los retornos. No se certifican impedancias USB,
+EMC, temperaturas ni encaje de batería/flex/carcasa mediante DRC o estas vistas.
+
+## Compatibilidad JLCPCB — configuración de 1 mm (2026-09-13)
+
+Aplicada sobre el guardado del autor de las 18:05. Apilado y reglas en README;
+comparación textual confirma que todo el contenido geométrico de la PCB
+permanece intacto. Esquemáticos sin cambios. El DRC nuevo rellena zonas en
+memoria, sin guardar cobre: al reabrir, rellenar zonas antes de exportar.
+
+### RV-16 — Tres vías GND demasiado próximas a la ranura
+
+- **Estado: CORREGIDO por el autor; verificado con DRC** sobre el guardado
+  19:29 del 2026-09-13. Las tres infracciones de borde ya no aparecen con
+  límite 0,20 mm. La evidencia siguiente describe el estado anterior.
+- **Evidencia:** JLC exige cobre–borde fresado ≥0,20 mm. Las vías de diámetro
+  0,50 mm en (89,12;148,77), (91,65;148,77) y (95,77;148,77) mm dejan
+  0,1904–0,1923 mm según DRC. Antes se comprobaban sólo 0,10 mm.
+- **Acción aplicada:** el autor separó ligeramente las vías de la ranura.
+- **Cierre:** rellenar zonas y repetir DRC con la regla de 0,20 mm.
+- [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
+
+### RV-17 — «Plugged» no resuelve las vías dentro del pad del ESP32
+
+- **Revisión sobre guardado 19:29 (2026-09-13):** permanecen las 20 vías de
+  taladro 0,30 mm dentro de U2.49; no hay cambio geométrico que cierre este punto.
+- **Estado: CONFIRMADA la limitación del proceso; resultado de soldadura CONDICIONAL.**
+- **Evidencia:** hay 20 vías de taladro 0,30 mm dentro del pad U2.49. JLC
+  excluye del relleno con tinta las vías dentro de pads o a menos de 0,35 mm
+  de sus aperturas. El pedido anterior «Plugged» no garantiza que se rellenaran.
+- **Acción:** pendiente de discusión; no activar automáticamente epoxi/cobre
+  relleno y tapado. Confirmar tratamiento de U2.49 con CAM/ensamblado y valorar
+  mantener la solución ensayada frente a cambiarla. La existencia de estas
+  vías no demuestra por sí sola que la placa sea inviable.
+- **Cierre:** proceso y máscara acordados, archivos de producción revisados;
+  calidad de soldadura validada. [Requisitos de vías JLCPCB](https://jlcpcb.com/help/article/pcb-via-covering).
+- [ ] PCB/proceso revisados por el autor; esquemático sin cambio propuesto.
+
+**Resto del contraste:** pistas existentes ≥0,20 mm; vías 0,50/0,30 mm (143)
+y 0,80/0,40 mm (20), compatibles con taladrado económico. Agujeros NPTH de
+montaje de 2,7 mm y ranuras metalizadas USB de 0,60 mm no requieren microtaladro.
+SW1 no se modifica; J3 corregido posteriormente a NPTH (`RV-15`). Los dos avisos de
+texto de C2 y el solapamiento Q4–D4 ya no aparecen tras los ajustes del autor.
+DRC del guardado 19:29: 0 infracciones no excluidas, 22 exclusiones previas,
+0 conexiones pendientes y 0 discrepancias con el esquema.
+
+La ranura fresada estrecha y el tratamiento HASL/máscara deben confirmarse en
+CAM con sus tolerancias; los Gerber anteriores no sirven para esta versión.
+La expansión global de máscara de 0,051 mm se conserva para no alterar las
+aperturas en esta fase; JLC publica actualmente 1:1 y puede compensar en CAM.
+El DRC con 0,09 mm entre apertura y cobre ajeno no añade errores.
+No se ha pedido control de impedancia de precisión ni cambiado el laminado
+económico TG135 a otro de más prestaciones. Fuente de límites:
+[capacidades de JLCPCB](https://jlcpcb.com/capabilities/pcb-capabilities).

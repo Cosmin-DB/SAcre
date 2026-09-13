@@ -79,22 +79,6 @@
           ""
         ],
         [
-          "hole_clearance|55112500|116175000|c778e547-35c0-4e19-88e7-b0acece000fc|0dcc3828-c0f3-41ca-b2b6-efd97b95126e",
-          ""
-        ],
-        [
-          "hole_clearance|55112500|116425000|c04a3ea0-7ad2-4fc7-9bbf-c0453b928b5c|0dcc3828-c0f3-41ca-b2b6-efd97b95126e",
-          ""
-        ],
-        [
-          "hole_clearance|55112500|121775000|d6ced2ce-07cd-4e95-bd96-3371ed7b5a2f|63145931-e76a-49cb-83ad-5259ac8b89d6",
-          ""
-        ],
-        [
-          "hole_clearance|55112500|122025000|b7f3e122-4ea0-49f2-a31e-157ee8eee9d6|63145931-e76a-49cb-83ad-5259ac8b89d6",
-          ""
-        ],
-        [
           "lib_footprint_mismatch|51867500|145950000|081772c0-8ae7-4b37-8fcf-301c4a7bc3b0|00000000-0000-0000-0000-000000000000",
           ""
         ],
@@ -111,15 +95,7 @@
           ""
         ],
         [
-          "lib_footprint_mismatch|67300000|127480000|42fe298c-c800-4a2f-8d2d-ea07a21d56f6|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
           "lib_footprint_mismatch|70262500|119100000|d7576091-01f5-4211-811f-7535b66791aa|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "lib_footprint_mismatch|70400000|132312500|47b51504-649f-4a93-bea4-2ad5acb11cf0|00000000-0000-0000-0000-000000000000",
           ""
         ],
         [
@@ -251,9 +227,9 @@
         "allow_blind_buried_vias": false,
         "allow_microvias": false,
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.1,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.1,
+        "min_copper_edge_clearance": 0.2,
         "min_groove_width": 0.0,
         "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
@@ -261,13 +237,13 @@
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
-        "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.2,
+        "min_text_height": 1.0,
+        "min_text_thickness": 0.15,
+        "min_through_hole_diameter": 0.2,
+        "min_track_width": 0.1,
         "min_via_annular_width": 0.05,
-        "min_via_diameter": 0.3,
-        "solder_mask_to_copper_clearance": 0.005,
+        "min_via_diameter": 0.4,
+        "solder_mask_to_copper_clearance": 0.09,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -1061,7 +1037,11 @@
       "Power"
     ]
   ],
-  "text_variables": {},
+  "text_variables": {
+    "JLCPCB_COPPER_WEIGHT": "outer 1 oz / inner 0.5 oz",
+    "JLCPCB_NOMINAL_THICKNESS": "1.0 mm",
+    "JLCPCB_STACKUP": "JLC04101H-7628"
+  },
   "tuning_profiles": {
     "meta": {
       "version": 0

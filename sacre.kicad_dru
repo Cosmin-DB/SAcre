@@ -1,0 +1,6 @@
+(version 1)
+
+# JLCPCB: taladro < 0.30 mm requiere diametro >= 0.45 mm para evitar recargo.
+(rule "JLCPCB vias pequenas sin recargo"
+    (condition "A.Type == 'Via' && A.Hole < 0.30mm")
+    (constraint via_diameter (min 0.45mm)))

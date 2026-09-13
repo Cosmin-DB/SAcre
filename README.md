@@ -278,6 +278,98 @@ sin pistas nuevas; todavía no es una PCB lista para fabricar.
 
 ## Revisión sistemática pendiente
 
+### Configuración de fabricación — 2026-09-13
+
+Enrutado completado por el autor; revisión de fabricación en curso. Los datos
+de «preparación para enrutado» anteriores son el checkpoint histórico, no el
+estado actual. No se han modificado pistas, vías, colocación ni contorno al
+aplicar esta configuración.
+
+- Pedido objetivo: FR-4 estándar TG135, **4 capas, 1 mm nominal**, cobre
+  exterior **1 oz** e interior **0,5 oz**, verde, serigrafía blanca, HASL con
+  plomo y fresado normal. Sin prestaciones especiales añadidas.
+- Apilado: **JLC04101H-7628**. La consulta pública de JLCPCB para esos
+  parámetros devuelve esta estructura tanto en «No requirement» como al
+  seleccionarla explícitamente, con `fixedFee=0`, `coefficient=0` y fabricación
+  rápida habilitada. Confirmar precio final en el pedido; no se ha comprado nada.
+- KiCad conserva estos parámetros también en las variables de texto del
+  proyecto. Elegir el apilado explícito en el pedido para evitar ambigüedad.
+
+| Capa | Espesor configurado | Material / εr de referencia |
+| --- | --- | --- |
+| F.Mask / B.Mask | 0,0152 mm cada una | Verde / 3,8 |
+| F.Cu / B.Cu | 0,035 mm cada una | Cobre exterior 1 oz |
+| Dieléctrico 1 / 3 | 0,2104 mm cada uno | FR4 7628 / 4,4 |
+| In1.Cu / In2.Cu | 0,0152 mm cada una | Cobre interior 0,5 oz, tras procesado |
+| Dieléctrico 2 | 0,5000 mm | Núcleo FR4 / 4,6 nominal |
+
+La estructura publicada suma 1,0212 mm sin máscara; con la máscara modelada,
+KiCad muestra **1,0516 mm**. Se pide **1,0 mm nominal**, tolerancia estándar
+±10 %. No ajustar artificialmente los dieléctricos para que la suma dé 1,000.
+
+**Límite del modelo RF:** εr son referencias publicadas, no caracterización
+del lote TG135. La calculadora actual de JLC usa NP-155F para 4–8 capas y
+40,64 µm de cobre exterior, frente a los 35 µm de su tabla de apilado. El
+cálculo de la pista RF indicado abajo utiliza el modelo de fabricación de
+JLC; no se ha cambiado a TG155 ni simulado la antena completa. `tanδ=0,02`
+se conserva como valor orientativo, no como dato confirmado del laminado.
+
+DRC configurado: pista/separación absolutas ≥0,10 mm, cobre–borde ≥0,20 mm,
+taladro de vía ≥0,20 mm, diámetro ≥0,40 mm y anular ≥0,05 mm. La regla de
+`sacre.kicad_dru` exige diámetro ≥0,45 mm si el taladro es <0,30 mm para
+evitar recargo por vías pequeñas. Se mantienen las separaciones de red de
+0,15 mm y vías preferidas de 0,50/0,30 mm.
+Apertura de máscara–cobre ajeno ≥0,09 mm; texto ≥1 mm y trazo ≥0,15 mm.
+No se han cambiado las aperturas de máscara ni las exclusiones existentes.
+Los límites específicos de ranuras, PTH y procesos no quedan todos cubiertos
+por estas reglas globales: ver las condiciones de fabricación en
+`REVISION_PROVISIONAL.md`.
+
+**Resultado:** 0 conexiones pendientes, 0 diferencias con el esquema;
+0 infracciones no excluidas y 18 exclusiones previas tras corregir J3 y
+adaptar el límite de las vías pequeñas. Los tres errores de
+cobre–ranura y los dos avisos de serigrafía fueron corregidos por el autor.
+Límites reaplicados con KiCad cerrado y DRC repetido tras detectar que un
+guardado posterior había restaurado las restricciones antiguas del proyecto.
+Tapado de vías pendiente: se conserva el tenting de KiCad; «Plugged» del
+pedido anterior no cubre las vías dentro del pad U2.49. No se activa relleno
+epoxi/cobre ni se añade coste sin decidirlo con el autor.
+
+Fuentes: [apilados JLCPCB](https://jlcpcb.com/impedance),
+[capacidades](https://jlcpcb.com/capabilities/pcb-capabilities),
+[modelo de cálculo](https://jlcpcb.com/help/article/user-guide-to-the-jlcpcb-impedance-calculator)
+y [tratamiento de vías](https://jlcpcb.com/help/article/pcb-via-covering).
+
+### Pista RF — ajuste autorizado el 2026-09-13 (`RV-11`)
+
+- `/ANT_RF`: ancho **0,26 mm** en sus tres segmentos y dos arcos; recorrido,
+  huella de antena, meandro y máscara sin cambios. Zonas rellenadas; separación
+  lateral a GND ≈0,1505 mm y plano In1 continuo bajo la pista externa.
+- Modelo JLC `CoatedCoplanarWaveguideWithLowerGnd1B`: H=0,2104 mm, εr=4,4,
+  cobre acabado=40,64 µm, ancho superior 12,7 µm menor que el inferior;
+  máscara εr=3,8, 25,4 µm sobre sustrato y 15,24 µm sobre cobre. Son los
+  parámetros actuales del servicio, no todos coinciden con su página de ayuda.
+- Resultado nominal con hueco lateral de 0,15 mm: **50,15 Ω** para 0,26 mm,
+  frente a 44,87 Ω para el ancho anterior de 0,3341 mm. La aproximación previa
+  sin máscara de 50,8 Ω queda sustituida por este contraste más completo.
+- DRC posterior: 0 conexiones pendientes, 0 diferencias con el esquema,
+  0 infracciones no excluidas; 22 exclusiones intactas. No valida por sí solo
+  la impedancia del lote TG135 ni la adaptación/alcance de la antena completa.
+- [ ] PCB revisada visualmente por el autor; validación RF física pendiente.
+- Fuente: [calculadora JLCPCB](https://jlcpcb.com/pcb-impedance-calculator).
+
+### Checklist de cierre
+
+- Revisión final de PCB (2026-09-13): 0 conexiones pendientes, 0 diferencias
+  con el esquema y 0 infracciones no excluidas tras ajustar las reglas de vía;
+  se mantienen 18 exclusiones previas. Q4–R10 ya corregido; pasta de U2 conservada por
+  decisión del autor. Gerber/taladros revisados en `tmp/final-review-fab/`,
+  no publicados como fabricación definitiva. Resultado y límites en
+  `REVISION_PROVISIONAL.md`, «Cierre de revisión sobre el guardado actual».
+- `RV-15`: agujeros de posicionamiento de J3 corregidos a NPTH de 0,70 mm
+  en PCB y biblioteca; posiciones y anclajes soldados intactos. DRC sin
+  infracciones nuevas por este cambio; revisión visual del autor pendiente.
+
 - [ ] `PWR-01` Alimentación, carga, encendido y apagado.
 - [ ] `USB-01` USB-C, CP2104 y programación automática.
 - [ ] `MCU-02` Pines de arranque, reset y señales del ESP32.

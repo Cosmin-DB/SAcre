@@ -21,6 +21,8 @@ _autosave-*
 *.tmp
 
 # Generated KiCad exports
+/tmp/
+/production/
 *.net
 *.dsn
 *.ses
