@@ -250,7 +250,9 @@ Estado: **PREPARACIÓN EN CURSO**, autorizada el 2026-09-13; sin enrutado nuevo.
 - Inventario: 22 componentes añadidos, 7 retirados y cambio de huella de L1.
   SDA/SCL ya coinciden con el esquema; conservar su enrutado salvo interferencias.
 
-- [ ] Actualizar la PCB desde el esquemático cerrado.
+- [x] Sincronizar componentes, valores, huellas y redes desde el esquemático.
+  Coincidencia verificada pad a pad; 92 componentes. Etapa intermedia: piezas
+  nuevas aparcadas fuera del contorno, pendiente limpieza de cobre y colocación.
 - [ ] Recolocar J1 y despejar la salida del flex.
 - [ ] Colocar desacoplos y diseñar los bucles de regulador, booster y motor.
 - [ ] Adaptar las pistas a los nuevos GPIO y al pinout real de Q2.
