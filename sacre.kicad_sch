@@ -6330,6 +6330,18 @@
 		(uuid "ab936cc3-320f-4cd2-870c-baf62e3480ba")
 	)
 	(junction
+		(at 199.39 110.49)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c770195f-e56f-43bb-a164-8762d2aa74d7")
+	)
+	(junction
+		(at 191.77 110.49)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d7e4fd13-0d53-42ce-ae60-bbfac3ddec9d")
+	)
+	(junction
 		(at 38.1 59.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6847,6 +6859,16 @@
 	)
 	(wire
 		(pts
+			(xy 191.77 110.49) (xy 191.77 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c7e92a1-f670-4cd5-b26c-4f3e3a687885")
+	)
+	(wire
+		(pts
 			(xy 191.77 55.88) (xy 190.5 55.88)
 		)
 		(stroke
@@ -6944,6 +6966,16 @@
 			(type default)
 		)
 		(uuid "59f82cc4-86d7-485c-8c3e-e87118b7c8f4")
+	)
+	(wire
+		(pts
+			(xy 199.39 110.49) (xy 199.39 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a209f24-ccef-45d6-af9d-12b3611fd0b8")
 	)
 	(wire
 		(pts
@@ -7277,6 +7309,16 @@
 	)
 	(wire
 		(pts
+			(xy 199.39 110.49) (xy 203.2 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9277efbf-f355-4444-a3b7-0b1b2f8f6943")
+	)
+	(wire
+		(pts
 			(xy 264.16 119.38) (xy 261.62 119.38)
 		)
 		(stroke
@@ -7427,7 +7469,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 110.49) (xy 195.58 110.49)
+			(xy 165.1 110.49) (xy 191.77 110.49)
 		)
 		(stroke
 			(width 0)
@@ -10582,9 +10624,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-000060389f43")
 		(property "Reference" "M1"
@@ -14728,6 +14770,97 @@
 		)
 	)
 	(symbol
+		(lib_id "SmartFeedback-rescue:R-Device")
+		(at 195.58 114.3 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "287fd8d8-266b-4cb6-8a13-b35903cc1e25")
+		(property "Reference" "R28"
+			(at 197.358 114.3 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1k"
+			(at 198.12 116.586 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 195.58 116.078 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 195.58 114.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C21190"
+			(at -3.81 3.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0a86dca5-55ac-496f-aab9-afeeba8cc09d")
+		)
+		(pin "2"
+			(uuid "cfde705a-0486-4303-b036-34b2d519620a")
+		)
+		(instances
+			(project "sacre"
+				(path "/a534c633-82b0-4919-83c8-539188551505"
+					(reference "R28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "SmartFeedback-rescue:GND-power")
 		(at 73.66 167.64 180)
 		(unit 1)
@@ -17723,7 +17856,7 @@
 	)
 	(symbol
 		(lib_id "SmartFeedback-rescue:R-Device")
-		(at 199.39 110.49 90)
+		(at 195.58 110.49 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -17733,7 +17866,7 @@
 		(dnp no)
 		(uuid "e467b5cb-dd92-4448-baa0-452badb55c1e")
 		(property "Reference" "R11"
-			(at 201.168 110.49 90)
+			(at 197.358 110.49 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17744,7 +17877,7 @@
 			)
 		)
 		(property "Value" "1k"
-			(at 201.93 112.776 90)
+			(at 198.12 108.458 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17755,7 +17888,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 199.39 112.268 0)
+			(at 195.58 112.268 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17766,7 +17899,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 199.39 110.49 0)
+			(at 195.58 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -17777,7 +17910,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 199.39 110.49 0)
+			(at 195.58 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -17787,7 +17920,7 @@
 			)
 		)
 		(property "LCSC Part #" "C21190"
-			(at 0 0 0)
+			(at -3.81 0 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

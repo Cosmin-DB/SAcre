@@ -219,6 +219,7 @@
 		)
 		(property ki_fp_filters "D*SOD?123*")
 		(path "/00000000-0000-0000-0000-0000604098d3")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -561,6 +562,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-0000603891d6")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -830,6 +832,7 @@
 		)
 		(property ki_fp_filters "QFN*1EP*7x7mm*P0.5mm*")
 		(path "/00000000-0000-0000-0000-00005fc8d40c")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -1196,7 +1199,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "ACC_INT2")
 			(pinfunction "IO34_10")
-			(pintype "input+no_connect")
+			(pintype "input")
 			(uuid "558f7b8a-3388-4307-90ce-42a67bb30acd")
 		)
 		(pad "11" smd rect
@@ -1220,7 +1223,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(U2-IO32-Pad12)")
 			(pinfunction "IO32_12")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "398bf3b5-0cfe-42be-bcb0-8699f2e1392e")
 		)
 		(pad "13" smd rect
@@ -1292,7 +1295,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(U2-IO12-Pad18)")
 			(pinfunction "IO12_18")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "e8886b79-6aba-4b54-9166-0835ab92fb81")
 		)
 		(pad "19" smd rect
@@ -1328,7 +1331,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(U2-IO15-Pad21)")
 			(pinfunction "IO15_21")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "fd194d7b-1921-4a2a-817e-fc438a625227")
 		)
 		(pad "22" smd rect
@@ -1364,7 +1367,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "RES_TOUCH_CTRL")
 			(pinfunction "IO4_24")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(uuid "8dd2ec14-1feb-46fc-9be0-244632f512cd")
 		)
 		(pad "25" smd rect
@@ -1376,7 +1379,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(U2-IO16-Pad25)")
 			(pinfunction "IO16_25")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "5bdb3f51-ad7f-47d3-8f70-91436d009b6e")
 		)
 		(pad "26" smd rect
@@ -1388,7 +1391,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "Net-(U2-VDD_SDIO)")
 			(pinfunction "VDD_SDIO_26")
-			(pintype "power_out+no_connect")
+			(pintype "power_out")
 			(uuid "b4df0614-be5e-484c-98e6-6a64bc0c0e8a")
 		)
 		(pad "27" smd rect
@@ -1742,6 +1745,7 @@
 		)
 		(property ki_fp_filters "D*SOD?123*")
 		(path "/00000000-0000-0000-0000-000060396b3e")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -2039,6 +2043,7 @@
 		)
 		(property ki_fp_filters "D*SOD?123*")
 		(path "/00000000-0000-0000-0000-0000603a1d8b")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -2336,6 +2341,7 @@
 		)
 		(property ki_fp_filters "D*SOD?123*")
 		(path "/00000000-0000-0000-0000-0000603a1e82")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -2645,6 +2651,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-000060389e69")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -2814,6 +2821,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-0000603e5efb")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -2983,6 +2991,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-00006046b620")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -3152,6 +3161,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-00006044188c")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -3321,6 +3331,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-000060391595")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -3490,6 +3501,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-0000603a7499")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -3659,6 +3671,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-0000603a2080")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -3828,6 +3841,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-0000603a3b38")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -3997,6 +4011,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-00006044192a")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -4166,6 +4181,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-000060491156")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -4335,6 +4351,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-000060441a98")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -4504,6 +4521,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-00006045ebe9")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -4674,6 +4692,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/00000000-0000-0000-0000-000060403810")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -4843,6 +4862,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/00000000-0000-0000-0000-00005fc9d094")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -5012,6 +5032,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/00000000-0000-0000-0000-00005fc9efde")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -5181,6 +5202,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/00000000-0000-0000-0000-000060389ce4")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -5350,6 +5372,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/00000000-0000-0000-0000-000060391470")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -5519,6 +5542,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/00000000-0000-0000-0000-0000603a7a30")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -5688,6 +5712,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/00000000-0000-0000-0000-0000603a24b1")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -5856,8 +5881,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/b0764074-1478-432c-83d7-d548e9560211")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5919,6 +5952,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(D8-A)")
+			(pintype "passive")
 			(uuid "b48c2002-5040-48c6-9165-356b3836da45")
 		)
 		(pad "2" smd roundrect
@@ -5927,6 +5961,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "4868e147-9461-4e09-8856-db5f8ec68df1")
 		)
 		(embedded_fonts no)
@@ -6010,7 +6045,7 @@
 		)
 		(property ki_fp_filters "SOT?143*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/69b93562-3732-4a49-9328-930e7ecf89ac")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -6282,6 +6317,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/801fe4c7-53e9-40eb-8f41-2fd183256c15")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -6448,7 +6484,7 @@
 			)
 		)
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/5d2978a5-ac1a-4b40-ad9f-1a4228585e83")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -6962,7 +6998,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/34fdf9b9-3a46-4f1a-8f02-88a7229d7a5c")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -7119,6 +7155,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-000060384e56")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -7378,8 +7415,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "D*SOD?123*")
 		(path "/79b84b7a-e753-4803-b779-d60367316c54")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7579,6 +7624,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pinfunction "K_1")
+			(pintype "passive")
 			(uuid "9d99677d-6438-4601-a917-91ee306ab9ad")
 		)
 		(pad "2" smd roundrect
@@ -7587,6 +7634,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(D8-A)")
+			(pinfunction "A_2")
+			(pintype "passive")
 			(uuid "36f9af85-a945-4242-a07f-398eccf62c0b")
 		)
 		(embedded_fonts no)
@@ -7678,7 +7727,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/52b7345e-06ee-4af8-93b5-19c94d113e2c")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -7779,7 +7828,7 @@
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R11"
-			(at -0.07 -1.43 180)
+			(at 3.13 -0.13 180)
 			(layer "F.SilkS")
 			(uuid "cfd14db4-4c1d-49a5-870e-6c1d59c03257")
 			(effects
@@ -7848,6 +7897,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/e467b5cb-dd92-4448-baa0-452badb55c1e")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -8016,9 +8066,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/0194b844-8e62-41dc-9281-06e8f34979d0")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8080,6 +8137,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U6-FB)")
+			(pintype "passive")
 			(uuid "7c22e6c0-4ffb-4418-9df3-c6ec87c144eb")
 		)
 		(pad "2" smd roundrect
@@ -8088,6 +8146,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "4fe9927b-b480-4401-9a80-49489f0206d5")
 		)
 		(embedded_fonts no)
@@ -8178,9 +8237,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/acc6510e-306b-41f1-8eca-f3ae30c2b7ad")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8242,6 +8308,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U3-VBUS)")
+			(pintype "passive")
 			(uuid "70ca0e30-1d1c-4d12-89cd-c31e7bc2617a")
 		)
 		(pad "2" smd roundrect
@@ -8250,6 +8317,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "4354ba84-9f85-425f-a537-347dc6ce0bd6")
 		)
 		(embedded_fonts no)
@@ -8341,11 +8409,12 @@
 		)
 		(property ki_fp_filters "TO?92*")
 		(path "/a77cce76-710b-46fa-958e-c5525b93ea7c")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
 				(name "A")
-				(pins "2" "3" "1")
+				(pins "1" "3" "2")
 			)
 		)
 		(attr smd)
@@ -8621,8 +8690,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(Q2-B)")
-			(pinfunction "E_1")
-			(pintype "passive")
+			(pinfunction "B_1")
+			(pintype "input")
 			(uuid "d302fa12-81ce-437a-a1c2-2dbb81165f5b")
 		)
 		(pad "2" smd roundrect
@@ -8631,8 +8700,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
-			(pinfunction "B_2")
-			(pintype "input")
+			(pinfunction "E_2")
+			(pintype "passive")
 			(uuid "24d0efeb-427d-40f6-88af-b75dedbea8e4")
 		)
 		(pad "3" smd roundrect
@@ -8732,7 +8801,7 @@
 		)
 		(property ki_fp_filters "USB*C*Receptacle*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/684b4ffb-88b1-4349-b24f-6cdec43953ca")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -8883,7 +8952,6 @@
 			(size 0.7 0.7)
 			(drill 0.7)
 			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
 			(uuid "0dcc3828-c0f3-41ca-b2b6-efd97b95126e")
 		)
 		(pad "" np_thru_hole circle
@@ -8891,7 +8959,6 @@
 			(size 0.7 0.7)
 			(drill 0.7)
 			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
 			(uuid "63145931-e76a-49cb-83ad-5259ac8b89d6")
 		)
 		(pad "13" thru_hole oval
@@ -9135,6 +9202,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/f14da3dc-c8eb-426d-a258-8c0533248b75")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -9303,9 +9371,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/a20ba99d-f7d4-459f-a04a-a13ec0fac1e0")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9367,6 +9442,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "5c86004a-76a3-46eb-abfd-7012551f2c89")
 		)
 		(pad "2" smd roundrect
@@ -9375,6 +9451,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "db8518cb-a70f-4051-9fd7-d6b5a84f0c9b")
 		)
 		(embedded_fonts no)
@@ -9445,9 +9522,17 @@
 				)
 			)
 		)
+		(property ki_fp_filters "Pin* Test*")
 		(path "/937dffc1-c90d-4cfb-9188-5eed62912b6d")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
 			(center 0 0)
@@ -9487,6 +9572,8 @@
 			(size 1 1)
 			(layers "F.Cu" "F.Mask")
 			(net "RTC_EVI")
+			(pinfunction "1_1")
+			(pintype "passive")
 			(uuid "7c31f911-ccb5-42c4-8030-66f1240f304a")
 		)
 		(embedded_fonts no)
@@ -9566,8 +9653,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "R_*")
 		(path "/be2571b9-4b6b-4981-9931-7a1f2d8fc581")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -9629,6 +9724,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "VBAT_RAW")
+			(pintype "passive")
 			(uuid "693d73a3-e574-412c-9859-25d79a90e729")
 		)
 		(pad "2" smd roundrect
@@ -9637,6 +9733,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "RTC_EVI")
+			(pintype "passive")
 			(uuid "5b06935a-0e99-4c34-814d-50c4b5f6743a")
 		)
 		(embedded_fonts no)
@@ -9716,6 +9813,7 @@
 		)
 		(property ki_fp_filters "PinHeader*P2.54mm* TerminalBlock*")
 		(path "/00000000-0000-0000-0000-000060389f43")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -9723,7 +9821,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr smd)
+		(attr smd exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.711252 0.91)
@@ -9875,6 +9973,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(path "/568a1394-bf90-46ae-9050-3cd024a5a804")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -10002,8 +10101,18 @@
 		)
 		(property ki_fp_filters "SOT?363*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/a544f84b-63f1-4024-843c-a8aa9f4af3a5")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "2" "6" "1")
+			)
+			(unit
+				(name "B")
+				(pins "5" "3" "4")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -10369,9 +10478,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/76bef7b2-a700-43ae-aa16-e52fb7624276")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -10433,6 +10549,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "8aca6d50-c8a3-4e2d-a316-3097da13dbf5")
 		)
 		(pad "2" smd roundrect
@@ -10441,6 +10558,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "9344fe67-7220-439a-a6dd-ca8246cfdf4d")
 		)
 		(embedded_fonts no)
@@ -10531,9 +10649,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/e6e06d04-ef56-4576-be08-1bc52ce3550c")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -10595,6 +10720,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "VSYS")
+			(pintype "passive")
 			(uuid "f7d2d695-029f-4764-9ecf-1580bdbbadaa")
 		)
 		(pad "2" smd roundrect
@@ -10603,6 +10729,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "86d64ef7-d6e9-4561-8ff2-dceef5ea2df1")
 		)
 		(embedded_fonts no)
@@ -10693,8 +10820,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/882fb634-e052-45a6-96ff-3664910000da")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -10756,6 +10891,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "22798a07-a02b-4913-ac99-4773a786b255")
 		)
 		(pad "2" smd roundrect
@@ -10764,6 +10900,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "7b135e86-fbcd-49a1-b44a-d3743c231501")
 		)
 		(embedded_fonts no)
@@ -10855,6 +10992,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/695b8d90-8950-4dc0-ba95-5fee08446caf")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -11024,7 +11162,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/c6fedb9f-ef0d-4b7a-a5e0-e85fccbea1f0")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -11194,7 +11332,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/e6655a91-011b-4e1d-975e-4a7332b409b7")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -11387,8 +11525,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/00000000-0000-0000-0000-0000603a2135")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -11559,6 +11705,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.227273)
 			(net "Net-(D4-A)")
+			(pintype "passive")
 			(uuid "6c89dafb-e0b2-40ba-842f-d92ccd9bea62")
 		)
 		(pad "2" smd roundrect
@@ -11567,6 +11714,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.227273)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "f40cc47a-e188-4ea3-b777-7e73bec4ef18")
 		)
 		(embedded_fonts no)
@@ -11658,6 +11806,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/804d38c4-f8ec-489f-826e-072b8bc9bc6f")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -11826,8 +11975,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/b3eac213-fbf4-47c4-9f41-8c3b18028a74")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -11889,6 +12046,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U2-VDD_SDIO)")
+			(pintype "passive")
 			(uuid "be96c60c-18a9-4056-a183-1563548f3669")
 		)
 		(pad "2" smd roundrect
@@ -11897,6 +12055,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "eb6b7c18-f0ba-43b4-9053-ef864076f8e8")
 		)
 		(embedded_fonts no)
@@ -12024,7 +12183,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/66f6ba38-6ea5-48ba-ba62-a812e226f022")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -12107,6 +12266,176 @@
 		)
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0402_1005Metric.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
+	)
+	(footprint "Resistor_SMD:R_0603_1608Metric"
+		(layer "F.Cu")
+		(uuid "627719ec-0583-4268-b36c-2d64c852d29a")
+		(at 55.845 98.935 180)
+		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
+		(tags "resistor")
+		(property "Reference" "R28"
+			(at 3.115 -0.105 0)
+			(layer "F.SilkS")
+			(uuid "dd12a813-80aa-4176-8300-296b30799ca3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "1k"
+			(at 0 1.43 0)
+			(layer "F.Fab")
+			(uuid "5344fec8-a418-4527-bc44-8e1a5a0400d8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aea7c0d7-69f4-434c-88bf-2c2a116024e9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5b5a5c24-d90e-43fc-9524-4d4f00ab69a6")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KiLib_Generator" "SMD_2terminal_chip_molded"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "513d2ed0-80e0-4645-8877-6bd42d9144d1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC Part #" "C21190"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b5f8933f-b6f0-451f-b1bc-7f27d5ff225a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "R_*")
+		(path "/287fd8d8-266b-4cb6-8a13-b35903cc1e25")
+		(sheetname "/")
+		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
+		(attr smd)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_line
+			(start -0.237258 0.5225)
+			(end 0.237258 0.5225)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "cebb5b37-f087-42ca-a13f-2a77f95dd22d")
+		)
+		(fp_line
+			(start -0.237258 -0.5225)
+			(end 0.237258 -0.5225)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "6a14e881-48a5-4d1d-b7bb-80c4c170c548")
+		)
+		(fp_rect
+			(start -1.48 -0.73)
+			(end 1.48 0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "0b46128e-8bed-4686-9379-13f6f025de66")
+		)
+		(fp_rect
+			(start -0.8 -0.4125)
+			(end 0.8 0.4125)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.Fab")
+			(uuid "8fcab524-9375-46b0-8d1c-cd82732afd2e")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "e89711d0-f382-44c4-9513-83350d3c32e4")
+			(effects
+				(font
+					(size 0.4 0.4)
+					(thickness 0.06)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at -0.825 0 180)
+			(size 0.8 0.95)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "Net-(D8-A)")
+			(pintype "passive")
+			(uuid "7ec8657f-6cf4-4eed-814d-34abc36cd2a8")
+		)
+		(pad "2" smd roundrect
+			(at 0.825 0 180)
+			(size 0.8 0.95)
+			(layers "F.Cu" "F.Mask" "F.Paste")
+			(roundrect_rratio 0.25)
+			(net "RES_TOUCH_CTRL")
+			(pintype "passive")
+			(uuid "ab4be266-7a35-4c14-af94-4be17141e74d")
+		)
+		(embedded_fonts no)
+		(model "${KICAD10_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -12217,9 +12546,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/925fdd1c-728f-4876-a8e6-989d6156cd22")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -12390,6 +12726,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U6-SW)")
+			(pintype "passive")
 			(uuid "eec7f82c-1a71-43d1-b9ed-c993684193fb")
 		)
 		(pad "2" smd roundrect
@@ -12398,6 +12735,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "1002ff01-6928-4879-9bb2-4c9c309a9ee0")
 		)
 		(embedded_fonts no)
@@ -12488,8 +12826,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "R_*")
 		(path "/768f62a6-913a-4731-bd8e-b2f9a63d0524")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -12551,6 +12897,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(Q2-B)")
+			(pintype "passive")
 			(uuid "aaacb29d-3dc5-40a1-b9c6-5018f17847b4")
 		)
 		(pad "2" smd roundrect
@@ -12559,6 +12906,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "4da77ea8-ecba-4ec7-a887-e4c4e39cd3e3")
 		)
 		(embedded_fonts no)
@@ -12638,6 +12986,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(path "/e54115da-79a7-4439-98d1-591528311e0d")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -12763,6 +13112,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/00000000-0000-0000-0000-0000603cb78b")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -12979,7 +13329,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(J2-Pin_6-Pad6)")
 			(pinfunction "Pin_6_6")
-			(pintype "passive")
+			(pintype "passive+no_connect")
 			(uuid "53a54b6a-8af0-45ee-af4d-b246b45e6fcd")
 		)
 		(pad "7" smd rect
@@ -13114,7 +13464,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "unconnected-(J2-Pin_21-Pad21)")
 			(pinfunction "Pin_21_21")
-			(pintype "passive")
+			(pintype "passive+no_connect")
 			(uuid "15231ad2-01f3-4974-9bc0-aa37cefee6ef")
 		)
 		(pad "22" smd rect
@@ -13244,6 +13594,7 @@
 			)
 		)
 		(path "/abfb7a09-8384-445c-bb0e-997de7203040")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -13625,6 +13976,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(path "/9a57c36e-20c5-403f-897e-51fb1a8f9c9d")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -13743,8 +14095,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "D*SOD?123*")
 		(path "/07f88980-e84b-4133-9d89-3ee2c890cba5")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -13944,6 +14304,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "/VMOTOR")
+			(pinfunction "K_1")
+			(pintype "passive")
 			(uuid "4deab0b9-1b73-4fb4-833a-17a2e0244fca")
 		)
 		(pad "2" smd roundrect
@@ -13952,6 +14314,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "VSYS")
+			(pinfunction "A_2")
+			(pintype "passive")
 			(uuid "90e79d4c-c8ae-4e02-9a41-1244ba653a8e")
 		)
 		(embedded_fonts no)
@@ -14043,6 +14407,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/87356ed3-63ba-468d-9639-a9090401ded6")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -14212,7 +14577,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/2283930e-c732-4a6b-9516-b9ae56d454d2")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -14393,9 +14758,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "SOT?23*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/9d1a6f1a-07bd-4c0a-b68d-7a97cb571a48")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "4" "1" "2" "3" "5")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -14669,6 +15041,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "VSYS")
+			(pinfunction "EN_1")
+			(pintype "input")
 			(uuid "adb49df9-0d44-4fb4-9491-bee47b473761")
 		)
 		(pad "2" smd roundrect
@@ -14677,6 +15051,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pinfunction "GND_2")
+			(pintype "power_in")
 			(uuid "1e885950-a60d-43cd-8b66-e5e12f555a62")
 		)
 		(pad "3" smd roundrect
@@ -14685,6 +15061,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U6-SW)")
+			(pinfunction "SW_3")
+			(pintype "power_out")
 			(uuid "dff2a992-cc72-45b3-bded-a65350e190cd")
 		)
 		(pad "4" smd roundrect
@@ -14693,6 +15071,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "VSYS")
+			(pinfunction "VIN_4")
+			(pintype "power_in")
 			(uuid "13bc5daf-49c4-46a4-8955-ceb8283d8087")
 		)
 		(pad "5" smd roundrect
@@ -14701,6 +15081,8 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U6-FB)")
+			(pinfunction "FB_5")
+			(pintype "input")
 			(uuid "63324a44-1158-40cb-a8e1-939607879fb6")
 		)
 		(embedded_fonts no)
@@ -14792,7 +15174,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/9ac6e867-507b-4ce9-9ff1-b1b9f7f9946e")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -14961,8 +15343,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "R_*")
 		(path "/43ac8aa5-1e34-4bc8-be6d-b808f1398132")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -15024,6 +15414,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "2a225bff-8e89-4f84-8858-56850d25885c")
 		)
 		(pad "2" smd roundrect
@@ -15032,6 +15423,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "RTC_INT")
+			(pintype "passive")
 			(uuid "db2940cc-2bca-42ac-8f89-6dfbefde42d5")
 		)
 		(embedded_fonts no)
@@ -15102,7 +15494,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/a985bdc8-8f18-469c-a2ee-41fc603f8bc5")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -15233,7 +15625,7 @@
 		)
 		(property ki_fp_filters "*SOT*23*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/960879ca-a744-425b-89e3-fcc8a931002e")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -15647,6 +16039,7 @@
 		)
 		(property ki_fp_filters "LGA*3x3mm*P0.5mm*LayoutBorder3x5y*")
 		(path "/5ba82fa5-8eea-4792-bd22-b3d86c5eddb4")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -16032,6 +16425,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-0000603a226c")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -16405,7 +16799,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/70b69056-6e2e-437f-a7dd-a7ded119b2c0")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -16575,7 +16969,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/8db6ecda-5231-4a3c-8515-780596aede19")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -16781,7 +17175,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/83b288fc-19ca-418d-af56-df2ac04d665c")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -16950,9 +17344,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/dc00a10f-dbb3-4d44-8de0-88c8a622d922")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -17014,6 +17415,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "8aeaeb30-5092-4dc2-8d9c-514e7f13629d")
 		)
 		(pad "2" smd roundrect
@@ -17022,6 +17424,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "VBAT_RAW")
+			(pintype "passive")
 			(uuid "0c5f4d29-8a61-4ba0-8890-6606fcc0d4bf")
 		)
 		(embedded_fonts no)
@@ -17101,6 +17504,7 @@
 		)
 		(property ki_fp_filters "MountingHole*")
 		(path "/b1f697af-d7d8-4f55-8e88-932b5688a971")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -17228,6 +17632,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/47859f53-5fea-45ad-a9e9-847acddf5e4a")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -17396,7 +17801,7 @@
 			)
 		)
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/d01d1f20-9c38-49e4-8c17-f9c50b6e4533")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -17789,9 +18194,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/26390604-5afe-40c1-b966-717b9e74c60d")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -17853,6 +18265,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U3-VPP)")
+			(pintype "passive")
 			(uuid "1068c8fb-5c92-49a4-a611-4f813b44ea4a")
 		)
 		(pad "2" smd roundrect
@@ -17861,6 +18274,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "58456e0a-5ba9-42a0-88f1-604220c80f40")
 		)
 		(embedded_fonts no)
@@ -17931,7 +18345,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/95ee03f0-199f-47ec-ac24-54a6ad70b5ea")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -18062,7 +18476,7 @@
 		)
 		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/1a0afdb8-8612-4257-ab98-4c3be2876487")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -18232,6 +18646,7 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/48cb79fd-996d-4835-a3d4-e08905ad3b54")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -18400,7 +18815,7 @@
 			)
 		)
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/aa2d7fb2-23b3-40b6-9699-4db5c1f40d58")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -18794,7 +19209,7 @@
 		)
 		(property ki_fp_filters "SOT?23*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/eab6ef14-c165-4740-8cea-45da8e917f42")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -19185,7 +19600,7 @@
 		)
 		(property ki_fp_filters "QFN*4x4mm*P0.5mm*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/2134b9f3-0748-41ff-a0f7-b94eb2ee9f78")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -19697,7 +20112,7 @@
 			(roundrect_rratio 0.25)
 			(net "Net-(U3-VPP)")
 			(pinfunction "VPP_16")
-			(pintype "passive+no_connect")
+			(pintype "passive")
 			(uuid "7fd53d41-5a71-4966-8d1c-81952ca87c7c")
 		)
 		(pad "17" smd roundrect
@@ -19879,6 +20294,7 @@
 			)
 		)
 		(path "/fa147fd0-86b3-4bf4-96a0-28fdd318e8b6")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -20270,6 +20686,7 @@
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/5bab2886-ea99-4113-be99-3f7eda8ba950")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
 		(units
 			(unit
@@ -20577,7 +20994,7 @@
 		)
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/f3e758d1-9049-456a-b4f4-98173669af43")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
 		(units
 			(unit
@@ -20809,9 +21226,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/2fc6f367-c147-42ac-9106-0542fab65c82")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -20873,6 +21297,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U6-FB)")
+			(pintype "passive")
 			(uuid "2ca39c8b-0bdd-407e-b8c8-f65b0c4fa47e")
 		)
 		(pad "2" smd roundrect
@@ -20881,6 +21306,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "888d0976-924c-443e-abd7-a15599c515e0")
 		)
 		(embedded_fonts no)
@@ -20971,9 +21397,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/a8f7a051-d335-4337-9dc5-0a874753a2a6")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -21035,6 +21468,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "USB_VBUS")
+			(pintype "passive")
 			(uuid "d9f10d34-2e38-475e-a4fe-220662f79a36")
 		)
 		(pad "2" smd roundrect
@@ -21043,6 +21477,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "ff5b17d7-d9b2-4664-982a-6c00f21270e9")
 		)
 		(embedded_fonts no)
@@ -21133,9 +21568,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "R_*")
 		(path "/02fa665e-327e-4491-a2f4-a01adbd2eb8c/d05abaef-f6de-454b-aab9-d677ae0c5df7")
-		(sheetname "Power")
+		(sheetname "/Power/")
 		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -21197,6 +21639,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "USB_VBUS")
+			(pintype "passive")
 			(uuid "6df70a90-843c-4b5f-85da-3154bba095f8")
 		)
 		(pad "2" smd roundrect
@@ -21205,6 +21648,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "Net-(U3-VBUS)")
+			(pintype "passive")
 			(uuid "15c2727b-f4c4-4900-82c4-4fe48f44dc21")
 		)
 		(embedded_fonts no)
@@ -21295,8 +21739,16 @@
 				)
 			)
 		)
+		(property ki_fp_filters "C_*")
 		(path "/f6d61285-b912-466e-b898-1648ff7e3750")
+		(sheetname "/")
 		(sheetfile "sacre.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1" "2")
+			)
+		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -21358,6 +21810,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "+3V3")
+			(pintype "passive")
 			(uuid "59c55f89-382b-4844-82ab-20a0c8ee9639")
 		)
 		(pad "2" smd roundrect
@@ -21366,6 +21819,7 @@
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
 			(net "GND")
+			(pintype "passive")
 			(uuid "b10bedcd-e2e0-45e4-8253-f8393ef88820")
 		)
 		(embedded_fonts no)
@@ -21866,6 +22320,18 @@
 				(size 1.3 1.3)
 				(thickness 0.2)
 			)
+		)
+	)
+	(gr_text "RF /ANT_RF hacia AE1: calculada con JLCPCB, 50,15 ohm nominales.\nApilado JLC04101H-7628; calculo con mascara incluida.\nRecalcular si cambia apilado, mascara o geometria.\nParametros y limites: README, seccion Pista RF."
+		(at 75 169 0)
+		(layer "Cmts.User")
+		(uuid "f06b4bf5-c9f0-4d9b-b29e-994a4e7b702a")
+		(effects
+			(font
+				(size 0.9 0.9)
+				(thickness 0.12)
+			)
+			(justify left top)
 		)
 	)
 	(dimension
@@ -24227,7 +24693,7 @@
 	(via
 		(at 80.11 146.58)
 		(size 0.45)
-		(drill 0.2)
+		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
 		(uuid "81f30055-893e-4e3d-9a3f-cd02a47a72b5")
@@ -24301,7 +24767,7 @@
 	(via
 		(at 80.12 147.61)
 		(size 0.45)
-		(drill 0.2)
+		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
 		(uuid "993467e7-9fa5-45ba-a769-deefb0ef5716")
@@ -24341,7 +24807,7 @@
 	(via
 		(at 81.13 147.62)
 		(size 0.45)
-		(drill 0.2)
+		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
 		(uuid "a2796aef-0ef5-4712-8873-de132ac00c06")
@@ -24424,7 +24890,7 @@
 	(via
 		(at 81.16 146.58)
 		(size 0.45)
-		(drill 0.2)
+		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
 		(uuid "c3389229-9711-4538-bfc1-776501d1db46")
@@ -27353,6 +27819,22 @@
 		(uuid "8608537d-5599-411a-83b6-a3a0bf41fe9d")
 	)
 	(segment
+		(start 55.035 98.95)
+		(end 55.02 98.935)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "RES_TOUCH_CTRL")
+		(uuid "90dd2068-9ed4-4837-bb99-97be280893e8")
+	)
+	(segment
+		(start 55.035 100.05)
+		(end 55.035 98.95)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "RES_TOUCH_CTRL")
+		(uuid "cad30e02-c298-413a-9ec6-c473026c2c96")
+	)
+	(segment
 		(start 77.88 143.34)
 		(end 77.88 143.69)
 		(width 0.2)
@@ -28825,12 +29307,28 @@
 		(uuid "9c5e5b07-e4dd-46a4-8731-837bfa9b7225")
 	)
 	(segment
+		(start 56.67 97.375)
+		(end 56.685 97.36)
+		(width 0.25)
+		(layer "F.Cu")
+		(net "Net-(D8-A)")
+		(uuid "a3f9e6ba-929a-4a7c-a13b-5aea1ca6d51a")
+	)
+	(segment
 		(start 56.685 95.875)
 		(end 56.685 97.36)
 		(width 0.25)
 		(layer "F.Cu")
 		(net "Net-(D8-A)")
 		(uuid "b66e9ed3-da99-4787-aada-30633aa0aae5")
+	)
+	(segment
+		(start 56.67 98.935)
+		(end 56.67 97.375)
+		(width 0.25)
+		(layer "F.Cu")
+		(net "Net-(D8-A)")
+		(uuid "d6251619-8a58-4f8b-a76c-21ed37567c1a")
 	)
 	(segment
 		(start 60.055 98.43)
@@ -31629,7 +32127,7 @@
 				(xy 74.062794 97.547765) (xy 74.142235 97.627206) (xy 74.245009 97.672585) (xy 74.270135 97.6755)
 				(xy 74.659864 97.675499) (xy 74.684991 97.672585) (xy 74.771687 97.634304) (xy 74.801577 97.628)
 				(xy 74.882727 97.628) (xy 77.115501 97.628) (xy 77.167827 97.649674) (xy 77.189501 97.702) (xy 77.189501 97.859863)
-				(xy 77.192414 97.884986) (xy 77.192415 97.884992) (xy 77.23241 97.975572) (xy 77.237794 97.987765)
+				(xy 77.192414 97.884986) (xy 77.192415 97.884992) (xy 77.23228 97.975276) (xy 77.237794 97.987765)
 				(xy 77.317235 98.067206) (xy 77.420009 98.112585) (xy 77.445135 98.1155) (xy 77.834864 98.115499)
 				(xy 77.859991 98.112585) (xy 77.962765 98.067206) (xy 78.042206 97.987765) (xy 78.087585 97.884991)
 				(xy 78.0905 97.859865) (xy 78.090499 96.595136) (xy 78.087585 96.570009) (xy 78.042206 96.467235)
@@ -31856,22 +32354,29 @@
 				(xy 56.451442 95.718943) (xy 56.4095 95.8202) (xy 56.4095 96.685575) (xy 56.387826 96.737901) (xy 56.368001 96.752056)
 				(xy 56.278516 96.795802) (xy 56.195801 96.878517) (xy 56.144427 96.983605) (xy 56.144427 96.983606)
 				(xy 56.1345 97.051735) (xy 56.1345 97.668264) (xy 56.144427 97.736393) (xy 56.144427 97.736394)
-				(xy 56.195801 97.841482) (xy 56.195802 97.841483) (xy 56.278517 97.924198) (xy 56.383607 97.975573)
-				(xy 56.45174 97.9855) (xy 56.451746 97.9855) (xy 56.918254 97.9855) (xy 56.91826 97.9855) (xy 56.986393 97.975573)
-				(xy 57.091483 97.924198) (xy 57.174198 97.841483) (xy 57.225573 97.736393) (xy 57.2355 97.66826)
-				(xy 57.2355 97.05174) (xy 57.225573 96.983607) (xy 57.174198 96.878517) (xy 57.091483 96.795802)
-				(xy 57.091481 96.795801) (xy 57.001999 96.752056) (xy 56.964509 96.709603) (xy 56.9605 96.685575)
-				(xy 56.9605 96.019767) (xy 56.982174 95.967441) (xy 57.208608 95.741007) (xy 57.35516 95.594455)
-				(xy 57.407485 95.572782) (xy 57.459811 95.594456) (xy 57.480711 95.636112) (xy 57.487634 95.683625)
-				(xy 57.487634 95.683626) (xy 57.542673 95.79621) (xy 57.542674 95.796211) (xy 57.631289 95.884826)
-				(xy 57.743875 95.939866) (xy 57.816864 95.9505) (xy 57.81687 95.9505) (xy 58.33813 95.9505) (xy 58.338136 95.9505)
-				(xy 58.388896 95.943104) (xy 58.443799 95.957007) (xy 58.45189 95.964005) (xy 59.757826 97.269941)
-				(xy 59.7795 97.322267) (xy 59.7795 97.742665) (xy 59.757826 97.794991) (xy 59.726094 97.810949)
-				(xy 59.726863 97.813438) (xy 59.721377 97.815132) (xy 59.608788 97.870174) (xy 59.520173 97.958789)
-				(xy 59.465134 98.071373) (xy 59.465134 98.071374) (xy 59.4545 98.144359) (xy 59.4545 98.719455)
-				(xy 59.432826 98.771781) (xy 59.3805 98.793455) (xy 59.328174 98.771781) (xy 59.305913 98.74952)
-				(xy 59.214591 98.696795) (xy 59.214582 98.696791) (xy 59.112729 98.6695) (xy 59.112727 98.6695)
-				(xy 59.007273 98.6695) (xy 59.007271 98.6695) (xy 58.905417 98.696791) (xy 58.905408 98.696795)
+				(xy 56.195801 97.841482) (xy 56.195802 97.841483) (xy 56.278517 97.924198) (xy 56.353 97.96061)
+				(xy 56.39049 98.003063) (xy 56.3945 98.027091) (xy 56.3945 98.260575) (xy 56.372826 98.312901) (xy 56.353001 98.327056)
+				(xy 56.263516 98.370802) (xy 56.180801 98.453517) (xy 56.129427 98.558605) (xy 56.129427 98.558606)
+				(xy 56.1195 98.626735) (xy 56.1195 99.243264) (xy 56.129427 99.311393) (xy 56.129427 99.311394)
+				(xy 56.180801 99.416482) (xy 56.180802 99.416483) (xy 56.263517 99.499198) (xy 56.368607 99.550573)
+				(xy 56.43674 99.5605) (xy 56.436746 99.5605) (xy 56.903254 99.5605) (xy 56.90326 99.5605) (xy 56.971393 99.550573)
+				(xy 57.076483 99.499198) (xy 57.159198 99.416483) (xy 57.210573 99.311393) (xy 57.2205 99.24326)
+				(xy 57.2205 98.62674) (xy 57.210573 98.558607) (xy 57.159198 98.453517) (xy 57.076483 98.370802)
+				(xy 57.044648 98.355239) (xy 56.986999 98.327056) (xy 56.949509 98.284603) (xy 56.9455 98.260575)
+				(xy 56.9455 98.041757) (xy 56.967174 97.989431) (xy 56.986998 97.975276) (xy 57.091483 97.924198)
+				(xy 57.174198 97.841483) (xy 57.225573 97.736393) (xy 57.2355 97.66826) (xy 57.2355 97.05174) (xy 57.225573 96.983607)
+				(xy 57.174198 96.878517) (xy 57.091483 96.795802) (xy 57.091481 96.795801) (xy 57.001999 96.752056)
+				(xy 56.964509 96.709603) (xy 56.9605 96.685575) (xy 56.9605 96.019767) (xy 56.982174 95.967441)
+				(xy 57.208608 95.741007) (xy 57.35516 95.594455) (xy 57.407485 95.572782) (xy 57.459811 95.594456)
+				(xy 57.480711 95.636112) (xy 57.487634 95.683625) (xy 57.487634 95.683626) (xy 57.542673 95.79621)
+				(xy 57.542674 95.796211) (xy 57.631289 95.884826) (xy 57.743875 95.939866) (xy 57.816864 95.9505)
+				(xy 57.81687 95.9505) (xy 58.33813 95.9505) (xy 58.338136 95.9505) (xy 58.388896 95.943104) (xy 58.443799 95.957007)
+				(xy 58.45189 95.964005) (xy 59.757826 97.269941) (xy 59.7795 97.322267) (xy 59.7795 97.742665) (xy 59.757826 97.794991)
+				(xy 59.726094 97.810949) (xy 59.726863 97.813438) (xy 59.721377 97.815132) (xy 59.608788 97.870174)
+				(xy 59.520173 97.958789) (xy 59.465134 98.071373) (xy 59.465134 98.071374) (xy 59.4545 98.144359)
+				(xy 59.4545 98.719455) (xy 59.432826 98.771781) (xy 59.3805 98.793455) (xy 59.328174 98.771781)
+				(xy 59.305913 98.74952) (xy 59.214591 98.696795) (xy 59.214582 98.696791) (xy 59.112729 98.6695)
+				(xy 59.112727 98.6695) (xy 59.007273 98.6695) (xy 59.007271 98.6695) (xy 58.905417 98.696791) (xy 58.905408 98.696795)
 				(xy 58.814086 98.74952) (xy 58.73952 98.824086) (xy 58.686795 98.915408) (xy 58.686791 98.915417)
 				(xy 58.6595 99.01727) (xy 58.6595 99.122729) (xy 58.686791 99.224582) (xy 58.686792 99.224585) (xy 58.686793 99.224587)
 				(xy 58.73952 99.315913) (xy 58.814087 99.39048) (xy 58.905413 99.443207) (xy 58.924652 99.448362)
@@ -31886,27 +32391,38 @@
 				(xy 57.607826 102.52852) (xy 57.5555 102.550194) (xy 57.548244 102.549837) (xy 57.544823 102.5495)
 				(xy 57.54482 102.5495) (xy 55.71518 102.5495) (xy 55.693229 102.553866) (xy 55.671277 102.558233)
 				(xy 55.621496 102.591495) (xy 55.621495 102.591496) (xy 55.588233 102.641277) (xy 55.5795 102.68518)
-				(xy 53.0005 102.68518) (xy 53.0005 97.051735) (xy 54.4845 97.051735) (xy 54.4845 97.668264) (xy 54.494427 97.736393)
-				(xy 54.494427 97.736394) (xy 54.545801 97.841482) (xy 54.628517 97.924198) (xy 54.73877 97.978097)
-				(xy 54.73793 97.979814) (xy 54.775941 98.011338) (xy 54.7845 98.045885) (xy 54.7845 99.703455) (xy 54.762826 99.755781)
-				(xy 54.71452 99.804086) (xy 54.661795 99.895408) (xy 54.661791 99.895417) (xy 54.6345 99.99727)
-				(xy 54.6345 100.102729) (xy 54.661791 100.204582) (xy 54.661795 100.204591) (xy 54.71452 100.295913)
-				(xy 54.789087 100.37048) (xy 54.880413 100.423207) (xy 54.98227 100.450499) (xy 54.982271 100.4505)
-				(xy 54.982273 100.4505) (xy 55.087729 100.4505) (xy 55.087729 100.450499) (xy 55.189587 100.423207)
-				(xy 55.280913 100.37048) (xy 55.35548 100.295913) (xy 55.408207 100.204587) (xy 55.435499 100.102729)
-				(xy 55.4355 100.102729) (xy 55.4355 99.997271) (xy 55.435499 99.99727) (xy 55.409778 99.901278)
-				(xy 55.408207 99.895413) (xy 55.35548 99.804087) (xy 55.307174 99.755781) (xy 55.2855 99.703455)
+				(xy 53.0005 102.68518) (xy 53.0005 98.626735) (xy 54.4695 98.626735) (xy 54.4695 99.243264) (xy 54.479427 99.311393)
+				(xy 54.479427 99.311394) (xy 54.530801 99.416482) (xy 54.530802 99.416483) (xy 54.613517 99.499198)
+				(xy 54.718607 99.550573) (xy 54.721166 99.550945) (xy 54.722623 99.551813) (xy 54.724096 99.552269)
+				(xy 54.723985 99.552625) (xy 54.741238 99.562904) (xy 54.762826 99.571846) (xy 54.764981 99.577049)
+				(xy 54.76982 99.579932) (xy 54.7845 99.624172) (xy 54.7845 99.703455) (xy 54.762826 99.755781) (xy 54.71452 99.804086)
+				(xy 54.661795 99.895408) (xy 54.661791 99.895417) (xy 54.6345 99.99727) (xy 54.6345 100.102729)
+				(xy 54.661791 100.204582) (xy 54.661795 100.204591) (xy 54.71452 100.295913) (xy 54.789087 100.37048)
+				(xy 54.880413 100.423207) (xy 54.98227 100.450499) (xy 54.982271 100.4505) (xy 54.982273 100.4505)
+				(xy 55.087729 100.4505) (xy 55.087729 100.450499) (xy 55.189587 100.423207) (xy 55.280913 100.37048)
+				(xy 55.35548 100.295913) (xy 55.408207 100.204587) (xy 55.435499 100.102729) (xy 55.4355 100.102729)
+				(xy 55.4355 99.997271) (xy 55.435499 99.99727) (xy 55.409778 99.901278) (xy 55.408207 99.895413)
+				(xy 55.35548 99.804087) (xy 55.307174 99.755781) (xy 55.2855 99.703455) (xy 55.2855 99.614312) (xy 55.307174 99.561986)
+				(xy 55.326995 99.547833) (xy 55.426483 99.499198) (xy 55.509198 99.416483) (xy 55.560573 99.311393)
+				(xy 55.5705 99.24326) (xy 55.5705 98.62674) (xy 55.560573 98.558607) (xy 55.509198 98.453517) (xy 55.426483 98.370802)
+				(xy 55.405367 98.360479) (xy 55.326999 98.322167) (xy 55.289509 98.279713) (xy 55.2855 98.255686)
 				(xy 55.2855 98.045885) (xy 55.307174 97.993559) (xy 55.331592 97.978837) (xy 55.33123 97.978097)
-				(xy 55.343524 97.972087) (xy 55.441483 97.924198) (xy 55.524198 97.841483) (xy 55.575573 97.736393)
+				(xy 55.336393 97.975573) (xy 55.441483 97.924198) (xy 55.524198 97.841483) (xy 55.575573 97.736393)
 				(xy 55.5855 97.66826) (xy 55.5855 97.05174) (xy 55.575573 96.983607) (xy 55.524198 96.878517) (xy 55.441483 96.795802)
 				(xy 55.441482 96.795801) (xy 55.336394 96.744427) (xy 55.268264 96.7345) (xy 55.26826 96.7345) (xy 54.80174 96.7345)
 				(xy 54.801735 96.7345) (xy 54.733606 96.744427) (xy 54.733605 96.744427) (xy 54.628517 96.795801)
 				(xy 54.545801 96.878517) (xy 54.494427 96.983605) (xy 54.494427 96.983606) (xy 54.4845 97.051735)
-				(xy 53.0005 97.051735) (xy 53.0005 95.141735) (xy 53.4745 95.141735) (xy 53.4745 95.608264) (xy 53.484427 95.676393)
-				(xy 53.484427 95.676394) (xy 53.535801 95.781482) (xy 53.535802 95.781483) (xy 53.618517 95.864198)
-				(xy 53.723607 95.915573) (xy 53.79174 95.9255) (xy 53.791746 95.9255) (xy 54.408254 95.9255) (xy 54.40826 95.9255)
-				(xy 54.476393 95.915573) (xy 54.581483 95.864198) (xy 54.664198 95.781483) (xy 54.715573 95.676393)
-				(xy 54.7255 95.60826) (xy 54.7255 95.534767) (xy 54.747174 95.482441) (xy 55.124115 95.1055) (xy 55.563558 94.666058)
+				(xy 54.4845 97.668264) (xy 54.494427 97.736393) (xy 54.494427 97.736394) (xy 54.545801 97.841482)
+				(xy 54.545802 97.841483) (xy 54.628517 97.924198) (xy 54.732999 97.975276) (xy 54.73877 97.978097)
+				(xy 54.73793 97.979814) (xy 54.775941 98.011338) (xy 54.7845 98.045885) (xy 54.7845 98.245827) (xy 54.762826 98.298153)
+				(xy 54.724056 98.317605) (xy 54.724095 98.317731) (xy 54.723344 98.317962) (xy 54.721171 98.319053)
+				(xy 54.719876 98.319242) (xy 54.718604 98.319427) (xy 54.613517 98.370801) (xy 54.530801 98.453517)
+				(xy 54.479427 98.558605) (xy 54.479427 98.558606) (xy 54.4695 98.626735) (xy 53.0005 98.626735)
+				(xy 53.0005 95.141735) (xy 53.4745 95.141735) (xy 53.4745 95.608264) (xy 53.484427 95.676393) (xy 53.484427 95.676394)
+				(xy 53.535801 95.781482) (xy 53.535802 95.781483) (xy 53.618517 95.864198) (xy 53.723607 95.915573)
+				(xy 53.79174 95.9255) (xy 53.791746 95.9255) (xy 54.408254 95.9255) (xy 54.40826 95.9255) (xy 54.476393 95.915573)
+				(xy 54.581483 95.864198) (xy 54.664198 95.781483) (xy 54.715573 95.676393) (xy 54.7255 95.60826)
+				(xy 54.7255 95.534767) (xy 54.747174 95.482441) (xy 55.124115 95.1055) (xy 55.563558 94.666058)
 				(xy 55.6055 94.5648) (xy 55.6055 94.4552) (xy 55.6055 94.054767) (xy 55.627174 94.002441) (xy 56.472345 93.15727)
 				(xy 59.6595 93.15727) (xy 59.6595 93.262729) (xy 59.686791 93.364582) (xy 59.686792 93.364585) (xy 59.686793 93.364587)
 				(xy 59.73952 93.455913) (xy 59.814087 93.53048) (xy 59.905413 93.583207) (xy 60.00727 93.610499)

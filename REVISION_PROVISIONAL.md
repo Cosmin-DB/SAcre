@@ -1,11 +1,106 @@
 # Revisión provisional independiente
 
 **Autor:** Cosmin Dobrescu
-**Fecha:** 2026-07-29
-**Estado:** registro de verificación en curso. El README mantiene el checklist
-vigente; cada hallazgo indica aquí si su corrección ya fue aplicada.
+**Última actualización:** 2026-09-14
+**Estado:** revisión digital completada; pruebas del prototipo pendientes.
+El README mantiene el checklist vigente y las decisiones aceptadas.
 
 No se repiten aquí los cinco fallos ya anotados en el esquemático.
+
+## BOM y posiciones de montaje — 2026-09-14
+
+Revisión con Fabrication Toolkit instalado, traducción automática activada.
+Campos corregidos y documentados; las propuestas siguientes **no se han
+aplicado**. No se han cambiado valores, huellas, giros ni pistas en esta pasada.
+
+### BOM-01 — Reducir variedad sin modificar el enrutado
+
+- **Estado: DESCARTADA PARA ESTA REVISIÓN por el autor (2026-09-14).** Se
+  evaluó cambiar R23 de 24 kΩ a
+  5,1 kΩ (`C23186`) y R24 de 47 kΩ a 10 kΩ (`C25804`), ambas 0603, 1 %.
+  Reutiliza dos referencias existentes y elimina `C23352` y `C25819`:
+  **39 → 37 códigos**, manteniendo la cantidad de componentes.
+- **Evidencia:** el divisor de detección USB pasa de 3,3099 V a 3,3113 V
+  con entrada de 5 V. A 5,25 V y tolerancias de 1 % en el peor sentido,
+  pasa de 3,4988 V a 3,5002 V, por debajo del límite de 3,6 V con U3 apagado.
+  No amplía el rango USB admitido ni protege frente a sobretensiones.
+- **Coste eléctrico:** consumo del divisor de 70 a 331 µA mientras hay USB
+  (+0,261 mA desde USB, no desde la batería). La resistencia equivalente
+  baja de 15,89 a 3,38 kΩ; no empeora el error por fugas de entrada.
+- **Justificación:** cálculo propio sobre la figura 9, nota 5 del
+  [CP2104](https://www.silabs.com/documents/public/data-sheets/cp2104.pdf),
+  que permite un divisor funcionalmente equivalente; 5,1 kΩ/10 kΩ no es
+  una pareja prescrita por el fabricante. No se promete ahorro económico
+  concreto: la mejora comprobada es reducir variedad.
+- **Decisión:** conservar R23=24 kΩ (`C23352`) y R24=47 kΩ (`C25819`). El
+  ahorro observado era de unos 2,6 EUR por pedido Standard, insuficiente para
+  cambiar una PCB ya terminada. Para diseños futuros, priorizar piezas Basic,
+  compatibilidad Economic y reutilización de referencias desde el inicio.
+
+Otros resultados del chequeo:
+
+- **Sólo agrupación:** el exportador produce 41 líneas para 39 códigos porque
+  C17/C23/C29 dicen `1uF` y sus equivalentes `1uF/50V`; C30 dice `100nF` y
+  sus equivalentes `0.1uF`. Uniformar esos textos reduciría a 39 líneas,
+  pero no elimina ninguna referencia de compra; ya comparten código LCSC.
+- **Diodos: no unificar de oficio.** D1/D8/D9 y D2–D4 usan dos MBR0530 de
+  fabricantes distintos. D9 se eligió para reducir la tensión del motor:
+  no basta compartir encapsulado y tensión nominal para asegurar la misma
+  caída. Cambiar sólo D1/D8 no reduce variedad porque D9 conserva su código.
+- **C18:** su 100 nF es 0402, frente a los demás 0603. Unificarlo exige
+  cambiar huella y revisar espacio/pistas; no compensa tocar esta PCB sólo
+  por ese motivo. No se propone alterar temporizaciones, feedback o
+  componentes de potencia para reutilizar valores a costa de su función.
+
+### FAB-02 — Orientaciones y centros del archivo de posiciones
+
+- **Estado: exportador comprobado y previsualización revisada por el autor.**
+  Las 85 referencias del BOM tienen posición, todas en cara superior y sin
+  duplicados. El CPL incluye además H1–H4, J5/J6 y TP1, excluidos del BOM:
+  son siete entradas sin pieza a montar, no siete componentes sin código.
+  M1 queda fuera de ambos archivos por compra/montaje independiente.
+- El exportador usa el centro de la caja de pads y el origen auxiliar,
+  invirtiendo Y para el CPL. Respecto al ancla de KiCad desplaza el centro
+  calculado de J3 0,175 mm a la izquierda, SW1 0,075 mm a la izquierda y
+  AE1 0,025 mm a la izquierda/0,030 mm arriba. No demuestra descentrado:
+  comprobar el cuerpo sobre sus pads, no igualar coordenadas por intuición.
+- Se contrastaron las geometrías numeradas de 26 componentes con bibliotecas
+  EasyEDA descargadas por el MCP. **Su cero angular no certifica el cero de
+  montaje de JLCPCB.** Q4 no tiene regla SOT-323 en el exportador; Y1 usa
+  una huella personalizada; D6 recibe la regla genérica SOT-143 y U2/U3 la
+  QFN. Son comprobaciones prioritarias, no giros erróneos demostrados.
+
+Referencia rápida para la previsualización, mirando la PCB por arriba con
+la misma orientación que KiCad (X crece a la derecha, Y hacia abajo):
+
+| Pieza | Ángulo CPL actual | Referencia física que debe coincidir con la PCB |
+| --- | --- | --- |
+| Q4 | 270° | Gate/pad 1 arriba a la derecha; drenador/pad 3 abajo |
+| D6 | 270° | Común GND/pad 1 abajo a la izquierda |
+| U2 | 270° | Pad 1 en el extremo inferior del lateral derecho |
+| U3 | 90° | Pad 1 en el extremo superior del lateral izquierdo |
+| Y1, si se monta | 180° | Pad 1 abajo a la derecha |
+| D7 | 180° | Cátodo a la derecha, en el pad 1 de KiCad |
+
+En D7 se descartó una falsa alarma de 180° al comprobar el símbolo:
+EasyEDA llama **2** al cátodo y KiCad **1**. Comparar sólo los números
+habría confundido una convención distinta con un fallo de polaridad.
+J1/J2/J3 y SW1 coinciden en orientación de pads con sus huellas importadas;
+revisar también la boca del USB y las entradas de los flex en el visor.
+No se pudo obtener la huella EasyEDA de AE1: contrastar con su plano y el
+componente del acopio al preparar su montaje.
+
+**Resultado de la previsualización (2026-09-14):** el autor encontró correcto
+el posicionamiento del resto de componentes y corrigió manualmente únicamente
+la orientación de Y1. El ángulo de corrección no quedó registrado, por lo que
+todavía no se puede fijar un `FT Rotation Offset` fiable para automatizar Y1
+en otro pedido. No se ha girado su huella física ni fijado offsets nuevos.
+En futuros pedidos, revisar de nuevo la previsualización con el código exacto
+de cada pieza antes de aceptar el montaje.
+Los ángulos de esta tabla dependen de mantener activada la traducción
+automática de este exportador. No son una tabla para el exportador nativo.
+Fuentes: [atributos de Fabrication Toolkit](https://github.com/bennymeg/Fabrication-Toolkit#attributes)
+y [guía de corrección de posiciones de JLCPCB](https://github.com/JLCPCB/JLCPCB-SMT-Assembly-Components-orientation-fix).
 
 ## Evidencia del prototipo
 
@@ -51,7 +146,12 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - [ ] Repetir durante un refresco y medir mínimo/rizado de `+3V3`.
 - [ ] Registrar brownouts, resets, errores I²C y desconexiones Bluetooth.
 
-## Hallazgos para validar
+## Antecedentes del prototipo y correcciones RV-01–RV-10
+
+Las descripciones de fallos siguientes corresponden al diseño anterior.
+Las correcciones indicadas en esquema ya se trasladaron a la PCB y se
+revisaron digitalmente; las comprobaciones físicas no se dan por superadas.
+RV-08 es una decisión aceptada, no una propuesta de rediseño pendiente.
 
 ### RV-01 — L2 no es apta para el regulador de 3,3 V
 
@@ -77,9 +177,9 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 
 **Corrección aplicada en el esquemático**
 
-- L2 queda como `FTC252012S1R0MBCA`, LCSC `C5832370`: 1 µH, 4 A, Isat
-  5,6 A y DCR 35 mΩ, con huella `L_Changjiang_FTC252012S` en el esquema.
-- La actualización y colocación en PCB permanecen pendientes.
+- El conjunto U4/L2 fue sustituido por U6=`TLV62568DBVR` y
+  L3=`FTC252012S1R0MBCA`, LCSC `C5832370`: 1 µH, 4 A, Isat 5,6 A y
+  DCR 35 mΩ, huella `L_Changjiang_FTC252012S`. Aplicado también en PCB.
 
 **Fuentes:** [BOM fabricado](bom_jlcpb.csv), [L2 C1042, pág. 4](documentation/datasheets/SDFL2012Q1R0KTF-C1042.pdf), [ADP2108, pág. 13](documentation/datasheets/ADP2108.pdf), [ESP32-PICO, tabla 17](documentation/datasheets/ESP32-PICO-series.pdf).
 
@@ -140,7 +240,7 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
   `C843300`: 660 mA, Isat 1,3 A y DCR 950 mΩ, con huella
   `L_Changjiang_FNR4020S` en el esquema.
 - C6 se conserva en 4,7 µF/25 V; C8 y C16 se eliminan.
-- La actualización, colocación y revisión en PCB permanecen pendientes.
+- Aplicado también en PCB; el retorno Q4–R10 está compactado (`RV-13`).
 
 **Fuentes:** [BOM fabricado](bom_jlcpb.csv), [panel GDEY042T81-T02](documentation/datasheets/GDEY042T81-T02.pdf), [SSD1683, circuito de aplicación pág. 46](documentation/datasheets/SSD1683.pdf), [producto oficial: IC SSD1683](https://www.good-display.com/product/473.html), [DESPI-C02 V1.0 de 2018](https://v4.cecdn.yun300.cn/100001_1909185148/DESPI-C02_SCH%20V1.0.pdf), [guía oficial DESPI-C02, secciones 3.1 y 4.1–4.4](https://www.good-display.com/companyfile/29.html).
 
@@ -219,6 +319,8 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 
 - JP1 y la conexión a IO16 se eliminan. `RES_TOUCH_CTRL` pasa a GPIO4 mediante
   R11=1 kΩ, C25=10 µF y D8; el firmware lo maneja en drenador abierto.
+  Mejora posterior aplicada por el autor: R28=1 kΩ en paralelo con R11
+  reduce la resistencia efectiva a 500 Ω y aumenta el margen del nivel bajo.
 
 **Fuentes:** [ESP32-PICO-D4, tabla de pines](documentation/datasheets/ESP32-PICO-series.pdf), [FT6336U](documentation/datasheets/FT6336U.pdf).
 
@@ -261,7 +363,7 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 **Corrección aplicada en el esquemático**
 
 - C29=1 µF entre U5.4 (`VDD`) y GND y C28=10 µF entre U5.3 (`VBAT`) y
-  GND. En PCB deben quedar pegados a U5 y con retornos cortos.
+  GND, colocados junto a U5 con retornos locales revisados en PCB.
 - Cierre: comprobar estabilidad en U5.4 y U5.3 durante conexión y carga.
 
 **Fuente:** [TP4054 JSMSEMI, aplicación típica](documentation/datasheets/TP4054-JSMSEMI-C5381776.pdf).
@@ -331,25 +433,21 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 
 ## Condiciones abiertas, no clasificadas como fallo
 
-- Los pull-ups I²C R7/R8 se cambian de 10 kΩ a 5,1 kΩ para aumentar el margen
-  de subida a 400 kHz sin añadir un valor nuevo al BOM.
-- **U4 / presupuesto de `+3V3`: CERRADO.** Sin motor, el pico documentado
-  queda en unos 401 mA: ESP32 Wi-Fi 370 mA, panel 5,6 mA típicos, táctil
-  4,32 mA típicos, CP2104 18,73 mA máximos y unos 2 mA para LIS3DH y
-  polarizaciones. El motor ya toma energía de `VSYS`, por lo que no carga U4.
-  El ADP2108 de 600 mA y C21/C22=10 µF son adecuados para esta topología.
-- Con batería baja, U4 entra correctamente en modo 100 % de ciclo, pero deja
-  de regular a 3,3 V y la salida sigue a la batería con pérdidas. Debe
-  verificarse que el firmware apaga el equipo antes de que `+3V3` caiga por
-  debajo de los 3,0 V recomendados para el ESP32; la protección de la batería
-  por sí sola puede actuar demasiado tarde.
+- Pull-ups I²C R7/R8=5,1 kΩ ya aplicados. Usar 100 kHz hasta validar los
+  flancos del conjunto PCB/flex; no se garantiza 400 kHz sólo por ese valor.
+- **Regulador: selección cerrada.** U6=`TLV62568DBVR` de 1 A sustituye al
+  ADP2108; L3 y C31/C32 son los componentes actuales. El motor toma energía
+  de `VSYS`. Presupuesto y márgenes en `AUDITORIA_COMPONENTES.md`.
+- Con batería baja, verificar el apagado por firmware antes de perder el
+  margen de alimentación del ESP32; la protección de batería no sustituye
+  ese umbral, pendiente de calibración.
 - La medida de batería en ADC1 es válida; añadir 100 nF local sería una mejora
   de filtrado, no un fallo demostrado.
 - `MOTOR-01`: Q2 ya está corregido al pinout B1/E2/C3 del S8050 montado
   (`C20069125`). El motor toma energía de `VSYS` mediante D9=MBR0530;
-  C1=0,1 µF y R25=100 kΩ. La etapa queda validada eléctricamente para el
-  candidato de 70 mA nominales y 90 mA de arranque. Quedan la referencia de
-  compra, la comprobación mecánica y la PCB.
+  C1=0,1 µF y R25=100 kΩ. PCB aplicada; dimensionado condicionado al candidato
+  de 70 mA nominales y 90 mA de arranque. Quedan referencia de compra,
+  corriente real y comprobación mecánica; no se considera ensayado.
 
 ## Comprobaciones descartadas
 
@@ -363,18 +461,24 @@ No se repiten aquí los cinco fallos ya anotados en el esquemático.
 - **USB-C y RF:** CC1/CC2, protección ESD, pares USB, adaptación integrada del
   PICO-D4 y keepout de antena no muestran otro fallo eléctrico evidente.
 
-## Chequeos automáticos
-
-- ERC: sin fallo eléctrico útil; 105 de 107 avisos son desajustes de símbolos de librería.
-- DRC: 0 conexiones sin enrutar; las 24 infracciones están excluidas y la paridad con el esquemático sólo muestra diferencias de metadatos.
-
 ## Revisión de enrutado — 2026-09-13
 
 ### Cierre de revisión sobre el guardado actual (2026-09-13)
 
-Este resumen prevalece sobre las medidas históricas siguientes. PCB revisada:
+Último contraste de documentación, netlist actual y referencias de fabricante:
+sin incompatibilidad grave nueva detectada. DRC repetido con relleno de zonas
+en memoria: 0 infracciones activas, 18 exclusiones, 0 conexiones pendientes y
+0 diferencias con el esquema. La mejora posterior R11/R28 ya está aplicada
+por el autor en esquema y PCB; el asistente completa sólo el campo de compra
+de R28 y excluye M1 de BOM/posiciones, sin tocar geometría ni conexiones.
+85 componentes tienen código de compra coincidente en esquema y PCB.
+Persisten las condiciones del motor y las pruebas del reset descritas en
+`AUDITORIA_COMPONENTES.md`; no se considera superada ninguna prueba física.
+Corregida en README la selección de D2–D4 a `C236079` y separada del BOM histórico.
+
+Referencia histórica de cobre revisado, anterior a R28 y a la nota RF en `Cmts.User`:
 SHA256 `e97267a49af78ba223983d335d8b887f7e7fd721cb2c1a0c7f3eb2a174cb04b4`.
-Diseño sin modificar durante esta pasada.
+La nota documental no cambia cobre, componentes, taladros ni máscaras.
 
 - **DRC:** 0 conexiones pendientes, 0 diferencias con el esquema y 0 infracciones
   no excluidas tras el ajuste autorizado de reglas. Taladro mínimo de 0,20 mm;
@@ -409,15 +513,6 @@ Diseño sin modificar durante esta pasada.
   aceptadas sobre D6, U6 y SW1. Encaje físico, EMC/RF y funcionamiento real
   siguen pendientes del autor/prototipo; no los certifica esta revisión.
 
-Sobre la PCB guardada a las 17:07, después del enrutado del autor. Sin modificar
-PCB, proyecto ni esquemáticos. Este apartado actualiza los chequeos de PCB
-anteriores; no da por validados el prototipo ni la fabricación.
-
-**Comprobado:** 92 huellas; DRC con relleno de zonas y paridad: 0 conexiones
-pendientes, 0 diferencias con el esquema y 0 infracciones no excluidas.
-Hay 22 exclusiones: 8 avisos de taladros, 6 diferencias de librería y
-8 avisos de serigrafía. Las exclusiones no equivalen a comprobaciones superadas.
-
 ### RV-11 — Comprobar los 50 Ω de la pista RF con el apilado de fabricación
 
 - **Estado: CORREGIDO EN PCB por autorización del autor; revisión visual y
@@ -432,27 +527,18 @@ Hay 22 exclusiones: 8 avisos de taladros, 6 diferencias de librería y
   0,26 mm; zonas rellenadas. Recorrido de 14,80 mm, huella/meandro y resto
   del diseño conservados. GND lateral ≈0,1505 mm, In1 continuo debajo.
 - **Cierre parcial:** DRC sin infracciones no excluidas, sin conexiones
-  pendientes ni discrepancias de esquema; conserva 22 exclusiones. El lote
+  pendientes ni discrepancias de esquema. El lote
   TG135 y la antena completa siguen necesitando validación física.
 - [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
 
 ### RV-12 — Retornos locales de C31/U6 y C30
 
-- **Revisión sobre guardado 19:29 (2026-09-13):** C31 ya tiene vía GND a
-  1,14 mm del centro de su pad de masa (antes 4,16 mm), y C30 a 1,62 mm
-  (antes 4,67 mm), conectadas al cobre local. No repetir la propuesta de
-  añadirlas. U6.2 mantiene la vía más próxima a 2,48 mm; añadir una adyacente
-  sigue siendo una mejora opcional, no un fallo confirmado. Se han revisado
-  las vistas de cobre relleno; las distancias siguientes son históricas.
-- **Estado: CONDICIONAL; mejora preventiva, no fallo funcional demostrado.**
-  Hipótesis: los retornos locales pueden acortarse para reducir inductancia.
-- **Evidencia:** la vía GND más próxima al centro del pad de masa de C31 está
-  a 4,16 mm; para U6.2, a 2,48 mm; para C30.2, a 4,67 mm. Los pads sí conectan
-  al vertido superior: estas distancias no significan masa desconectada ni son
-  longitudes medidas del retorno. C31–VIN mide unos 1,9 mm y SW–L3 unos 2,8 mm:
-  no es necesario rehacer todo el regulador.
-- **Acción pendiente:** valorar únicamente una vía GND adyacente a U6.2;
-  conservar cobre local continuo y revisar el bucle C31–U6.
+- **Estado: C31/C30 CORREGIDOS; U6 CONSERVADO.** Mejora preventiva de
+  retornos, no fallo funcional demostrado. C31 tiene vía GND a 1,14 mm del
+  centro de su pad de masa (antes 4,16 mm), y C30 a 1,62 mm (antes 4,67 mm).
+  Ambas conectan al cobre local. U6.2 conserva la vía a 2,48 mm y cobre GND
+  continuo; el autor indica que no puede acercarlo más. No queda recolocación
+  solicitada ni hay que volver a añadir las vías de C31/C30.
   C26/C27 están razonablemente colocados: conexión ancha y corta a U2.3/4,
   con una vía GND aproximadamente a 1 mm de C27.2.
 - **Cierre:** inspección de los retornos con zonas rellenadas y DRC; no atribuir
@@ -463,23 +549,16 @@ Hay 22 exclusiones: 8 avisos de taladros, 6 diferencias de librería y
 
 ### RV-13 — Compactar el nodo conmutado del booster
 
-- **Revisión sobre guardado 19:29 (2026-09-13):** Q4.3–L1.1 se ha reducido
-  de 10,18 a 7,34 mm; el nodo completo pasa de 13,82 a 11,45 mm, ahora con
-  ancho 0,60 mm. C5.1–L1.2 pasa de 5,57 a 3,65 mm. Mejora real del autor;
-  las medidas originales siguientes no describen ya la PCB actual.
-  Queda por valorar Q4.2–R10.2: 15,94 mm a 0,20 mm. Es parte del retorno
-  de corriente del transistor, no sólo una señal lógica; compactar ese
-  recorrido puede reducir parásitos. No se ha demostrado mal funcionamiento.
-- **Estado: CONDICIONAL; mejora preventiva.** Hipótesis: el recorrido disperso
-  aumenta los parásitos y el ruido durante el refresco, aunque pueda funcionar.
-- **Evidencia:** Q4.3–L1.1 recorre 10,18 mm; la red completa `Net-(D4-A)` suma
-  13,82 mm de pistas de 0,30–0,40 mm. C5.1–L1.2 recorre 5,57 mm.
-  Es geometría comprobada, no prueba de sobretensión ni de fallo del panel.
-- **Acción pendiente:** valorar conjuntamente posición/conexión de R10 y Q4
-  para acortar el retorno; no pedir rehacer indiscriminadamente la mejora
-  ya aplicada a L1/D4/C6/C5. Revisar el bucle C5–L1–Q4–R10–masa.
-- **Cierre:** comparar el bucle y nodo conmutado antes/después, mantener las
-  conexiones y pasar DRC; validar el refresco en prototipo. Criterio general:
+- **Estado: CORREGIDO EN PCB; prueba de refresco pendiente.** Se ha acortado
+  Q4.2–R10.2 de 15,94 mm a 2,34 mm, ahora a 0,25 mm y sin vías. Ese tramo
+  conduce la corriente del transistor: no es sólo una señal de medida.
+- **Evidencia actual:** Q4.3–L1.1 mide 8,88 mm; el nodo `Net-(D4-A)` suma
+  13,00 mm a 0,60 mm. C5.1–L1.2 mide 5,19 mm. El retorno de R10 llega al
+  cobre GND local. Se revisó el conjunto tras la recolocación, no sólo R10.
+- **Acción:** ninguna recolocación adicional solicitada. Fue una mejora
+  preventiva; no demuestra la causa de los fallos del prototipo anterior.
+- **Cierre:** conexiones y DRC comprobados; validar refresco en prototipo.
+  Criterio general:
   [TI SNVA731, §6](https://www.ti.com/lit/an/snva731/snva731.pdf), aplicado al
   circuito específico del panel, no como sustituto de su esquema.
 - [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
@@ -490,7 +569,7 @@ Hay 22 exclusiones: 8 avisos de taladros, 6 diferencias de librería y
   1,11 mm y cobre local conectado. No se identifica otra corrección concreta
   necesaria en esta inspección; mantener posición por la faja. El ensayo ESD
   permanece pendiente, no equivale a un trabajo de enrutado pendiente.
-- **Estado: CONDICIONAL; mejora de inmunidad ESD.** Hipótesis: la descarga puede
+- **Estado: POSICIÓN ACEPTADA; ensayo ESD pendiente.** Hipótesis: la descarga puede
   recorrer y acoplarse a más circuito antes de alcanzar el protector.
 - **Evidencia:** los pads de datos de J3 están en x=55,66 mm y los de D6 en
   x=66,35 mm: unos 10,7 mm de separación horizontal. U3 queda inmediatamente
@@ -508,19 +587,13 @@ Hay 22 exclusiones: 8 avisos de taladros, 6 diferencias de librería y
   de J3 pasan a NPTH en PCB y biblioteca local, conservando diámetro de
   0,70 mm y posiciones. Anclajes soldados y SW1 intactos. Desaparecen las
   cuatro infracciones de J3 por anular/padstack; sin errores nuevos.
-- **Estado: CONDICIONAL; fabricación, no enrutado.** Hipótesis: taladros
-  mecánicos definidos como metalizados por la huella importada.
-- **Evidencia:** dos pads sin número/red de SW1 y dos de J3 están definidos
-  como PTH con anular prácticamente nulo: 0,0043 y 0,0030 mm. Generan las
-  ocho exclusiones de anular/padstack. No son las patas eléctricas de estos
-  componentes ni se ha demostrado aquí que impidan el montaje.
-- **Acción propuesta:** contrastar con los planos mecánicos; si alojan tetones
-  plásticos, definirlos como NPTH conservando posición y diámetro. No aumentar
-  el anular a ciegas ni modificar las patas de anclaje del USB.
+- **Estado: J3 CORREGIDO; SW1 CONSERVADO POR DECISIÓN DEL AUTOR.** La huella
+  importada trataba los agujeros mecánicos como PTH sin anular. El plano de
+  J3 representa los posicionadores separados de los anclajes soldados.
 - **Aclaración del autor:** los avisos de SW1 se excluyeron por cómo venía la
-  huella. No modificar SW1 ni sus exclusiones en esta fase. J3 se revisará
-  por separado; no extrapolarle automáticamente esa justificación.
-- **Cierre:** taladros coherentes con la pieza y con los archivos de fabricación.
+  huella. No modificar SW1 ni sus exclusiones en esta fase.
+- **Cierre parcial:** los dos agujeros de J3 salen en el archivo NPTH y sus
+  cuatro anclajes permanecen PTH. Aprobación física del autor pendiente.
 - [ ] PCB corregida y revisada por el autor; esquemático sin cambio propuesto.
 
 **Sin otro problema concreto detectado en esta pasada:** conexiones actuales
@@ -531,10 +604,9 @@ EMC, temperaturas ni encaje de batería/flex/carcasa mediante DRC o estas vistas
 
 ## Compatibilidad JLCPCB — configuración de 1 mm (2026-09-13)
 
-Aplicada sobre el guardado del autor de las 18:05. Apilado y reglas en README;
-comparación textual confirma que todo el contenido geométrico de la PCB
-permanece intacto. Esquemáticos sin cambios. El DRC nuevo rellena zonas en
-memoria, sin guardar cobre: al reabrir, rellenar zonas antes de exportar.
+Apilado y reglas actuales en README. Los informes DRC rellenan zonas en
+memoria sin guardar cobre: al preparar el pedido, rellenar zonas y generar
+archivos nuevos. Las exportaciones temporales no son el paquete definitivo.
 
 ### RV-16 — Tres vías GND demasiado próximas a la ranura
 
@@ -550,27 +622,21 @@ memoria, sin guardar cobre: al reabrir, rellenar zonas antes de exportar.
 
 ### RV-17 — «Plugged» no resuelve las vías dentro del pad del ESP32
 
-- **Revisión sobre guardado 19:29 (2026-09-13):** permanecen las 20 vías de
-  taladro 0,30 mm dentro de U2.49; no hay cambio geométrico que cierre este punto.
-- **Estado: CONFIRMADA la limitación del proceso; resultado de soldadura CONDICIONAL.**
-- **Evidencia:** hay 20 vías de taladro 0,30 mm dentro del pad U2.49. JLC
-  excluye del relleno con tinta las vías dentro de pads o a menos de 0,35 mm
-  de sus aperturas. El pedido anterior «Plugged» no garantiza que se rellenaran.
-- **Acción:** pendiente de discusión; no activar automáticamente epoxi/cobre
-  relleno y tapado. Confirmar tratamiento de U2.49 con CAM/ensamblado y valorar
-  mantener la solución ensayada frente a cambiarla. La existencia de estas
-  vías no demuestra por sí sola que la placa sea inviable.
-- **Cierre:** proceso y máscara acordados, archivos de producción revisados;
-  calidad de soldadura validada. [Requisitos de vías JLCPCB](https://jlcpcb.com/help/article/pcb-via-covering).
+- **Estado: GEOMETRÍA Y PASTA ACEPTADAS; soldadura pendiente de validar.**
+  Se conservan las nueve ventanas de pasta. El autor ha dejado 12 vías
+  exteriores de 0,30/0,50 mm y cuatro interiores de 0,20/0,45 mm, sin solapar
+  los agujeros con la pasta. Margen interior de 0,020–0,034 mm aceptado.
+- **Limitación:** JLC excluye del relleno con tinta las vías dentro de pads
+  o próximas a sus aperturas. «Plugged» no garantiza su sellado.
+- **Decisión:** no modificar pasta ni añadir relleno epoxi/cobre de oficio.
+  La existencia de estas vías no demuestra por sí sola un fallo de soldadura.
+- **Cierre:** comprobar calidad de montaje del prototipo.
+  [Requisitos de vías JLCPCB](https://jlcpcb.com/help/article/pcb-via-covering).
 - [ ] PCB/proceso revisados por el autor; esquemático sin cambio propuesto.
 
-**Resto del contraste:** pistas existentes ≥0,20 mm; vías 0,50/0,30 mm (143)
-y 0,80/0,40 mm (20), compatibles con taladrado económico. Agujeros NPTH de
-montaje de 2,7 mm y ranuras metalizadas USB de 0,60 mm no requieren microtaladro.
-SW1 no se modifica; J3 corregido posteriormente a NPTH (`RV-15`). Los dos avisos de
-texto de C2 y el solapamiento Q4–D4 ya no aparecen tras los ajustes del autor.
-DRC del guardado 19:29: 0 infracciones no excluidas, 22 exclusiones previas,
-0 conexiones pendientes y 0 discrepancias con el esquema.
+**Resto del contraste:** tamaños de vía y resultado DRC actuales en el resumen
+de cierre anterior. Los avisos de texto de C2 y el solapamiento Q4–D4 ya no
+aparecen tras los ajustes del autor.
 
 La ranura fresada estrecha y el tratamiento HASL/máscara deben confirmarse en
 CAM con sus tolerancias; los Gerber anteriores no sirven para esta versión.

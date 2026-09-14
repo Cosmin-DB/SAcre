@@ -38,7 +38,8 @@ aceptado constan en la tabla del regulador.
 
 ### Debe decidirse o medirse
 
-1. **Motor (`M1`, `Q2`)**. Falta referencia exacta. Si el arranque real es
+1. **Motor (`M1`, `Q2`)**. Compra por AliExpress; falta confirmar modelo exacto
+   y corriente de arranque del motor adquirido. Si el arranque real es
    unos 90 mA, Q2, D1 y D9 son razonables. Si es realmente 901 mA, supera los
    500 mA absolutos del S8050 y el conjunto no es válido.
 2. **Bus I²C a 400 kHz (`R7`, `R8`)**. 5,1 kΩ da un máximo teórico aproximado
@@ -46,15 +47,19 @@ aceptado constan en la tabla del regulador.
    no puede afirmarse 400 kHz sin estimar o medir la capacitancia. Todos los
    dispositivos admiten 100 kHz; FT6336U declara 400 kHz pero conserva varios
    tiempos mínimos propios de modo estándar. Usar 100 kHz hasta medir.
-3. **Reset táctil (`R11`, `C25`, `D8`)**. El FT6336U incorpora un pull-up de
-   3 kΩ en RSTN. Con R11=1 kΩ, el nivel bajo nominal es 0,825 V frente a un
-   máximo permitido de 0,99 V: funciona nominalmente, pero el margen depende
-   de la tolerancia no especificada del pull-up interno. C25 produce unos
-   30 ms nominales y D8 acelera la descarga. Validar `RSTN < 0,3·IOVCC`; si no,
-   reducir R11.
-5. **RF y mecánica**. Impedancia de pista, keepout, salida del flex y huellas se
-   cierran en la revisión PCB, no mediante ERC. La decisión de omitir la red π
-   ya está cerrada.
+3. **Reset táctil (`R11`, `R28`, `C25`, `D8`)**. Mejora preventiva aplicada:
+   R11 y R28 de 1 kΩ en paralelo dan 500 Ω efectivos. Con el pull-up interno
+   de 3 kΩ, el nivel bajo calculado a 3,3 V pasa de 0,825 V a ≈0,47 V,
+   frente al límite de 0,99 V. Ambas usan `C21190`; omitir R28 recupera 1 kΩ.
+   C25 conserva una constante de carga nominal de unos 30 ms y D8 acelera
+   la descarga al apagar. Comprobar el reset en prototipo: cálculo nominal,
+   no medida ni tolerancia garantizada del pull-up. La figura 3-10 del FT6336U dibuja
+   Trsi desde el inicio del pulso de reset: se conserva la secuencia de
+   60 ms en bajo y ≥300 ms de espera tras liberar GPIO4. No se ha encontrado
+   un fallo temporal que obligue a alargarla.
+4. **RF y mecánica**. La revisión digital de PCB e impedancia de pista ya está
+   realizada; quedan alcance RF y encaje físico por validar. La decisión de
+   omitir la red π ya está cerrada.
 
 ## Revisión por referencias
 
@@ -98,7 +103,7 @@ firmware debe apagar mediante el latch antes de brownouts repetidos.
 | --- | --- | --- |
 | J1 | CORRECTO EN ESQUEMA | J1.1=SCL, J1.2=SDA, J1.3=INT, J1.4=RSTN, J1.5=`+3V3`, J1.6=GND. Mecánica y correspondencia del flex siguen pendientes de PCB. |
 | R7, R8 | CONDICIONAL | 5,1 kΩ limita la corriente LOW a unos 0,65 mA, válida para todos los dispositivos. 400 kHz depende de la capacitancia total; 100 kHz es el ajuste conservador. |
-| R11, C25, D8 | CONDICIONAL | Forman el reset táctil descrito arriba. El FT6336U sólo exige `Trst >= 5 ms` y esperar al menos 300 ms; mantener LOW 60 ms es conservador. Controlar GPIO4 como drenador abierto evita conducir contra el pull-up interno. |
+| R11, R28, C25, D8 | CORRECTO / PRUEBA PENDIENTE | R11 y R28 de 1 kΩ en paralelo mejoran el nivel bajo del reset; conexiones verificadas en esquema y PCB. Mantener GPIO4 open-drain LOW ≥60 ms, liberar y esperar ≥300 ms. No conducir nivel alto desde el GPIO. |
 | INT_TOUCH/GPIO35 | CORRECTO | GPIO35 es de entrada y la salida INT del FT6336U es CMOS; no se exige pull-up externo. |
 | Direcciones I²C | CORRECTO | LIS3DH=0x19 por SDO interno alto, RV-8803=0x32 y FT6336U=0x38; no hay colisión. |
 
@@ -177,7 +182,7 @@ firmware debe apagar mediante el latch antes de brownouts repetidos.
 | --- | --- | --- |
 | C1–C4, C17, C20, C23, C25–C32 | CORRECTO | Tensiones nominales de los MLCC superan 4,2/5 V. Los valores y dieléctricos corresponden a sus funciones; la validez final depende de colocación y derating DC. |
 | C5–C7, C9–C15, C24 | CORRECTO | 25 o 50 V según redes auxiliares de pantalla/VPP; no deben sustituirse por MLCC de menor tensión sin revisar derating. |
-| R1–R27 salvo R26 y R27 | CORRECTO | Valores, potencia 0603 y tolerancias son suficientes para las corrientes calculadas. R26/R27 se evalúan aparte con la salida del TLV. |
+| R1–R28 salvo R26 y R27 | CORRECTO | Valores, potencia 0603 y tolerancias son suficientes para las corrientes calculadas. R26/R27 se evalúan aparte con la salida del TLV; R11/R28 en el bloque de reset. |
 | J5, J6, TP1 | CONDICIONAL PCB | Son conexiones/puntos de prueba; eléctricamente correctos, pero su existencia y acceso dependen de la PCB final. |
 
 ## Dependencias cruzadas verificadas

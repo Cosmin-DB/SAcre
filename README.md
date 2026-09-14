@@ -5,7 +5,8 @@ Diseño electrónico de un dispositivo portátil basado en ESP32.
 - Autor: Cosmin Dobrescu
 - Herramienta: KiCad 10
 - Proyecto principal: `sacre.kicad_pro`
-- Estado: revisión posterior a la primera fabricación
+- Estado: esquema y PCB corregidos; revisión digital completada (2026-09-13).
+  Pendientes: aprobación física final, preparación del pedido y pruebas del prototipo.
 
 ## Mecanismo de trabajo
 
@@ -26,10 +27,10 @@ Diseño electrónico de un dispositivo portátil basado en ESP32.
 7. Usar estos estados:
    `PENDIENTE → CONFIRMADO / DESCARTADO / CONDICIONAL → CORREGIDO → VALIDADO`.
 8. Durante la verificación no modificar el diseño.
-9. Autorización del autor (2026-09-13): el asistente puede sincronizar la PCB,
-   retirar cobre obsoleto y colocar provisionalmente componentes por zonas.
-   Conservar contorno, taladros, conectores y keepout RF. Guardar comparativas
-   por capas y commits por etapa. El enrutado y ajuste final quedan al autor.
+9. La preparación de PCB autorizada el 2026-09-13 ya se completó. El enrutado
+   y ajuste físico quedan al autor; cualquier nueva modificación de PCB por
+   el asistente requiere un alcance autorizado. Comparar antes/después y no
+   alterar cobre, contorno, conectores o keepout fuera de ese alcance.
 10. Registrar por separado en cada incidencia:
     - `[ ] Esquemático corregido`
     - `[ ] PCB corregida y revisada por el autor`
@@ -40,13 +41,18 @@ Diseño electrónico de un dispositivo portátil basado en ESP32.
 13. Mantener separadas las mejoras preventivas de los fallos demostrados.
 14. Evitar duplicar información y conservar las entradas breves, verificables
     y comprensibles sin contexto externo.
+15. No volver a listar como trabajo pendiente una corrección ya aplicada.
+    Distinguir revisión digital, aprobación del autor y prueba física; los
+    datos de versiones antiguas deben identificarse como históricos.
 
 ## Fuentes para la verificación
 
 Los datasheets recopilados están en `documentation/datasheets/`; se conservan
 también los documentos útiles que ya estaban en `documentation/` y `RV-8803/`.
-`bom_jlcpb.csv` identifica las piezas de la fabricación ensayada y prevalece
-sobre referencias genéricas, salvo las sustituciones cerradas en esta revisión.
+`bom_jlcpb.csv` identifica las piezas del prototipo anterior: sirve para
+investigar sus fallos, no para pedir la nueva placa. Para fabricar, generar
+el BOM desde el diseño actual usando sus campos `LCSC Part #`; ni los BOM
+históricos ni las tablas resumidas de este documento sustituyen esa exportación.
 
 | Bloque | Referencias cubiertas | Estado |
 | --- | --- | --- |
@@ -56,37 +62,66 @@ sobre referencias genéricas, salvo las sustituciones cerradas en esta revisión
 | Alimentación y protección | TLV62568, TP4054, FHD4020S-470MT, FTC252012S1R0MBCA, BAT54C, MBR0530, SP0503BAHTG | Completo |
 | Transistores y motor | CJ2312, CJ3415, SI1308EDL, UMH3N, S8050 | Completo para los componentes montados |
 
-Referencias críticas resueltas por el BOM:
+Selección actual de referencias críticas (incluye las sustituciones del prototipo):
 
-| Ref. | Pieza montada | LCSC |
+| Ref. | Pieza seleccionada | LCSC |
 | --- | --- | --- |
 | Q2 | R+O S8050 | C20069125 |
 | U5 | JSMSEMI TP4054 | C5381776 |
 | L1 | cjiang FHD4020S-470MT | C843300 |
 | L3 | cjiang FTC252012S1R0MBCA | C5832370 |
 | Q4 | TECH PUBLIC SI1308EDL | C7603347 |
-| D1–D4 | JSCJ MBR0530 | C77336 |
+| D1, D8, D9 | JSCJ MBR0530 | C77336 |
+| D2–D4 | onsemi MBR0530T3G | C236079 |
 | D5 | R+O BAT54C | C22466350 |
 
 Los documentos de MCP73831 y LQH44PN quedan solo como comparación: no
-describen los componentes montados en esta fabricación.
+describen los componentes seleccionados para la nueva fabricación.
 
-Auditoría LCSC del esquema: todos los componentes con referencia de compra
-cerrada tienen el campo `LCSC Part #` normalizado. Se completaron R10=`C22939`, R23=`C23352`,
-R24=`C25819` y la antena exacta AE1=`C5943777`; esta última tiene poca
-disponibilidad local y debe comprobarse antes de fabricar. J5, J6 y TP1 son
-elementos de PCB y quedan fuera del BOM. Solo M1 permanece sin referencia de
-compra hasta validar dimensiones y huella del motor.
+Auditoría de campos de compra: **85 componentes, 39 códigos distintos** con
+`LCSC Part #` idéntico en esquema y PCB, incluida R28=`C21190` como R11.
+No se añaden alias duplicados: Fabrication Toolkit, instalado en este equipo,
+lee ese campo y lo exporta junto a `Designator`, `Footprint`, `Quantity` y
+`Value`. Sincronizar esquema y PCB antes de exportar; comprobar códigos y
+orientaciones en la previsualización de JLCPCB, no sólo la detección automática.
+Chequeo del exportador y propuestas no aplicadas de reducción de variedad:
+`REVISION_PROVISIONAL.md`, sección «BOM y posiciones de montaje» (2026-09-14).
+Fuentes: [atributos del exportador](https://github.com/bennymeg/Fabrication-Toolkit#attributes)
+y [guía KiCad de JLCPCB](https://jlcpcb.com/help/article/how-to-generate-the-bom-and-centroid-file-from-kicad).
+
+H1–H4, J5, J6 y TP1 son elementos de PCB, sin referencia de compra y excluidos
+del BOM. M1 se compra por AliExpress: excluido del BOM y del archivo de
+posiciones de montaje en esquema y PCB; su huella y conexiones se conservan.
+Quedan por confirmar modelo, corriente de arranque y encaje del motor.
+
+Preparación del pedido (2026-09-14): JLCPCB emparejó correctamente las 85
+referencias con los 39 códigos previstos para **4 placas ensambladas**. U2,
+ESP32-PICO-D4 `C193707`, está clasificado como `Standard Only`, por lo que el
+pedido debe usar **Standard PCBA, cara superior**. La propuesta de sustituir
+R23/R24 por valores ya presentes reduciría dos alimentadores, pero fue
+descartada por el autor: se conservan 24 kΩ/47 kΩ y 39 códigos. En la
+previsualización, el autor corrigió manualmente sólo la orientación de Y1;
+comprobarla otra vez en cualquier pedido futuro.
+
+Stock consultado en la biblioteca de montaje JLCPCB el 2026-09-13:
+39 referencias con existencias. AE1 tenía 8 unidades, pero el autor dispone
+de acopio propio; Y1 tenía 2 y se acepta omitir el RTC si falta. SW1 tenía
+970 unidades, cantidad aceptada por el autor. Reconfirmar disponibilidad al
+pedir: la consulta no reserva piezas ni el stock de LCSC garantiza montaje
+inmediato en JLCPCB. Preparar el pedido teniendo en cuenta el acopio y las
+omisiones acordadas; no se ha cambiado ningún campo DNP del diseño.
 
 ## Fallos observados en el prototipo
+
+Las correcciones indicadas ya están aplicadas al esquema y a la PCB.
+Las casillas de aprobación del autor y las pruebas físicas siguen abiertas;
+no significan que falte repetir el enrutado. La evidencia del fallo describe
+la primera placa fabricada, no la versión actual.
 
 - [ ] `TOUCH-01` SDA y SCL intercambiadas en el FPC táctil.
   - [x] Esquemático corregido: J1.1=`SCL` y J1.2=`SDA`.
   - [ ] PCB corregida y revisada por el autor.
-  - `Estado`: CORREGIDO EN ESQUEMA; PCB PENDIENTE.
-  - `Nota`: sobre el enrutado experimental de `d874702` se ha eliminado el
-    bucle redundante de `SCL` y dos microcodos. Queda pendiente la revisión
-    física del autor y no se considera validado.
+  - `Estado`: CORREGIDO EN ESQUEMA Y PCB; prueba del táctil pendiente.
   - `Cierre`: comprobar detección del FT6336U y niveles/flancos de ambas
     señales con el flex conectado.
 - [ ] `TOUCH-02` Revisar holgura, orientación y salida del flex táctil.
@@ -94,13 +129,13 @@ compra hasta validar dimensiones y huella del motor.
   - [x] Esquemático corregido: Q2 es el S8050 SOT-23 montado, B1/E2/C3
     (`C20069125`).
   - [ ] PCB corregida y revisada por el autor.
-  - `Estado`: CORREGIDO EN ESQUEMA; PCB Y VALIDACIÓN DEL MOTOR PENDIENTES.
+  - `Estado`: CORREGIDO EN ESQUEMA Y PCB; validación del motor pendiente.
 - [x] `TOUCH-03` Pull-up de la interrupción táctil descartado.
   - `Estado`: DESCARTADO; `INT_TOUCH` puede permanecer en GPIO35.
   - `Evidencia`: el FT6336U declara `INT` como E/S CMOS y no prescribe un
     pull-up externo. Verificar por medida sólo si aparecen flancos inestables.
 - [ ] `PWR-02` El USB provoca arranque y ciclos rápidos de encendido/apagado.
-  - `Estado`: CORREGIDO EN ESQUEMA; PCB y validación pendientes.
+  - `Estado`: CORREGIDO EN ESQUEMA Y PCB; validación del encendido pendiente.
   - `Hipótesis`: en el diseño fabricado U3 queda alimentado directamente por
     `USB_VBUS` mientras U2 está apagado. `TXD` llega sin aislamiento a `U0RXD`
     y `DTR/RTS` cruzan
@@ -132,7 +167,7 @@ compra hasta validar dimensiones y huella del motor.
   - [x] Esquemático corregido.
   - [ ] PCB corregida y revisada por el autor.
 - [ ] `MCU-01` Desacoplo externo local insuficiente en U2.
-  - `Estado`: CORREGIDO EN ESQUEMA; PCB y validación pendientes.
+  - `Estado`: CORREGIDO EN ESQUEMA Y PCB; validación con radio/táctil pendiente.
   - `Hipótesis`: U2 depende de condensadores de `+3V3` alejados y carece del
     par externo recomendado junto al encapsulado.
   - `Evidencia`: el ESP32-PICO-D4 une a `VDD33` los pines 1 `VDDA`, 3 y 4
@@ -140,9 +175,9 @@ compra hasta validar dimensiones y huella del motor.
     10 µF + 0,1 µF externos. En la PCB, C17 es de `EN`; C22 está junto al
     regulador y C3/C4 desacoplan el LIS3DH. El SiP incorpora desacoplo interno,
     pero no elimina ese par externo.
-  - `Acción`: añadidos C26=10 µF y C27=0,1 µF entre `+3V3` y GND. En PCB deben
-    quedar pegados al grupo de pines 1/3/4 de U2, con pista corta y retorno/vía
-    de masa inmediatos. Los
+  - `Acción`: añadidos C26=10 µF y C27=0,1 µF entre `+3V3` y GND, colocados
+    junto al grupo 1/3/4 de U2. Conexión corta y ancha a U2.3/4, con vía GND
+    a unos 1 mm del centro de C27.2. Los
     pines 19 y 37 deben quedar unidos por un plano o recorrido de baja
     impedancia; no se prescriben condensadores adicionales junto a ellos
     porque el PICO-D4 ya integra 0,1 µF en ambos dominios.
@@ -153,17 +188,24 @@ compra hasta validar dimensiones y huella del motor.
   - [x] Esquemático corregido.
   - [ ] PCB corregida y revisada por el autor.
 
-## Correcciones pendientes agrupadas
+## Correcciones aplicadas por bloques
 
-Esquemático aplicado a la PCB el 2026-09-13. La colocación es provisional;
-el autor ajustará posiciones y completará el enrutado y la validación física.
+Esquemático sincronizado y PCB enrutada por el autor. Las tareas abiertas
+de estos bloques son de firmware o validación física, salvo indicación expresa.
 
 ### 1. GPIO, reset táctil y RTC
 
-- [x] `RES_TOUCH_CTRL` en GPIO4; GPIO16 queda libre. JP1 eliminado, R11=1 kΩ
-  en serie, C25=10 µF a GND y D8 descarga el nodo al caer `+3V3`. Firmware:
+- [x] `RES_TOUCH_CTRL` en GPIO4; GPIO16 queda sin conexión externa, reservado
+  para la flash interna del PICO-D4. JP1 eliminado. R11 y R28, ambas de 1 kΩ
+  (`C21190`), están en paralelo: 500 Ω efectivos entre GPIO4 y RSTN.
+  Mejora preventiva del nivel bajo sin añadir otra referencia al BOM;
+  omitiendo R28 se recupera 1 kΩ. Ambas están previstas para montar.
+  C25=10 µF a GND y D8 descarga el nodo al caer `+3V3`. Firmware:
   GPIO4 en drenador abierto, nivel bajo ≥60 ms, liberar sin conducir nivel alto
   y esperar ≥300 ms antes de usar I²C.
+- [ ] Validar en prototipo el reset: nivel bajo calculado ≈0,47 V a 3,3 V
+  con R11/R28, por debajo de 0,3·IOVCC. Mejora aplicada en esquema y PCB;
+  prueba física pendiente. La secuencia de firmware no cambia.
 - [x] `ACC_INT2` movida de GPIO12 a GPIO34; se conservan ambas interrupciones.
 - [x] `RTC_INT` permanece en GPIO27 con R22=10 kΩ a `+3V3`.
 - [x] `RTC_EVI` desconectada de GPIO15, R21=100 kΩ a `VBAT_RAW` y TP1.
@@ -174,7 +216,7 @@ el autor ajustará posiciones y completará el enrutado y la validación física
 - [x] Esquemático corregido.
 - [ ] PCB corregida y revisada por el autor.
 
-El autor realiza el ajuste final de colocación, enrutado y revisión de la PCB.
+La aprobación final de encaje mecánico corresponde al autor.
 
 ### 2. USB, latch, C18 y EN
 
@@ -202,8 +244,7 @@ El autor realiza el ajuste final de colocación, enrutado y revisión de la PCB.
   `L_Changjiang_FTC252012S`; `C1042` queda solo como pieza histórica no válida.
   El campo `LCSC Part #` permite su selección automática en el BOM de JLCPCB.
 - [x] C26=10 µF y C27=0,1 µF añadidos junto a U2 en el esquemático.
-- [ ] Colocar C27 junto a U2.1/U2.3/U2.4 y C26 contiguo a C27, con
-  retorno corto a masa.
+- [x] C26/C27 colocados y retornos revisados; C30 dispone de vía GND local.
 - [x] Booster SSD1683 corregido en esquema: L1=47 µH, R10=2,2 Ω;
   C6 permanece en 4,7 µF/25 V; C8/C16 eliminados.
 - [x] `L1` fijada como
@@ -211,21 +252,23 @@ El autor realiza el ajuste final de colocación, enrutado y revisión de la PCB.
   LCSC `C843300`: 47 µH, 660 mA, Isat 1,3 A y DCR 950 mΩ. Huella de esquema
   `L_Changjiang_FNR4020S`. El campo `LCSC Part #` permite su selección
   automática en el BOM de JLCPCB.
-- [ ] Actualizar y revisar el booster en PCB cuando se reabra la fase física.
+- [x] Booster actualizado y revisado en PCB; Q4.2–R10.2 reducido a 2,34 mm.
+  R9=1 MΩ entre GDR y GND, según la aplicación específica del panel.
 - [x] Q2 corregido en esquema al pinout real B1/E2/C3 del S8050
   `C20069125`; se conservan R2=1 kΩ y D1.
 - [x] Motor pasado de `+3V3` a `VSYS` mediante D9=MBR0530; `VMOTOR` alimenta
   M1, D1 y C1=0,1 µF. R25=100 kΩ mantiene la base de Q2 descargada. PWM
-  opcional; encendido/apagado directo válido.
+  opcional; encendido/apagado directo condicionado al motor indicado abajo.
 - [x] Etapa dimensionada provisionalmente para el motor candidato: 3 V,
   rango 2,5–4 V y 70 mA nominales, suponiendo 90 mA de arranque. Confirmar
   este último dato en el motor comprado; no equivale a validación física.
-- [ ] Fijar referencia de compra y comprobar dimensiones/huella del motor.
+- [ ] Confirmar modelo comprado, dimensiones/huella y corriente de arranque:
+  no dar por corregido a 90 mA el dato ambiguo de 901 mA del anuncio.
 
 ### 4. Cargador y batería
 
 - [x] C29=1 µF entre U5.4 `VDD` y GND y C28=10 µF entre U5.3 `VBAT` y
-  GND añadidos en el esquemático; colocación local en PCB pendiente.
+  GND añadidos y colocados junto a U5; retornos locales revisados en PCB.
 - [x] R19=5,1 kΩ: unos 196 mA para la batería prevista de 600–700 mAh;
   reutiliza el mismo valor que R16/R17.
 - [x] Protección integrada en la batería confirmada por el autor.
@@ -240,54 +283,37 @@ El autor realiza el ajuste final de colocación, enrutado y revisión de la PCB.
 
 ### 5. PCB y mecánica
 
-Estado: **PREPARADA PARA ENRUTADO MANUAL** (2026-09-13). Colocación provisional,
-sin pistas nuevas; todavía no es una PCB lista para fabricar.
+Estado: **ENRUTADA Y REVISADA DIGITALMENTE** (2026-09-13), 93 componentes,
+incluida R28 añadida y enrutada por el autor.
 
-- Referencia anterior a la preparación: `ae7a2bc`; DRC inicial: 0 infracciones
-  y 0 conexiones pendientes (todavía con el circuito antiguo en PCB).
-- [Vista original por capas](documentation/pcb_preparacion/antes.png): capa
-  activa en color y las demás en gris, sin rellenos para ver las pistas.
-- [Vista final por capas](documentation/pcb_preparacion/despues.png), con el
-  mismo encuadre, y [colocación con referencias](documentation/pcb_preparacion/colocacion.png).
-- Inventario: 22 componentes añadidos, 7 retirados y cambio de huella de L1.
-  Se retiraron 181 segmentos/vías; los 805 conservados mantienen geometría y red.
-  RF, USB D+/D− y SDA/SCL se conservan íntegros. Contorno, taladros, conectores,
-  ESP32, antena y contornos de zonas/keepout no se han movido.
-- Comprobación final: 0 infracciones DRC, 0 discrepancias con el esquema y
-  50 conexiones pendientes de enrutar. Zonas rellenadas; componentes nuevos
-  dentro del contorno y sin solapamiento de courtyards.
-- Checkpoints: `6c13108` referencia visual; `2be720c` sincronización;
-  `a26d5b2` limpieza de cobre. La colocación se guarda en el commit siguiente.
+- [x] Sincronización, colocación y enrutado de las correcciones; revisión de
+  desacoplos, retornos, GPIO y pinout de Q2. DRC sin conexiones pendientes.
+- [x] Pista RF ajustada, J3 corregido a NPTH y vías separadas de la ranura.
+- [x] Q4–R10 compactado; pasta bajo U2 conservada por decisión del autor.
+  D6 no se mueve por la faja; U6 y SW1 se conservan según lo acordado.
+- [ ] Comprobar físicamente flex de J1/pantalla, batería, motor y carcasa.
+- [ ] Aprobar la PCB y preparar el pedido; ensayar el nuevo prototipo.
 
-| Zona | Cambios aplicados en PCB |
-| --- | --- |
-| Regulador | U6 en el centro del antiguo U4: (70,4; 132,4) mm. L3, C31/C32 y R26/R27 alrededor. Retirados U4, L2, C21/C22 y sus ramas obsoletas. |
-| USB | C23/C24 y R23/R24 junto a U3. Retiradas las conexiones antiguas de alimentación; USB D+/D− y auto-reset conservados. |
-| Táctil y RTC | C25/D8 junto a J1; R21/R22/TP1 junto a Y1. JP1 retirado; reset, EVI y ACC_INT2 pendientes de enrutar con los GPIO actuales. |
-| ESP32 | C26/C27 a la derecha de U2; C30 a la izquierda, junto al lado de VDD_SDIO. Ajustar distancias y retornos al enrutar. |
-| Carga y motor | C28/C29 junto a U5; D9/R25 en la zona de M1/Q2. Cobre antiguo del pinout de Q2 y alimentación del motor retirado. |
-| Pantalla | Huella de L1 sustituida en la misma posición. C8/C16 y sus pistas retirados. R9/R10 actualizados; resto del booster conservado. |
+Histórico, no estado actual: `ae7a2bc` antes de preparar la PCB;
+`92a95f1` colocación provisional; `0903610` enrutado y revisión final.
+Las vistas [anterior](documentation/pcb_preparacion/antes.png),
+[provisional](documentation/pcb_preparacion/despues.png) y de
+[colocación](documentation/pcb_preparacion/colocacion.png) documentan sólo
+la preparación inicial; no sirven como referencia de fabricación actual.
 
-- [x] Sincronizar componentes, valores, huellas y redes desde el esquemático.
-  Coincidencia verificada pad a pad; 92 componentes.
-- [x] Retirar cobre obsoleto y colocar provisionalmente las piezas nuevas por zonas.
-- [ ] Recolocar J1 y despejar la salida del flex.
-- [ ] Colocar desacoplos y diseñar los bucles de regulador, booster y motor.
-- [ ] Adaptar las pistas a los nuevos GPIO y al pinout real de Q2.
-- [ ] Revisar DRC, planos, retornos, 3D y archivos de fabricación.
+## Fabricación y cierre
 
-## Revisión sistemática pendiente
+### Configuración de fabricación — 2026-09-14
 
-### Configuración de fabricación — 2026-09-13
-
-Enrutado completado por el autor; revisión de fabricación en curso. Los datos
-de «preparación para enrutado» anteriores son el checkpoint histórico, no el
-estado actual. No se han modificado pistas, vías, colocación ni contorno al
-aplicar esta configuración.
+Enrutado completado por el autor y revisión digital final realizada.
+La configuración de fabricación no cambia la geometría del circuito.
 
 - Pedido objetivo: FR-4 estándar TG135, **4 capas, 1 mm nominal**, cobre
   exterior **1 oz** e interior **0,5 oz**, verde, serigrafía blanca, HASL con
   plomo y fresado normal. Sin prestaciones especiales añadidas.
+- Montaje objetivo: **4 unidades, Standard PCBA, sólo cara superior**. U2
+  `C193707` impide Economic PCBA. Confirmar el archivo de producción antes de
+  fabricar; AE1 y Y1 se seleccionaron desde `My Parts` en el emparejamiento.
 - Apilado: **JLC04101H-7628**. La consulta pública de JLCPCB para esos
   parámetros devuelve esta estructura tanto en «No requirement» como al
   seleccionarla explícitamente, con `fixedFee=0`, `coefficient=0` y fabricación
@@ -331,9 +357,10 @@ adaptar el límite de las vías pequeñas. Los tres errores de
 cobre–ranura y los dos avisos de serigrafía fueron corregidos por el autor.
 Límites reaplicados con KiCad cerrado y DRC repetido tras detectar que un
 guardado posterior había restaurado las restricciones antiguas del proyecto.
-Tapado de vías pendiente: se conserva el tenting de KiCad; «Plugged» del
-pedido anterior no cubre las vías dentro del pad U2.49. No se activa relleno
-epoxi/cobre ni se añade coste sin decidirlo con el autor.
+U2.49: el autor conserva las ventanas de pasta y las 16 vías recolocadas.
+«Plugged» no garantiza el sellado de vías dentro del pad; se acepta esta
+limitación sin añadir relleno epoxi/cobre. Calidad de soldadura pendiente
+de validar; no es una recolocación o modificación de pasta pendiente.
 
 Fuentes: [apilados JLCPCB](https://jlcpcb.com/impedance),
 [capacidades](https://jlcpcb.com/capabilities/pcb-capabilities),
@@ -352,9 +379,10 @@ y [tratamiento de vías](https://jlcpcb.com/help/article/pcb-via-covering).
 - Resultado nominal con hueco lateral de 0,15 mm: **50,15 Ω** para 0,26 mm,
   frente a 44,87 Ω para el ancho anterior de 0,3341 mm. La aproximación previa
   sin máscara de 50,8 Ω queda sustituida por este contraste más completo.
-- DRC posterior: 0 conexiones pendientes, 0 diferencias con el esquema,
-  0 infracciones no excluidas; 22 exclusiones intactas. No valida por sí solo
-  la impedancia del lote TG135 ni la adaptación/alcance de la antena completa.
+- Este cálculo no valida la impedancia del lote TG135 ni la adaptación/alcance
+  de la antena completa. Recalcular si cambian apilado, cobre, máscara, ancho,
+  separación a masa o plano de referencia. Recordatorio junto a AE1 en
+  `Cmts.User`, fuera del contorno; no forma parte de la serigrafía.
 - [ ] PCB revisada visualmente por el autor; validación RF física pendiente.
 - Fuente: [calculadora JLCPCB](https://jlcpcb.com/pcb-impedance-calculator).
 
@@ -370,15 +398,21 @@ y [tratamiento de vías](https://jlcpcb.com/help/article/pcb-via-covering).
   en PCB y biblioteca; posiciones y anclajes soldados intactos. DRC sin
   infracciones nuevas por este cambio; revisión visual del autor pendiente.
 
-- [ ] `PWR-01` Alimentación, carga, encendido y apagado.
-- [ ] `USB-01` USB-C, CP2104 y programación automática.
-- [ ] `MCU-02` Pines de arranque, reset y señales del ESP32.
-- [ ] `DISP-01` Pantalla y generación de tensiones auxiliares.
-- [ ] `SENS-01` RTC, acelerómetro y medida de batería.
-- [ ] `RF-01` Antena, adaptación, keepout y retorno de RF.
-- [ ] `PCB-01` Colocación, planos, retornos, pistas y vías.
-- [ ] `MECH-01` Contorno, taladros, conectores, alturas y accesibilidad.
-- [ ] `FAB-01` ERC, DRC, huellas, BOM y archivos de fabricación.
+Las siguientes casillas son el cierre humano o experimental, no correcciones
+eléctricas obligatorias abiertas:
+
+- [ ] `PWR-01` Medir alimentación, carga y encendido/apagado sin bucles.
+- [ ] `USB-01` Probar enumeración y programación, incluido el autosostén.
+- [ ] `MCU-02` Probar arranque/reset y coexistencia de táctil y Bluetooth.
+- [ ] `DISP-01` Probar refresco y tensiones auxiliares de la pantalla.
+- [ ] `SENS-01` Probar sensores/RTC y calibrar el umbral de batería baja.
+- [ ] `RF-01` Validar alcance de radio; el cálculo de pista ya está realizado.
+- [ ] `PCB-01` Aprobación visual final del autor; revisión digital completada.
+- [ ] `MECH-01` Confirmar encaje, alturas, flex y accesibilidad.
+- [ ] `FAB-01` Aprobar exclusiones DRC y avisos ERC, comprobar BOM/posiciones
+  y stock del pedido, regenerar/revisar el paquete definitivo y confirmar CAM.
+  ERC: 122 desajustes de símbolos y aviso de AE1.2, conectado a GND;
+  no se declara limpio ni se actualizan bibliotecas a ciegas.
 
 ## Uso
 

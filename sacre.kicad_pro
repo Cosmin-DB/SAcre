@@ -71,14 +71,6 @@
           ""
         ],
         [
-          "annular_width|54582500|116210000|0dcc3828-c0f3-41ca-b2b6-efd97b95126e|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "annular_width|54582500|121990000|63145931-e76a-49cb-83ad-5259ac8b89d6|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
           "lib_footprint_mismatch|51867500|145950000|081772c0-8ae7-4b37-8fcf-301c4a7bc3b0|00000000-0000-0000-0000-000000000000",
           ""
         ],
@@ -108,14 +100,6 @@
         ],
         [
           "padstack|52020000|147100000|06fe96e5-0263-4daf-af66-0030b9752da9|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "padstack|54582500|116210000|0dcc3828-c0f3-41ca-b2b6-efd97b95126e|00000000-0000-0000-0000-000000000000",
-          ""
-        ],
-        [
-          "padstack|54582500|121990000|63145931-e76a-49cb-83ad-5259ac8b89d6|00000000-0000-0000-0000-000000000000",
           ""
         ],
         [
@@ -243,7 +227,7 @@
         "min_track_width": 0.1,
         "min_via_annular_width": 0.05,
         "min_via_diameter": 0.4,
-        "solder_mask_to_copper_clearance": 0.09,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -1024,7 +1008,7 @@
         "uuid": "a534c633-82b0-4919-83c8-539188551505"
       }
     ],
-    "used_designators": "",
+    "used_designators": "R28",
     "variants": []
   },
   "sheets": [
