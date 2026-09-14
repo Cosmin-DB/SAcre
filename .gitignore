@@ -42,3 +42,6 @@ Thumbs.db
 desktop.ini
 .vscode/
 .idea/
+
+# PlatformIO local builds and downloaded dependencies
+firmware/**/.pio/

@@ -225,8 +225,10 @@ La aprobación final de encaje mecánico corresponde al autor.
 - [x] C23=1 µF y C20=0,1 µF locales; C24=4,7 µF/25 V en `VPP`.
 - [x] C17=1 µF con R12=10 kΩ en `EN`.
 - [x] R13/C18 conservados en 300 kΩ/100 nF; supervisor e histéresis descartados.
-- [ ] Firmware: activar IO25 pronto; mantener pulsado durante programación si
+- [ ] Firmware integrado: activar IO25 pronto; mantener pulsado durante programación si
   el reset hace caer el latch. Requisito anotado junto al circuito del latch.
+  Autosostén implementado en los ocho miniproyectos de `firmware/`;
+  integración y prueba física pendientes.
 - [x] Esquemático corregido.
 - [ ] PCB corregida y revisada por el autor.
 
@@ -272,9 +274,9 @@ La aprobación final de encaje mecánico corresponde al autor.
 - [x] R19=5,1 kΩ: unos 196 mA para la batería prevista de 600–700 mAh;
   reutiliza el mismo valor que R16/R17.
 - [x] Protección integrada en la batería confirmada por el autor.
-- [ ] Firmware: habilitar la medida con GPIO26, leer `ADC_BATT`, deshabilitarla
+- [ ] Firmware integrado: habilitar la medida con GPIO26, leer `ADC_BATT`, deshabilitarla
   y apagar antes de ciclos repetidos de brownout. Requisito anotado en esquema;
-  umbral pendiente de medida.
+  lectura implementada en `firmware/07_bateria`; umbral pendiente de medida.
 - [x] Power-path descartado. U5 carga directamente `VBAT_RAW`; carga normal con
   el equipo apagado y encendido temporal permitido para programación.
 - [x] Mantener TP4054 `C5381776`: LCSC/JLCPCB lo especifican a 4,2 V. La tabla
@@ -415,6 +417,10 @@ eléctricas obligatorias abiertas:
   no se declara limpio ni se actualizan bibliotecas a ciegas.
 
 ## Uso
+
+Pruebas independientes para el hardware actual: [firmware/README.md](firmware/README.md).
+Ocho proyectos PlatformIO, uno por periférico/función, con autosostén del latch
+común. Incluyen mapa GPIO y criterios de prueba; validación física pendiente.
 
 Abrir `sacre.kicad_pro`. Las librerías, huellas y modelos 3D del diseño están
 incluidos en el repositorio; el estado de los datasheets figura arriba.
